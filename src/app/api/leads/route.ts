@@ -164,6 +164,21 @@ export async function POST(request: Request) {
             ip: ip,
             userAgent: userAgent,
             createdAt: createdAt,
+            // Add lead wrapper to satisfy user's active Apps Script deployment
+            lead: {
+              secret: sheetSecret,
+              fullName: cleanFullName,
+              phone: cleanPhone,
+              industry: cleanIndustry,
+              serviceInterest: cleanService,
+              budget: cleanBudget,
+              message: cleanMessage,
+              source: cleanSource,
+              pageUrl: cleanPageUrl,
+              ip: ip,
+              userAgent: userAgent,
+              createdAt: createdAt,
+            }
           }),
         });
 
