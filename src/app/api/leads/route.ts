@@ -128,7 +128,25 @@ export async function POST(request: Request) {
 
     if (sheetWebhookUrl) {
       try {
-        const sheetResponse = await fetch(sheetWebhookUrl, {
+        // Build query params to support Apps Scripts using e.parameter (URL params/form-urlencoded fallback)
+        const queryParams = new URLSearchParams({
+          secret: sheetSecret,
+          fullName: cleanFullName,
+          phone: cleanPhone,
+          industry: cleanIndustry,
+          serviceInterest: cleanService,
+          budget: cleanBudget,
+          message: cleanMessage,
+          source: cleanSource,
+          pageUrl: cleanPageUrl,
+          ip: ip,
+          userAgent: userAgent,
+          createdAt: createdAt,
+        });
+
+        const targetUrl = `${sheetWebhookUrl}?${queryParams.toString()}`;
+
+        const sheetResponse = await fetch(targetUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
