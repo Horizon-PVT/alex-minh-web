@@ -12,6 +12,7 @@ interface FormData {
   serviceInterest: string;
   budget: string;
   message: string;
+  email_confirm: string; // Honeypot
 }
 
 interface FormErrors {
@@ -29,7 +30,8 @@ export default function LeadForm() {
     industry: "",
     serviceInterest: "",
     budget: "",
-    message: ""
+    message: "",
+    email_confirm: ""
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -100,37 +102,49 @@ export default function LeadForm() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // MOCK SUBMIT - Clean architecture to connect with Supabase / Google Sheet later
     try {
-      await mockSubmitApi(formData);
-      setSubmitStatus("success");
-      // Reset form
-      setFormData({
-        name: "",
-        phone: "",
-        industry: "",
-        serviceInterest: "",
-        budget: "",
-        message: ""
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.name,
+          phone: formData.phone,
+          industry: formData.industry,
+          serviceInterest: formData.serviceInterest,
+          budget: formData.budget,
+          message: formData.message,
+          source: "lead-form",
+          pageUrl: typeof window !== "undefined" ? window.location.href : "",
+          email_confirm: formData.email_confirm,
+        }),
       });
+
+      const result = await response.json().catch(() => null);
+
+      if (response.ok && result?.success) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          phone: "",
+          industry: "",
+          serviceInterest: "",
+          budget: "",
+          message: "",
+          email_confirm: "",
+        });
+      } else {
+        throw new Error(result?.message || "Gửi yêu cầu thất bại.");
+      }
     } catch (error) {
-      console.error("Lỗi gửi form:", error);
+      if (process.env.NODE_ENV === "development") {
+        console.error("Lỗi gửi form:", error);
+      }
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  // Mock API handler
-  const mockSubmitApi = (data: FormData): Promise<void> => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if (process.env.NODE_ENV === "development") {
-          console.log("Dữ liệu lead đăng ký mới (MVP):", data);
-        }
-        resolve();
-      }, 1000);
-    });
   };
 
   return (
@@ -291,6 +305,17 @@ export default function LeadForm() {
             className="bg-slate-900/80 border border-slate-800 focus:border-secondary/50 rounded-xl px-4 py-2.5 text-sm text-slate-100 placeholder-slate-600 outline-none resize-none transition-colors"
           />
         </div>
+
+        {/* Honeypot field (hidden from users) */}
+        <input
+          type="text"
+          name="email_confirm"
+          value={formData.email_confirm}
+          onChange={handleInputChange}
+          style={{ display: "none" }}
+          tabIndex={-1}
+          autoComplete="off"
+        />
 
         {/* Submit button */}
         <button

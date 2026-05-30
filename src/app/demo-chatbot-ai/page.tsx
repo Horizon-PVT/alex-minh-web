@@ -58,6 +58,7 @@ export default function DemoChatbotPage() {
   const [answers, setAnswers] = useState<Record<string, string>>(() => ({ industry: industries[0].id }));
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [hasSubmittedLead, setHasSubmittedLead] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -95,6 +96,41 @@ export default function DemoChatbotPage() {
     }, 700);
   }, [answers, selectedIndustry.name]);
 
+  const submitChatbotLead = useCallback(async (formData: Record<string, string>) => {
+    if (hasSubmittedLead) return;
+    setHasSubmittedLead(true);
+
+    try {
+      const industryObj = industries.find(i => i.id === formData.industry) || { name: "Lĩnh vực khác" };
+      const industryName = formData.industry === "other" ? "Lĩnh vực khác" : industryObj.name;
+      
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.userName || "Khách ẩn danh (Trang Demo)",
+          phone: formData.userPhone || "",
+          industry: industryName,
+          serviceInterest: "Dùng thử Chatbot Demo",
+          budget: "Chưa khảo sát",
+          message: `Website: ${formData.has_website === "yes" ? "Đã có" : "Chưa có"}. Kênh chính: ${formData.main_channel}. Mong muốn bot: ${formData.bot_need}.`,
+          source: "chatbot",
+          pageUrl: typeof window !== "undefined" ? window.location.href : "",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Lỗi lưu lead chatbot");
+      }
+    } catch (error) {
+      if (process.env.NODE_ENV === "development") {
+        console.error("Lỗi gửi chatbot lead:", error);
+      }
+    }
+  }, [hasSubmittedLead]);
+
   // Load initial industry from query parameter if present
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -123,6 +159,7 @@ export default function DemoChatbotPage() {
   const handleReset = useCallback(() => {
     setAnswers({ industry: selectedIndustry.id });
     setInputValue("");
+    setHasSubmittedLead(false);
     
     // Set initial custom welcome based on selected industry
     setMessages([
@@ -139,6 +176,7 @@ export default function DemoChatbotPage() {
     setSelectedIndustry(ind);
     setAnswers({ industry: ind.id });
     setInputValue("");
+    setHasSubmittedLead(false);
     setMessages([
       {
         id: "start-bot",
@@ -209,6 +247,9 @@ export default function DemoChatbotPage() {
 
         if (step.nextStepId) {
           triggerBotResponse(step.nextStepId, updatedAnswers);
+          if (step.nextStepId === "success") {
+            submitChatbotLead(updatedAnswers);
+          }
         }
         return;
       }
@@ -223,7 +264,7 @@ export default function DemoChatbotPage() {
         },
       ]);
     }, 800);
-  }, [answers, currentStepId, triggerBotResponse]);
+  }, [answers, currentStepId, triggerBotResponse, submitChatbotLead]);
 
   const handleOptionClick = useCallback((label: string, value: string, nextStepId: string) => {
     setMessages((prev) => [
@@ -240,7 +281,10 @@ export default function DemoChatbotPage() {
     setAnswers(updatedAnswers);
 
     triggerBotResponse(nextStepId, updatedAnswers);
-  }, [answers, currentStepId, triggerBotResponse]);
+    if (nextStepId === "success") {
+      submitChatbotLead(updatedAnswers);
+    }
+  }, [answers, currentStepId, triggerBotResponse, submitChatbotLead]);
 
   const handleInputSubmit = (e: React.FormEvent) => {
     e.preventDefault();

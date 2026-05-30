@@ -25,9 +25,11 @@ export default function ChatbotDemoWidget() {
   ]);
   const [currentStepId, setCurrentStepId] = useState<string>("welcome");
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [isTyping, setIsTyping] = useState(false);
+  const [hasSubmittedLead, setHasSubmittedLead] = useState(false);
+
   const [inputValue, setInputValue] = useState("");
   const [inputError, setInputError] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -70,6 +72,41 @@ export default function ChatbotDemoWidget() {
       setCurrentStepId(stepId);
     }, 700);
   }, [answers]);
+
+  const submitChatbotLead = async (formData: Record<string, string>) => {
+    if (hasSubmittedLead) return;
+    setHasSubmittedLead(true);
+
+    try {
+      const industryObj = industries.find(i => i.id === formData.industry) || { name: "Lĩnh vực khác" };
+      const industryName = formData.industry === "other" ? "Lĩnh vực khác" : industryObj.name;
+      
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.userName || "Khách ẩn danh (Widget)",
+          phone: formData.userPhone || "",
+          industry: industryName,
+          serviceInterest: "Dùng thử Chatbot Demo",
+          budget: "Chưa khảo sát",
+          message: `Website: ${formData.has_website === "yes" ? "Đã có" : "Chưa có"}. Kênh chính: ${formData.main_channel}. Mong muốn bot: ${formData.bot_need}.`,
+          source: "chatbot",
+          pageUrl: typeof window !== "undefined" ? window.location.href : "",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Lỗi lưu lead chatbot");
+      }
+    } catch (error) {
+      if (process.env.NODE_ENV === "development") {
+        console.error("Lỗi gửi chatbot lead:", error);
+      }
+    }
+  };
 
   // Scroll to bottom on new messages
   useEffect(() => {
@@ -171,6 +208,9 @@ export default function ChatbotDemoWidget() {
 
     if (step.nextStepId) {
       triggerBotResponse(step.nextStepId, updatedAnswers);
+      if (step.nextStepId === "success") {
+        submitChatbotLead(updatedAnswers);
+      }
     }
   };
 
@@ -186,6 +226,7 @@ export default function ChatbotDemoWidget() {
     setAnswers({});
     setInputValue("");
     setInputError("");
+    setHasSubmittedLead(false);
     setCurrentStepId("welcome");
   };
 
