@@ -1,73 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { BookOpen, Calendar, Clock, ArrowRight, Sparkles } from "lucide-react";
+import { blogPosts } from "@/lib/blog-posts";
 
 export const metadata = {
   title: "Blog Chia Sẻ - Kiến Thức Website & AI Chatbot",
   description: "Trang tin tức, cẩm nang và hướng dẫn ứng dụng AI Chatbot, thiết kế website bán hàng hiệu quả dành cho chủ doanh nghiệp tại Thanh Hóa."
 };
 
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readTime: string;
-}
-
 export default function BlogPage() {
-  const posts: BlogPost[] = [
-    {
-      id: "ai-where-to-start",
-      title: "Doanh nghiệp Thanh Hóa nên bắt đầu ứng dụng AI từ đâu?",
-      excerpt: "Hướng dẫn thực tế, dễ hiểu cho các chủ doanh nghiệp vừa và nhỏ địa phương tiếp cận trí tuệ nhân tạo để tối ưu hóa chi phí và tăng hiệu suất bán hàng online.",
-      category: "Cẩm nang AI",
-      date: "26 Tháng 5, 2026",
-      readTime: "5 phút đọc"
-    },
-    {
-      id: "chatbot-ai-spa-dental",
-      title: "Chatbot AI mang lại lợi ích gì cho chủ tiệm Spa & Nha khoa?",
-      excerpt: "Phân tích cách trợ lý chatbot tự động chăm sóc, tư vấn bảng giá dịch vụ và lưu giữ lịch hẹn đặt lịch của khách hàng, kể cả ngoài giờ làm việc.",
-      category: "Giải pháp ngành",
-      date: "24 Tháng 5, 2026",
-      readTime: "4 phút đọc"
-    },
-    {
-      id: "website-hotel-sam-son",
-      title: "Làm website khách sạn Sầm Sơn cần chuẩn bị những gì?",
-      excerpt: "Kinh nghiệm thiết kế website và tích hợp chatbot trả lời tự động giá phòng cho mùa du lịch cao điểm tại bãi biển Sầm Sơn, Thanh Hóa.",
-      category: "Thiết kế Web",
-      date: "20 Tháng 5, 2026",
-      readTime: "6 phút đọc"
-    },
-    {
-      id: "chatbot-ai-realestate-thanh-hoa",
-      title: "Chatbot AI cho môi giới bất động sản tại Thanh Hóa",
-      excerpt: "Cách ứng dụng chatbot AI để tự động gửi sơ đồ mặt bằng dự án, chính sách chiết khấu và lọc tệp khách hàng tiềm năng có tài chính thực sự.",
-      category: "Giải pháp ngành",
-      date: "15 Tháng 5, 2026",
-      readTime: "5 phút đọc"
-    },
-    {
-      id: "web-chatbot-vs-normal-web",
-      title: "Website tích hợp Chatbot AI khác biệt gì so với website thường?",
-      excerpt: "So sánh chi tiết về tính tương tác và khả năng tạo ra chuyển đổi, thu thập lead tự động giữa hai mô hình website truyền thống và website thế hệ mới.",
-      category: "Kiến thức",
-      date: "10 Tháng 5, 2026",
-      readTime: "4 phút đọc"
-    },
-    {
-      id: "why-save-lead-automatically",
-      title: "Vì sao doanh nghiệp nhỏ cần tự động hóa việc lưu trữ lead?",
-      excerpt: "Tại sao việc nhập liệu tay hoặc để tin nhắn trôi đang giết chết cơ hội chốt đơn của bạn? Lợi ích khi tự động lưu thông tin khách về Google Sheet.",
-      category: "Tự động hóa",
-      date: "05 Tháng 5, 2026",
-      readTime: "3 phút đọc"
-    }
-  ];
-
   return (
     <div className="relative pt-32 pb-20 overflow-hidden">
       {/* Background Decor */}
@@ -92,9 +33,9 @@ export default function BlogPage() {
 
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {posts.map((post) => (
+          {blogPosts.map((post) => (
             <article
-              key={post.id}
+              key={post.slug}
               className="glass-card rounded-3xl overflow-hidden border border-slate-800/50 flex flex-col p-6 space-y-4 hover:scale-[1.01]"
             >
               {/* Category & Stats */}
@@ -107,25 +48,25 @@ export default function BlogPage() {
                   </span>
                   <span className="flex items-center space-x-1">
                     <Clock className="h-3 w-3" />
-                    <span>{post.readTime}</span>
+                    <span>{post.readingTime}</span>
                   </span>
                 </div>
               </div>
 
               {/* Title */}
               <h2 className="text-slate-100 font-bold text-base sm:text-lg leading-snug hover:text-secondary transition-colors">
-                <Link href={`/blog/${post.id}`}>{post.title}</Link>
+                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
               </h2>
 
               {/* Excerpt */}
               <p className="text-slate-400 text-xs sm:text-sm leading-relaxed flex-grow">
-                {post.excerpt}
+                {post.description}
               </p>
 
               {/* Read more link */}
-              <div className="pt-3 border-t border-slate-850/60 flex">
+              <div className="pt-3 border-t border-slate-800/60 flex">
                 <Link
-                  href={`/blog/${post.id}`}
+                  href={`/blog/${post.slug}`}
                   className="inline-flex items-center space-x-1.5 text-secondary hover:text-white text-xs font-bold transition-all group"
                 >
                   <span>Đọc bài viết chi tiết</span>
