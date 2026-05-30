@@ -1,0 +1,362 @@
+"use client";
+
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { MessageSquare, X, Send, RotateCcw, Bot, User, CheckCircle } from "lucide-react";
+import { chatbotScript } from "@/lib/chatbot-script";
+import { industries } from "@/lib/industries";
+
+interface Message {
+  id: string;
+  sender: "bot" | "user";
+  text: string;
+  isCustomComponent?: boolean;
+  stepId?: string;
+}
+
+export default function ChatbotDemoWidget() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>(() => [
+    {
+      id: "initial-welcome",
+      sender: "bot",
+      text: chatbotScript.welcome.text,
+      stepId: "welcome",
+    },
+  ]);
+  const [currentStepId, setCurrentStepId] = useState<string>("welcome");
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [inputValue, setInputValue] = useState("");
+  const [inputError, setInputError] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const triggerBotResponse = useCallback((stepId: string, customAnswers?: Record<string, string>) => {
+    setIsTyping(true);
+    setInputError("");
+    
+    // Simulate natural typing delay
+    setTimeout(() => {
+      setIsTyping(false);
+      const step = chatbotScript[stepId];
+      if (!step) return;
+
+      const activeAnswers = customAnswers || answers;
+      let text = step.text;
+      
+      // Interpolate placeholders
+      if (text.includes("{userName}")) {
+        text = text.replace("{userName}", activeAnswers.userName || "");
+      }
+      if (text.includes("{userPhone}")) {
+        text = text.replace("{userPhone}", activeAnswers.userPhone || "");
+      }
+      if (text.includes("{industryName}")) {
+        const industryObj = industries.find(i => i.id === activeAnswers.industry) || { name: "khác" };
+        const industryName = activeAnswers.industry === "other" ? "của anh/chị" : industryObj.name;
+        text = text.replace("{industryName}", industryName);
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          sender: "bot",
+          text: text,
+          stepId: stepId,
+        },
+      ]);
+
+      setCurrentStepId(stepId);
+    }, 700);
+  }, [answers]);
+
+  // Scroll to bottom on new messages
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, isTyping]);
+
+
+
+  // Listen for external trigger events
+  useEffect(() => {
+    const handleTrigger = (e: Event) => {
+      const customEvent = e as CustomEvent<{ industryId: string }>;
+      const industryId = customEvent.detail.industryId;
+
+      const industryObj = industries.find((i) => i.id === industryId) || { name: "Lĩnh vực khác" };
+      
+      // Open chatbot window
+      setIsOpen(true);
+      
+      // Initialize with specific industry selected
+      const initialAnswers = { industry: industryId };
+      setAnswers(initialAnswers);
+      
+      // Set messages history to show greeting and industry choice
+      setMessages([
+        {
+          id: "welcome-msg",
+          sender: "bot",
+          text: chatbotScript.welcome.text,
+          stepId: "welcome"
+        },
+        {
+          id: "user-select-industry",
+          sender: "user",
+          text: industryObj.name
+        }
+      ]);
+      
+      // Go straight to 'has_website' response
+      triggerBotResponse("has_website", initialAnswers);
+    };
+
+    window.addEventListener("trigger-chatbot-demo", handleTrigger);
+    return () => window.removeEventListener("trigger-chatbot-demo", handleTrigger);
+  }, [triggerBotResponse]);
+
+  const handleOptionClick = (label: string, value: string, nextStepId: string) => {
+    // Add user message
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(),
+        sender: "user",
+        text: label,
+      },
+    ]);
+
+    const updatedAnswers = { ...answers, [chatbotScript[currentStepId].inputKey || currentStepId]: value };
+    setAnswers(updatedAnswers);
+
+    triggerBotResponse(nextStepId, updatedAnswers);
+  };
+
+  const handleInputSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputValue.trim()) return;
+
+    const step = chatbotScript[currentStepId];
+    if (!step) return;
+
+    // Validation
+    if (step.inputType === "tel") {
+      const phoneRegex = /^(03|05|07|08|09)\d{8}$/;
+      if (!phoneRegex.test(inputValue.trim().replace(/\s/g, ""))) {
+        setInputError("Vui lòng nhập số điện thoại hợp lệ (10 chữ số)!");
+        return;
+      }
+    }
+
+    const value = inputValue.trim();
+    setInputValue("");
+    setInputError("");
+
+    // Add user message
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(),
+        sender: "user",
+        text: value,
+      },
+    ]);
+
+    const key = step.inputKey || "unknown";
+    const updatedAnswers = { ...answers, [key]: value };
+    setAnswers(updatedAnswers);
+
+    if (step.nextStepId) {
+      triggerBotResponse(step.nextStepId, updatedAnswers);
+    }
+  };
+
+  const handleReset = () => {
+    setMessages([
+      {
+        id: "initial-welcome",
+        sender: "bot",
+        text: chatbotScript.welcome.text,
+        stepId: "welcome",
+      },
+    ]);
+    setAnswers({});
+    setInputValue("");
+    setInputError("");
+    setCurrentStepId("welcome");
+  };
+
+  const activeStep = chatbotScript[currentStepId];
+
+  return (
+    <>
+      {/* Launcher Button */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-6 right-6 z-45 flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-gradient-to-tr from-primary to-secondary text-white shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:scale-110"
+          title="Thử Chatbot AI"
+        >
+          <div className="relative">
+            <MessageSquare className="w-5 h-5 md:w-6 md:h-6 animate-pulse" />
+            <span className="absolute -top-2 -right-2 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-rose-500 text-[9px] font-bold text-white border border-[#090d16]">
+              1
+            </span>
+          </div>
+        </button>
+      )}
+
+      {/* Chat Window */}
+      {isOpen && (
+        <div className="fixed bottom-6 right-6 z-50 w-[350px] sm:w-[380px] h-[500px] rounded-3xl glass border border-slate-700/50 shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-300">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-primary/80 to-secondary/80 px-4 py-4 flex items-center justify-between border-b border-slate-700/50">
+            <div className="flex items-center space-x-3">
+              <div className="p-1.5 rounded-lg bg-white/10 text-white">
+                <Bot className="h-5 w-5" />
+              </div>
+              <div>
+                <h4 className="text-white text-sm font-semibold leading-tight">Trợ lý AI Demo</h4>
+                <div className="flex items-center space-x-1.5">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span className="text-[10px] text-emerald-200">Online | Phản hồi ngay</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center space-x-1">
+              <button
+                onClick={handleReset}
+                className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+                title="Khởi động lại cuộc chat"
+              >
+                <RotateCcw className="h-4 w-4" />
+              </button>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+                title="Đóng chat"
+              >
+                <X className="h-4.5 w-4.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Messages Area */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0d1321]/60">
+            {messages.map((msg) => (
+              <div
+                key={msg.id}
+                className={`flex items-start gap-2.5 ${
+                  msg.sender === "user" ? "flex-row-reverse" : "flex-row"
+                }`}
+              >
+                {/* Avatar */}
+                <div
+                  className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs shrink-0 ${
+                    msg.sender === "user"
+                      ? "bg-secondary text-white"
+                      : "bg-slate-800 text-slate-300 border border-slate-700"
+                  }`}
+                >
+                  {msg.sender === "user" ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
+                </div>
+
+                {/* Bubble */}
+                <div className="flex flex-col max-w-[75%]">
+                  <div
+                    className={`rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm leading-relaxed ${
+                      msg.sender === "user"
+                        ? "bg-primary text-white rounded-tr-none"
+                        : "bg-slate-800/80 text-slate-100 border border-slate-700/30 rounded-tl-none"
+                    }`}
+                  >
+                    {msg.text}
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Typing indicator */}
+            {isTyping && (
+              <div className="flex items-start gap-2.5">
+                <div className="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 flex items-center justify-center shrink-0">
+                  <Bot className="w-4 h-4" />
+                </div>
+                <div className="bg-slate-800/80 border border-slate-700/30 rounded-2xl rounded-tl-none px-4 py-3 flex items-center space-x-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.2s]"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.4s]"></span>
+                </div>
+              </div>
+            )}
+
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Actions / Inputs Area */}
+          <div className="p-3 border-t border-slate-800/80 bg-[#090d16]">
+            {!isTyping && activeStep && (
+              <>
+                {/* Option Buttons */}
+                {activeStep.type === "question" && activeStep.options && (
+                  <div className="flex flex-col gap-2 max-h-36 overflow-y-auto mb-2 pr-1">
+                    {activeStep.options.map((option) => (
+                      <button
+                        key={option.value}
+                        onClick={() =>
+                          handleOptionClick(option.label, option.value, option.nextStepId)
+                        }
+                        className="text-left w-full px-3.5 py-2 bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-secondary/40 text-slate-200 hover:text-white rounded-xl text-xs font-medium transition-all"
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {/* Text Form Input */}
+                {activeStep.type === "input" && (
+                  <form onSubmit={handleInputSubmit} className="space-y-1.5">
+                    {inputError && (
+                      <p className="text-[10px] text-rose-500 font-medium px-1">
+                        {inputError}
+                      </p>
+                    )}
+                    <div className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 rounded-xl px-2.5 py-1.5 focus-within:border-secondary/50">
+                      <input
+                        type={activeStep.inputType || "text"}
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        placeholder={activeStep.inputPlaceholder}
+                        className="flex-1 bg-transparent border-0 outline-none text-slate-100 text-xs py-1"
+                        autoFocus
+                      />
+                      <button
+                        type="submit"
+                        disabled={!inputValue.trim()}
+                        className="p-1.5 rounded-lg bg-primary hover:bg-primary-hover text-white disabled:opacity-55 disabled:hover:bg-primary transition-colors"
+                      >
+                        <Send className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </form>
+                )}
+
+                {/* Success Finished State */}
+                {activeStep.type === "message" && (
+                  <div className="flex items-center justify-center py-2 text-center text-xs font-medium text-emerald-400 space-x-1.5">
+                    <CheckCircle className="h-4 w-4" />
+                    <span>Gửi đăng ký demo thành công!</span>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
