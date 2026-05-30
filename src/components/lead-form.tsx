@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { CheckCircle, AlertTriangle, Send } from "lucide-react";
 import { industries } from "@/lib/industries";
 import { services } from "@/lib/services";
+import { trackEvent } from "@/lib/analytics";
 
 interface FormData {
   name: string;
@@ -125,6 +126,11 @@ export default function LeadForm() {
 
       if (response.ok && result?.success) {
         setSubmitStatus("success");
+        trackEvent("lead_submit_success", {
+          industry: formData.industry,
+          serviceInterest: formData.serviceInterest,
+          budget: formData.budget,
+        });
         setFormData({
           name: "",
           phone: "",

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { MessageSquare, X, Send, RotateCcw, Bot, User, CheckCircle } from "lucide-react";
 import { chatbotScript } from "@/lib/chatbot-script";
 import { industries } from "@/lib/industries";
+import { trackEvent } from "@/lib/analytics";
 
 interface Message {
   id: string;
@@ -101,6 +102,11 @@ export default function ChatbotDemoWidget() {
       if (!response.ok) {
         throw new Error("Lỗi lưu lead chatbot");
       }
+
+      trackEvent("chatbot_lead_submit_success", {
+        industry: industryName,
+        source: "widget",
+      });
     } catch (error) {
       if (process.env.NODE_ENV === "development") {
         console.error("Lỗi gửi chatbot lead:", error);

@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Bot, Mail, MapPin, Phone, ShieldCheck, Clock } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import { trackEvent } from "@/lib/analytics";
 
 export default function SiteFooter() {
   const quickLinks = [
@@ -46,7 +49,11 @@ export default function SiteFooter() {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-secondary shrink-0" />
-                <a href={`tel:${siteConfig.hotline.replace(/\./g, "")}`} className="hover:text-white transition-colors">
+                <a
+                  href={`tel:${siteConfig.hotline.replace(/\./g, "")}`}
+                  onClick={() => trackEvent("phone_click", { location: "footer" })}
+                  className="hover:text-white transition-colors"
+                >
                   {siteConfig.hotline}
                 </a>
               </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, PhoneCall, Bot } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import { trackEvent } from "@/lib/analytics";
 
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,6 +81,7 @@ export default function SiteHeader() {
           <div className="hidden md:flex items-center space-x-3">
             <a
               href={`tel:${siteConfig.hotline.replace(/\./g, "")}`}
+              onClick={() => trackEvent("phone_click", { location: "header_desktop" })}
               className="flex items-center space-x-1 text-slate-300 hover:text-white transition-colors text-sm font-medium pr-2"
             >
               <PhoneCall className="h-4 w-4 text-secondary" />
@@ -130,6 +132,7 @@ export default function SiteHeader() {
             <div className="pt-4 pb-2 px-3 border-t border-white/5 flex flex-col space-y-3">
               <a
                 href={`tel:${siteConfig.hotline.replace(/\./g, "")}`}
+                onClick={() => trackEvent("phone_click", { location: "header_mobile" })}
                 className="flex items-center space-x-2 text-slate-300 hover:text-white text-base font-medium py-2"
               >
                 <PhoneCall className="h-5 w-5 text-secondary" />

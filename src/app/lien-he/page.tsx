@@ -2,6 +2,7 @@ import React from "react";
 import LeadForm from "@/components/lead-form";
 import { siteConfig } from "@/lib/site-config";
 import { MapPin, Phone, Mail, Clock, MessageSquare } from "lucide-react";
+import TrackedLink from "@/components/tracked-link";
 
 export const metadata = {
   title: "Liên Hệ Tư Vấn & Nhận Demo",
@@ -58,9 +59,14 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <span className="text-slate-500 font-semibold block text-[10px] uppercase tracking-wider mb-0.5">Số điện thoại / Hotline</span>
-                      <a href={`tel:${formattedPhone}`} className="hover:text-white transition-colors">
+                      <TrackedLink
+                        href={`tel:${formattedPhone}`}
+                        eventName="phone_click"
+                        eventParams={{ location: "contact_page_info" }}
+                        className="hover:text-white transition-colors"
+                      >
                         {siteConfig.hotline}
-                      </a>
+                      </TrackedLink>
                     </div>
                   </div>
 
@@ -92,22 +98,26 @@ export default function ContactPage() {
 
               {/* Instant Social Chat buttons */}
               <div className="pt-6 border-t border-slate-850 space-y-3">
-                <a
+                <TrackedLink
                   href={siteConfig.zalo}
                   target="_blank"
                   rel="noopener noreferrer"
+                  eventName="zalo_click"
+                  eventParams={{ location: "contact_page_cta" }}
                   className="w-full py-3 rounded-2xl bg-[#0068ff] text-white text-xs font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 transition-all transform hover:-translate-y-0.5"
                 >
                   <MessageSquare className="h-4.5 w-4.5" />
                   <span>Nhắn tin Zalo tư vấn trực tiếp</span>
-                </a>
-                <a
+                </TrackedLink>
+                <TrackedLink
                   href={`tel:${formattedPhone}`}
+                  eventName="phone_click"
+                  eventParams={{ location: "contact_page_cta" }}
                   className="w-full py-3 rounded-2xl bg-emerald-600 text-white text-xs font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5"
                 >
                   <Phone className="h-4.5 w-4.5" />
                   <span>Gọi Hotline: {siteConfig.hotline}</span>
-                </a>
+                </TrackedLink>
               </div>
 
             </div>

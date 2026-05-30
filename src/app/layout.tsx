@@ -5,6 +5,7 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import FloatingContact from "@/components/floating-contact";
 import ChatbotDemoWidget from "@/components/chatbot-demo-widget";
+import GoogleAnalytics from "@/components/google-analytics";
 import { siteConfig } from "@/lib/site-config";
 
 const geistSans = Geist({
@@ -36,6 +37,20 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "vi_VN",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} - ${siteConfig.headline}`,
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} - ${siteConfig.headline}`,
+    description: siteConfig.description,
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -54,6 +69,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        {/* Google Analytics 4 */}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
+        
         {/* Global Navigation Header */}
         <SiteHeader />
         
