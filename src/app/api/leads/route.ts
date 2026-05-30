@@ -150,11 +150,27 @@ export async function POST(request: Request) {
         });
 
         if (sheetResponse.ok) {
-          const sheetResult = await sheetResponse.json().catch(() => ({ status: "success" }));
-          if (sheetResult.status === "success") {
-            sheetSuccess = true;
+          const sheetResult = await sheetResponse.json().catch(() => null);
+          if (sheetResult) {
+            // Check for various common success patterns from different Apps Script templates
+            const isSuccess = 
+              sheetResult.status === "success" || 
+              sheetResult.result === "success" || 
+              sheetResult.status === "Lead saved" ||
+              sheetResult.message === "Lead saved" ||
+              sheetResult.message === "Lead appended successfully." ||
+              String(sheetResult.message || "").toLowerCase().includes("success") ||
+              String(sheetResult.status || "").toLowerCase().includes("success") ||
+              String(sheetResult.result || "").toLowerCase().includes("success");
+
+            if (isSuccess) {
+              sheetSuccess = true;
+            } else {
+              sheetErrorMsg = sheetResult.message || sheetResult.error || "Apps Script rejected submission";
+            }
           } else {
-            sheetErrorMsg = sheetResult.message || "Apps Script rejected submission";
+            // If response is ok but JSON parsing failed (e.g. plain text response like "Lead saved"), treat as success
+            sheetSuccess = true;
           }
         } else {
           sheetErrorMsg = `HTTP error ${sheetResponse.status}`;
