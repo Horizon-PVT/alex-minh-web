@@ -13,15 +13,11 @@ export const pricingPackages: PricingPackage[] = [
     id: "web-uy-tin",
     name: "Web Uy Tín",
     price: "Từ 3 – 7 triệu",
-    description: "Giải pháp cho hộ kinh doanh, doanh nghiệp nhỏ cần có mặt online chuyên nghiệp, tạo uy tín thương hiệu.",
+    description: "Giải pháp xây dựng website giới thiệu thương hiệu số cơ bản, chuẩn chỉnh và tạo sự uy tín.",
     features: [
-      "Website giới thiệu 1 – 5 trang chuyên nghiệp",
-      "Giao diện chuẩn di động (Mobile-first)",
-      "Tối ưu tốc độ tải trang dưới 2 giây",
-      "Tích hợp nút Gọi ngay, Zalo, Chat Facebook",
-      "Cài đặt vị trí Google Map doanh nghiệp",
-      "Tối ưu SEO Local cơ bản ban đầu",
-      "Bàn giao mã nguồn & Hướng dẫn sử dụng"
+      "Website giới thiệu 1–5 trang chuẩn di động",
+      "Tối ưu tốc độ tải trang cực nhanh dưới 2 giây",
+      "Tích hợp các nút Gọi ngay, Zalo trực quan"
     ],
     ctaText: "Đăng ký tư vấn gói Web"
   },
@@ -29,16 +25,11 @@ export const pricingPackages: PricingPackage[] = [
     id: "web-chatbot-ai",
     name: "Web + Chatbot AI",
     price: "Từ 8 – 18 triệu",
-    description: "Gói dịch vụ chủ lực - Giải pháp tối ưu bán hàng, tự động tư vấn 24/7 và thu thập thông tin khách hàng tiềm năng.",
+    description: "Gói chủ lực - Tự động tư vấn báo giá 24/7 và thu thập thông tin số điện thoại khách hàng.",
     features: [
-      "Tất cả tính năng của gói Web Uy Tín",
-      "Thiết kế Website/Landing Page chuyên ngành sâu",
       "Chatbot AI trả lời tự động theo dữ liệu riêng",
-      "Tự động thu thập Lead (Họ tên, SĐT, Nhu cầu)",
-      "Đồng bộ lưu trữ Lead tự động về Google Sheet",
-      "Gửi thông báo có Lead mới về Telegram/Zalo",
-      "Miễn phí 1 tháng tối ưu kịch bản chatbot",
-      "Hỗ trợ viết 5 bài nội dung giới thiệu bằng AI"
+      "Đồng bộ tự động lưu thông tin khách về Google Sheet",
+      "Bắn tin nhắn báo lead mới tức thời qua Telegram"
     ],
     isPopular: true,
     ctaText: "Nhận demo Chatbot AI"
@@ -47,16 +38,11 @@ export const pricingPackages: PricingPackage[] = [
     id: "ai-sales-system",
     name: "AI Sales System",
     price: "Từ 20 – 50 triệu",
-    description: "Hệ thống bán hàng và tự động hóa toàn diện cho doanh nghiệp muốn tối ưu đội ngũ sales và quản trị tập trung.",
+    description: "Hệ thống bán hàng và tự động hóa toàn diện giúp tối ưu đội ngũ tư vấn và quản trị tập trung.",
     features: [
-      "Tất cả tính năng của gói Web + Chatbot AI",
-      "Hệ thống đa landing page cho nhiều chiến dịch",
-      "Chatbot AI nâng cao, tự nhận diện ý định khách",
-      "Tích hợp CRM mini quản lý trạng thái khách hàng",
-      "Tự động phân loại khách (Hot/Warm/Cold)",
-      "Dashboard báo cáo số liệu nguồn lead trực quan",
-      "Tích hợp AI Content Generator riêng cho nhân viên",
-      "Bảo hành & đồng hành tối ưu 3 tháng đầu"
+      "Hệ thống đa landing page chạy nhiều chiến dịch",
+      "CRM mini lưu trữ và quản lý trạng thái khách hàng",
+      "Dashboard báo cáo thống kê trực quan nguồn lead"
     ],
     ctaText: "Liên hệ thiết kế hệ thống"
   },
@@ -64,13 +50,11 @@ export const pricingPackages: PricingPackage[] = [
     id: "operating-optimizing",
     name: "Vận hành & Tối ưu",
     price: "Từ 500k – 5 triệu/tháng",
-    description: "Đồng hành chăm sóc, huấn luyện AI chatbot thông minh hơn và sản xuất nội dung bán hàng hàng tháng.",
+    description: "Chăm sóc website, tối ưu kịch bản chatbot AI thông minh hơn và sản xuất bài viết bán hàng hàng tháng.",
     features: [
-      "Cập nhật thông tin mới của doanh nghiệp vào AI",
-      "Tối ưu bộ FAQ dựa trên câu hỏi thực tế của khách",
-      "Sản xuất 10-30 bài viết/caption bán hàng hàng tháng",
-      "Báo cáo chất lượng tư vấn của bot và tỉ lệ chốt lead",
-      "Bảo trì hệ thống, sửa lỗi phát sinh 24/7"
+      "Cập nhật thông tin và tối ưu kịch bản chatbot AI",
+      "Sản xuất nội dung, bài viết bán hàng hàng tháng",
+      "Bảo trì kỹ thuật hệ thống và hỗ trợ sự cố 24/7"
     ],
     ctaText: "Đăng ký gói vận hành"
   }

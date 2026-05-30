@@ -15,8 +15,6 @@ export const services: ServiceItem[] = [
     description: "Alex Minh AI thiết kế các website không chỉ để 'trưng bày' mà hoạt động như một nhân viên bán hàng chuyên nghiệp, giữ chân khách hàng và dẫn dắt họ tới hành động liên hệ.",
     icon: "Globe",
     details: [
-      "Website giới thiệu doanh nghiệp/cửa hàng 1–5 trang.",
-      "Landing page bán hàng cho từng chiến dịch quảng cáo.",
       "Giao diện chuẩn UI/UX, hiển thị mượt mà trên mobile.",
       "Tối ưu tốc độ tải trang cực nhanh, hỗ trợ chuẩn SEO local.",
       "Tích hợp các nút kêu gọi hành động (Zalo, Gọi ngay, Điền form)."
@@ -31,9 +29,7 @@ export const services: ServiceItem[] = [
     details: [
       "Trả lời tự động và tức thì 24/7 trên Website, Zalo, Facebook.",
       "Tự động học dữ liệu riêng của cửa hàng/doanh nghiệp.",
-      "Hỏi đáp dịch vụ, lọc nhu cầu khách hàng theo phân nhánh.",
-      "Thu thập thông tin liên hệ (Họ tên, SĐT/Zalo, Nhu cầu) rõ ràng.",
-      "Chế độ chuyển giao thông minh sang tư vấn viên người thật khi cần thiết."
+      "Thu thập thông tin liên hệ (Họ tên, SĐT/Zalo, Nhu cầu) rõ ràng."
     ]
   },
   {
@@ -43,11 +39,9 @@ export const services: ServiceItem[] = [
     description: "Kết nối website, chatbot với hệ thống quản lý dữ liệu. Giúp bạn không bao giờ bỏ sót bất kỳ khách hàng tiềm năng nào và tối ưu quy trình xử lý đơn hàng.",
     icon: "Cpu",
     details: [
-      "Tự động đẩy thông tin khách hàng (lead) về Google Sheet hoặc CRM mini ngay lập tức.",
-      "Gửi thông báo có khách hàng mới qua Zalo/Telegram của chủ doanh nghiệp.",
-      "Tự động gắn thẻ phân loại khách hàng (theo ngành, ngân sách, độ ưu tiên).",
-      "Hệ thống hóa lịch hẹn, nhắc lịch tư vấn tự động.",
-      "Báo cáo thống kê số lượng lead theo ngày, tuần, tháng."
+      "Tự động đẩy thông tin khách hàng về Google Sheet ngay lập tức.",
+      "Gửi thông báo có khách hàng mới qua Telegram của chủ doanh nghiệp.",
+      "Hệ thống hóa lịch hẹn, nhắc lịch tư vấn tự động."
     ]
   },
   {
@@ -58,10 +52,8 @@ export const services: ServiceItem[] = [
     icon: "PenTool",
     details: [
       "Viết bài giới thiệu dịch vụ và sản phẩm chuẩn SEO.",
-      "Lập dàn ý và viết caption mạng xã hội (Facebook, Zalo) theo tuần/tháng.",
-      "Lên kịch bản video ngắn (TikTok, Reels, Youtube Shorts) giới thiệu thương hiệu.",
-      "Xây dựng bộ câu hỏi thường gặp (FAQ) tối ưu cho chatbot học.",
-      "Hỗ trợ viết email chăm sóc khách hàng tự động."
+      "Lên kịch bản video ngắn (TikTok, Reels) giới thiệu thương hiệu.",
+      "Xây dựng bộ câu hỏi thường gặp (FAQ) tối ưu cho chatbot học."
     ]
   }
 ];

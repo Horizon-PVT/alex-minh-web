@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "@/components/hero-section";
 import ProblemSection from "@/components/problem-section";
-import SolutionSection from "@/components/solution-section";
+import ProofFlowSection from "@/components/proof-flow-section";
 import ServicesSection from "@/components/services-section";
 import IndustryDemoSection from "@/components/industry-demo-section";
 import PricingSection from "@/components/pricing-section";
@@ -11,25 +11,25 @@ import LeadForm from "@/components/lead-form";
 export default function Home() {
   return (
     <div className="relative">
-      {/* Hero Intro */}
+      {/* Hero Intro - Premium first view */}
       <HeroSection />
 
-      {/* Pain points of businesses */}
+      {/* Pain points of local businesses (3 core items) */}
       <ProblemSection />
 
-      {/* Propose automation solutions */}
-      <SolutionSection />
+      {/* Flagship Proof-of-work: Visual flow of the system */}
+      <ProofFlowSection />
 
-      {/* Details of main services */}
+      {/* Details of main services (3 bullet points per service) */}
       <ServicesSection />
 
-      {/* Industry verticals demo card scenarios */}
+      {/* Industry verticals dynamic chatbot showcase */}
       <IndustryDemoSection />
 
-      {/* Pricing packages section */}
+      {/* Pricing packages section (Simplified) */}
       <PricingSection />
 
-      {/* Interactive FAQ Section */}
+      {/* Shortened FAQ Section (4 items) */}
       <FaqSection />
 
       {/* Bottom Lead capture CTA section */}
