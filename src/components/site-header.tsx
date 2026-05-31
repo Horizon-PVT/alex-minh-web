@@ -3,9 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, PhoneCall, Bot } from "lucide-react";
+import { Menu, X, PhoneCall } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { trackEvent } from "@/lib/analytics";
+import BrandLogo from "./brand-logo";
 
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,39 +37,31 @@ export default function SiteHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-nav shadow-lg py-3" : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 ${
+        scrolled
+          ? "bg-[#090d16]/90 backdrop-blur-md shadow-xl shadow-black/35 border-b border-slate-800/80 py-2.5"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="p-2 rounded-xl bg-gradient-to-tr from-primary to-secondary text-white shadow-md shadow-primary/20 transition-transform duration-300 group-hover:scale-105">
-              <Bot className="h-6 w-6" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold bg-gradient-to-r from-white via-slate-100 to-secondary bg-clip-text text-transparent">
-                {siteConfig.name}
-              </span>
-              <span className="text-[10px] text-muted tracking-wider uppercase hidden sm:inline-block">
-                Web & Chatbot AI Thanh Hóa
-              </span>
-            </div>
+          <Link href="/" className="group transition-transform duration-300 hover:scale-[1.02] block">
+            <BrandLogo variant="full" />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-1.5">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
                     isActive
-                      ? "text-secondary bg-secondary/10"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
+                      ? "text-secondary bg-secondary/10 border border-secondary/15 shadow-sm"
+                      : "text-slate-350 hover:text-white hover:bg-slate-800/40 border border-transparent"
                   }`}
                 >
                   {link.label}
@@ -82,14 +75,14 @@ export default function SiteHeader() {
             <a
               href={`tel:${siteConfig.hotline.replace(/\./g, "")}`}
               onClick={() => trackEvent("phone_click", { location: "header_desktop" })}
-              className="flex items-center space-x-1 text-slate-300 hover:text-white transition-colors text-sm font-medium pr-2"
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-slate-900/50 border border-slate-800 hover:border-secondary/40 text-slate-300 hover:text-white transition-all text-xs font-bold shadow-inner"
             >
-              <PhoneCall className="h-4 w-4 text-secondary" />
+              <PhoneCall className="h-3.5 w-3.5 text-secondary animate-pulse" />
               <span>{siteConfig.hotline}</span>
             </a>
             <Link
               href="/lien-he"
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-secondary text-white hover:from-primary-hover hover:to-secondary-hover text-sm font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all transform hover:-translate-y-0.5"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-xs font-extrabold shadow-lg shadow-primary/20 hover:shadow-secondary/30 transition-all duration-300 transform hover:-translate-y-0.5 hover:brightness-110"
             >
               Tư vấn ngay
             </Link>
@@ -110,18 +103,18 @@ export default function SiteHeader() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden glass border-t border-white/5 animate-in slide-in-from-top duration-300">
+        <div className="md:hidden bg-[#090d16]/95 backdrop-blur-lg border-t border-slate-800/60 animate-in slide-in-from-top duration-300">
           <div className="px-2 pt-3 pb-4 space-y-1 sm:px-3">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+                  className={`block px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                     isActive
-                      ? "text-secondary bg-secondary/10"
+                      ? "text-secondary bg-secondary/10 border border-secondary/15"
                       : "text-slate-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -129,21 +122,21 @@ export default function SiteHeader() {
                 </Link>
               );
             })}
-            <div className="pt-4 pb-2 px-3 border-t border-white/5 flex flex-col space-y-3">
+            <div className="pt-4 pb-2 px-3 border-t border-slate-800/60 flex flex-col space-y-3">
               <a
                 href={`tel:${siteConfig.hotline.replace(/\./g, "")}`}
                 onClick={() => trackEvent("phone_click", { location: "header_mobile" })}
-                className="flex items-center space-x-2 text-slate-300 hover:text-white text-base font-medium py-2"
+                className="flex items-center space-x-2 text-slate-300 hover:text-white text-sm font-semibold py-2"
               >
-                <PhoneCall className="h-5 w-5 text-secondary" />
+                <PhoneCall className="h-4.5 w-4.5 text-secondary" />
                 <span>{siteConfig.hotline}</span>
               </a>
               <Link
                 href="/lien-he"
                 onClick={() => setIsOpen(false)}
-                className="w-full text-center px-4 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-base font-semibold shadow-md shadow-primary/10"
+                className="w-full text-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-sm font-bold shadow-md shadow-primary/10 hover:brightness-110 transition-all"
               >
-                Tư vấn miễn phí
+                Tư vấn ngay
               </Link>
             </div>
           </div>

@@ -187,9 +187,9 @@ export default function ChatbotDemoWidget() {
 
     // Validation
     if (step.inputType === "tel") {
-      const phoneRegex = /^(03|05|07|08|09)\d{8}$/;
-      if (!phoneRegex.test(inputValue.trim().replace(/\s/g, ""))) {
-        setInputError("Vui lòng nhập số điện thoại hợp lệ (10 chữ số)!");
+      const phoneRegex = /^(0|84|\+84)(3|5|7|8|9)\d{8}$/;
+      if (!phoneRegex.test(inputValue.trim().replace(/[\s\.\-\(\)]/g, ""))) {
+        setInputError("Vui lòng nhập số điện thoại hợp lệ (ví dụ: 0912345678)!");
         return;
       }
     }

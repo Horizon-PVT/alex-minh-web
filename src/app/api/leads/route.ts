@@ -68,7 +68,7 @@ export async function POST(request: Request) {
 
     // 4. Server-side Validation
     const cleanFullName = String(fullName || "").trim();
-    const cleanPhone = String(phone || "").trim().replace(/\s/g, "");
+    const cleanPhone = String(phone || "").trim().replace(/[\s\.\-\(\)]/g, "");
     const cleanIndustry = String(industry || "Không xác định").trim();
     const cleanService = String(serviceInterest || "Tư vấn chung").trim();
     const cleanBudget = String(budget || "Chưa khảo sát").trim();
@@ -89,7 +89,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const phoneRegex = /^(03|05|07|08|09)\d{8}$/;
+    const phoneRegex = /^(0|84|\+84)(3|5|7|8|9)\d{8}$/;
     if (!cleanPhone) {
       return NextResponse.json(
         { success: false, message: "Số điện thoại không được để trống." },
