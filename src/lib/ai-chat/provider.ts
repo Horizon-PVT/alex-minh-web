@@ -22,7 +22,7 @@ export async function generateChatResponse(
   }
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 12000); // 12 seconds timeout
+  const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 seconds timeout
 
   try {
     if (provider === "gemini" && geminiKey) {
@@ -36,16 +36,22 @@ export async function generateChatResponse(
         parts: [{ text: msg.text }]
       }));
 
-      const payload = {
+      const payload: any = {
         contents: contents,
         systemInstruction: {
           parts: [{ text: systemInstruction }]
         },
         generationConfig: {
           temperature: 0.3,
-          maxOutputTokens: 400
+          maxOutputTokens: 800
         }
       };
+
+      if (model.includes("gemini-2.5")) {
+        payload.generationConfig.thinkingConfig = {
+          thinkingBudget: 0
+        };
+      }
 
       const response = await fetch(url, {
         method: "POST",
@@ -62,8 +68,15 @@ export async function generateChatResponse(
       }
 
       const data = await response.json();
-      const reply = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      const candidate = data.candidates?.[0];
+      const reply = candidate?.content?.parts?.[0]?.text;
       
+      // Log warning if generation did not stop normally (e.g. truncated due to length)
+      const finishReason = candidate?.finishReason;
+      if (finishReason && finishReason !== "STOP") {
+        console.warn(`[Gemini Warning] Chat response finished with abnormal reason: ${finishReason}`);
+      }
+
       if (!reply) {
         throw new Error("Gemini returned empty candidate content.");
       }
@@ -85,7 +98,7 @@ export async function generateChatResponse(
         model: model === "gemini-2.5-flash" ? "gpt-4o-mini" : model, // Fallback if user uses default model name for OpenAI
         messages: openAiMessages,
         temperature: 0.3,
-        max_tokens: 400
+        max_tokens: 800
       };
 
       const response = await fetch(url, {
@@ -104,7 +117,14 @@ export async function generateChatResponse(
       }
 
       const data = await response.json();
-      const reply = data.choices?.[0]?.message?.content;
+      const choice = data.choices?.[0];
+      const reply = choice?.message?.content;
+
+      // Log warning if generation did not stop normally (e.g. truncated due to length)
+      const finishReason = choice?.finish_reason;
+      if (finishReason && finishReason !== "stop") {
+        console.warn(`[OpenAI Warning] Chat response finished with abnormal reason: ${finishReason}`);
+      }
 
       if (!reply) {
         throw new Error("OpenAI returned empty choice content.");

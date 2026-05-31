@@ -38,7 +38,7 @@ export default function ChatbotDemoWidget() {
   const [inputValue, setInputValue] = useState("");
   const [inputError, setInputError] = useState("");
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatBodyRef = useRef<HTMLDivElement>(null);
 
   const triggerBotResponse = useCallback((stepId: string, customAnswers?: Record<string, string>) => {
     setIsTyping(true);
@@ -120,12 +120,14 @@ export default function ChatbotDemoWidget() {
     }
   };
 
-  // Scroll to bottom on new messages
+  // Scroll to bottom of chat body only (internal scroll)
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [messages, isTyping]);
+    requestAnimationFrame(() => {
+      if (chatBodyRef.current) {
+        chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+      }
+    });
+  }, [messages, isTyping, showPhoneCta]);
 
 
 
@@ -487,7 +489,10 @@ export default function ChatbotDemoWidget() {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0d1321]/60">
+          <div 
+            ref={chatBodyRef}
+            className="flex-1 overflow-y-auto px-4 pt-4 pb-10 space-y-3 bg-[#0d1321]/60"
+          >
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -534,8 +539,6 @@ export default function ChatbotDemoWidget() {
                 </div>
               </div>
             )}
-
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Actions / Inputs Area */}

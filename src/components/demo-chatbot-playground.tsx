@@ -531,7 +531,7 @@ export default function DemoChatbotPlayground() {
         chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
       }
     });
-  }, [messages, isTyping]);
+  }, [messages, isTyping, showPhoneCta]);
 
   return (
     <div className="relative pt-32 pb-24 overflow-hidden bg-background">
@@ -931,7 +931,7 @@ export default function DemoChatbotPlayground() {
               </div>
 
               {/* Live Chat Message Area */}
-              <div ref={chatBodyRef} className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-[#0a0f1d] to-[#080c18] no-scrollbar">
+              <div ref={chatBodyRef} className="flex-1 overflow-y-auto px-5 pt-5 pb-10 space-y-4 bg-gradient-to-b from-[#0a0f1d] to-[#080c18] no-scrollbar">
                 {messages.length === 0 && !isTyping && (
                   <div className="text-center py-12 text-slate-500 text-xs">
                     Chưa có tin nhắn nào. Đang chuẩn bị kịch bản...
