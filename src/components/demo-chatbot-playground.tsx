@@ -68,6 +68,12 @@ export default function DemoChatbotPlayground() {
   const [isTyping, setIsTyping] = useState(false);
   const [hasSubmittedLead, setHasSubmittedLead] = useState(false);
 
+  // AI Chat Mode states
+  const [chatMode, setChatMode] = useState<"scripted" | "ai">("scripted");
+  const [isAiLoading, setIsAiLoading] = useState(false);
+  const [showPhoneCta, setShowPhoneCta] = useState(false);
+  const [detectedPhone, setDetectedPhone] = useState("");
+
   // Auto-play control states
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [currentScriptIndex, setCurrentScriptIndex] = useState(0);
@@ -165,17 +171,119 @@ export default function DemoChatbotPlayground() {
     setShowCrmAlerts(false);
     setMessages([]);
     setCurrentScriptIndex(0);
-    setIsAutoPlaying(true);
-  }, []);
+    setIsAutoPlaying(chatMode === "scripted");
+    setShowPhoneCta(false);
+    setDetectedPhone("");
+    setIsAiLoading(false);
+    setIsTyping(false);
+  }, [chatMode]);
 
   const handleIndustryChange = (ind: IndustryDemo) => {
     setSelectedIndustry(ind);
     setInputValue("");
     setHasSubmittedLead(false);
     setShowCrmAlerts(false);
-    setMessages([]);
     setCurrentScriptIndex(0);
-    setIsAutoPlaying(true);
+    setShowPhoneCta(false);
+    setDetectedPhone("");
+    setIsAiLoading(false);
+    setIsTyping(false);
+
+    if (chatMode === "ai") {
+      setIsAutoPlaying(false);
+      setMessages([
+        {
+          id: "initial-ai-ind",
+          sender: "bot",
+          text: `Dạ em là trợ lý tư vấn AI của Alex Minh AI. Anh/chị có thể đặt câu hỏi tự do liên quan đến giải pháp website và chatbot cho lĩnh vực ${ind.name.split(" / ")[0]} nhé ạ!`
+        }
+      ]);
+    } else {
+      setMessages([]);
+      setIsAutoPlaying(true);
+    }
+  };
+
+  const handleModeToggle = (mode: "scripted" | "ai") => {
+    setChatMode(mode);
+    setInputValue("");
+    setHasSubmittedLead(false);
+    setShowCrmAlerts(false);
+    setCurrentScriptIndex(0);
+    setShowPhoneCta(false);
+    setDetectedPhone("");
+    setIsAiLoading(false);
+    setIsTyping(false);
+
+    if (mode === "ai") {
+      setIsAutoPlaying(false);
+      setMessages([
+        {
+          id: "initial-ai",
+          sender: "bot",
+          text: `Dạ em là trợ lý tư vấn AI của Alex Minh AI. Anh/chị có thể đặt câu hỏi tự do về các giải pháp website, chatbot và tự động hóa bán hàng cho lĩnh vực ${selectedIndustry.name.split(" / ")[0]} của mình nhé ạ!`
+        }
+      ]);
+    } else {
+      setMessages([]);
+      setIsAutoPlaying(true);
+    }
+  };
+
+  const handleCtaClick = async () => {
+    if (!detectedPhone) return;
+    try {
+      setShowPhoneCta(false);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          sender: "bot",
+          text: "Dạ, em đang kết nối và gửi thông tin liên hệ của anh/chị..."
+        }
+      ]);
+
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: "Khách Chat AI",
+          phone: detectedPhone,
+          industry: selectedIndustry.name,
+          serviceInterest: "Thiết kế Website + Chatbot AI",
+          budget: "Chưa khảo sát",
+          message: "Lead tự nguyện bấm nút 'Nhận tư vấn & demo phù hợp' sau khi gửi SĐT trong AI chat.",
+          source: "chatbot",
+          pageUrl: typeof window !== "undefined" ? window.location.href : ""
+        })
+      });
+
+      if (response.ok) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: Math.random().toString(),
+            sender: "bot",
+            text: "Dạ thông tin đã được gửi đi thành công! Chuyên viên tư vấn của Alex Minh AI sẽ chủ động kết nối Zalo hỗ trợ anh/chị ngay nhé ạ. Cảm ơn anh/chị!"
+          }
+        ]);
+        setShowCrmAlerts(true);
+      } else {
+        throw new Error("Lưu lead thất bại");
+      }
+    } catch (error) {
+      console.error("Lỗi gửi lead playground:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          sender: "bot",
+          text: "Dạ hệ thống gửi thông tin của em gặp gián đoạn nhẹ. Anh/chị có thể liên hệ trực tiếp hotline 0789.284.078 giúp em nhé ạ!"
+        }
+      ]);
+    }
   };
 
   // Auto-play state machine engine
@@ -264,20 +372,77 @@ export default function DemoChatbotPlayground() {
     }
   }, [isAutoPlaying, currentScriptIndex, selectedIndustry, submitChatbotLead]);
 
-  const processUserMessage = useCallback((text: string) => {
+  const processUserMessage = useCallback(async (text: string) => {
     setIsAutoPlaying(false); // Stop autoplay when user takes action
 
-    setMessages((prev) => [
-      ...prev,
-      {
-        id: Math.random().toString(),
-        sender: "user",
-        text: text,
-      },
-    ]);
+    const newUserMsg: Message = {
+      id: Math.random().toString(),
+      sender: "user",
+      text: text,
+    };
 
+    setMessages((prev) => [...prev, newUserMsg]);
     setIsTyping(true);
 
+    if (chatMode === "ai") {
+      setIsAiLoading(true);
+      try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            message: text,
+            history: [...messages, newUserMsg].slice(-8),
+            industry: selectedIndustry.id
+          })
+        });
+
+        const data = await response.json();
+        setIsTyping(false);
+        setIsAiLoading(false);
+
+        if (data.success) {
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: Math.random().toString(),
+              sender: "bot",
+              text: data.reply
+            }
+          ]);
+          if (data.hasPhone) {
+            setShowPhoneCta(true);
+            setDetectedPhone(text);
+          }
+        } else {
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: Math.random().toString(),
+              sender: "bot",
+              text: data.reply || "Dạ, hiện tại kết nối của em bị gián đoạn. Anh/chị vui lòng thử lại hoặc liên hệ hotline 0789.284.078 nhé ạ!"
+            }
+          ]);
+        }
+      } catch (error) {
+        console.error("Lỗi API Chat:", error);
+        setIsTyping(false);
+        setIsAiLoading(false);
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: Math.random().toString(),
+            sender: "bot",
+            text: "Dạ kết nối của em đang bị nghẽn. Anh/chị vui lòng nhập lại hoặc kết bạn Zalo 0789.284.078 để bên em gửi thông tin tư vấn nhé ạ!"
+          }
+        ]);
+      }
+      return;
+    }
+
+    // Default scripted logic
     setTimeout(() => {
       setIsTyping(false);
       
@@ -349,7 +514,7 @@ export default function DemoChatbotPlayground() {
         },
       ]);
     }, 850);
-  }, [selectedIndustry, submitChatbotLead]);
+  }, [selectedIndustry, submitChatbotLead, chatMode, messages]);
 
   const handleInputSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -658,24 +823,26 @@ export default function DemoChatbotPlayground() {
                 </div>
                 
                 <div className="flex items-center gap-2">
-                  {/* Auto Play / Pause Toggle */}
-                  <button
-                    onClick={() => {
-                      setIsAutoPlaying(!isAutoPlaying);
-                      if (!isAutoPlaying) {
-                        setShowCrmAlerts(false);
-                      }
-                    }}
-                    className={`p-2 rounded-xl transition-all flex items-center gap-1 text-[11px] font-bold border cursor-pointer ${
-                      isAutoPlaying 
-                        ? "text-amber-400 bg-amber-500/10 border-amber-500/20 hover:bg-amber-500/20" 
-                        : "text-slate-400 bg-slate-900 border-slate-800 hover:text-white hover:border-slate-700"
-                    }`}
-                    title={isAutoPlaying ? "Dừng chạy demo tự động" : "Bắt đầu chạy demo tự động"}
-                  >
-                    {isAutoPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-                    <span className="hidden sm:inline">{isAutoPlaying ? "Dừng chạy" : "Chạy tự động"}</span>
-                  </button>
+                  {/* Auto Play / Pause Toggle - Hide in AI mode */}
+                  {chatMode === "scripted" && (
+                    <button
+                      onClick={() => {
+                        setIsAutoPlaying(!isAutoPlaying);
+                        if (!isAutoPlaying) {
+                          setShowCrmAlerts(false);
+                        }
+                      }}
+                      className={`p-2 rounded-xl transition-all flex items-center gap-1 text-[11px] font-bold border cursor-pointer ${
+                        isAutoPlaying 
+                          ? "text-amber-400 bg-amber-500/10 border-amber-500/20 hover:bg-amber-500/20" 
+                          : "text-slate-400 bg-slate-900 border-slate-800 hover:text-white hover:border-slate-700"
+                      }`}
+                      title={isAutoPlaying ? "Dừng chạy demo tự động" : "Bắt đầu chạy demo tự động"}
+                    >
+                      {isAutoPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+                      <span className="hidden sm:inline">{isAutoPlaying ? "Dừng chạy" : "Chạy tự động"}</span>
+                    </button>
+                  )}
 
                   {/* Reset Button */}
                   <button
@@ -687,6 +854,31 @@ export default function DemoChatbotPlayground() {
                     <span className="hidden sm:inline">Reset</span>
                   </button>
                 </div>
+              </div>
+
+              {/* Mode Toggle Switch Bar */}
+              <div className="flex bg-[#070b13] p-1.5 border-b border-slate-800/80 justify-center gap-3">
+                <button
+                  onClick={() => handleModeToggle("scripted")}
+                  className={`flex-1 px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer text-center border ${
+                    chatMode === "scripted"
+                      ? "bg-primary/20 border-primary/30 text-white shadow-md shadow-primary/10"
+                      : "bg-slate-950/40 border-slate-850/60 text-slate-455 hover:text-slate-200"
+                  }`}
+                >
+                  🤖 Demo Tự Động
+                </button>
+                <button
+                  onClick={() => handleModeToggle("ai")}
+                  className={`flex-1 px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 border ${
+                    chatMode === "ai"
+                      ? "bg-secondary/20 border-secondary/30 text-white shadow-md shadow-secondary/10"
+                      : "bg-slate-950/40 border-slate-850/60 text-slate-455 hover:text-slate-200"
+                  }`}
+                >
+                  ✨ Hỏi AI Thật
+                  <span className="text-[8px] bg-secondary text-white px-1.5 py-0.5 rounded font-black uppercase tracking-wider animate-pulse">Live</span>
+                </button>
               </div>
 
               {/* Real-time Status Indicator Bar */}
@@ -712,7 +904,9 @@ export default function DemoChatbotPlayground() {
                       <span className="relative flex h-2 w-2">
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                       </span>
-                      <span className="text-slate-400 font-bold">Trợ lý AI đang Online</span>
+                      <span className="text-slate-400 font-bold">
+                        {chatMode === "ai" ? "Trợ lý AI thật đang trực tuyến" : "Trợ lý AI đang Online"}
+                      </span>
                     </>
                   )}
                 </div>
@@ -789,6 +983,39 @@ export default function DemoChatbotPlayground() {
                     </div>
                   </div>
                 )}
+
+                {/* Phone number detection CTA */}
+                {showPhoneCta && (
+                  <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-left space-y-3 animate-[slideUp_0.3s_cubic-bezier(0.2,0.8,0.2,1)_forwards] mx-2">
+                    <div className="flex items-start gap-2.5">
+                      <AlertTriangle className="h-4.5 w-4.5 text-amber-400 shrink-0 mt-0.5" />
+                      <div>
+                        <h5 className="text-xs font-bold text-white">Yêu cầu tư vấn dịch vụ</h5>
+                        <p className="text-[11px] text-slate-350 leading-relaxed mt-1">
+                          Em phát hiện số điện thoại của anh/chị trong tin nhắn ({detectedPhone}). Anh/chị có muốn gửi thông tin này cho chuyên viên của Alex Minh AI liên hệ tư vấn trực tiếp không ạ?
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 pl-7">
+                      <button
+                        onClick={handleCtaClick}
+                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 text-slate-950 text-xs font-extrabold transition-all cursor-pointer shadow-md shadow-amber-500/10 flex items-center gap-1.5 animate-pulse"
+                      >
+                        <CheckCircle className="h-3.5 w-3.5" />
+                        <span>Nhận tư vấn & demo phù hợp</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          setShowPhoneCta(false);
+                          setDetectedPhone("");
+                        }}
+                        className="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-bold transition-all cursor-pointer"
+                      >
+                        Bỏ qua
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Input & Action Footer Block */}
@@ -820,13 +1047,14 @@ export default function DemoChatbotPlayground() {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Nhập câu trả lời hoặc bấm câu hỏi mẫu bên phải..."
-                    className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-xs sm:text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-secondary/40 focus:ring-1 focus:ring-secondary/15 transition-all"
+                    disabled={isAiLoading}
+                    placeholder={chatMode === "ai" ? "Hỏi em tự do về website, chatbot, automation..." : "Nhập câu trả lời hoặc bấm câu hỏi mẫu bên phải..."}
+                    className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-xs sm:text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-secondary/40 focus:ring-1 focus:ring-secondary/15 transition-all disabled:opacity-60"
                   />
                   
                   <button
                     type="submit"
-                    disabled={!inputValue.trim()}
+                    disabled={!inputValue.trim() || isAiLoading}
                     className="px-5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold text-xs transition-all disabled:opacity-50 flex items-center justify-center shrink-0 cursor-pointer shadow-md hover:shadow-primary/10 shadow-primary/5"
                   >
                     <Send className="h-4 w-4" />
