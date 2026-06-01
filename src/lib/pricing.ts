@@ -11,6 +11,8 @@ export interface PricingPackage {
   isPopular?: boolean;
   featuredNote?: string;
   ctaText: string;
+  promoBadge?: string;
+  promoNote?: string;
 }
 
 export const pricingPackages: PricingPackage[] = [
@@ -46,7 +48,9 @@ export const pricingPackages: PricingPackage[] = [
     fitBadge: "Phù hợp: Doanh nghiệp muốn có lead tự động",
     isPopular: true,
     featuredNote: "Gói bán chạy nhất",
-    ctaText: "Chọn gói nổi bật này"
+    ctaText: "Chọn gói nổi bật này",
+    promoBadge: "🎁 Tặng 7 ngày KODA ELITE",
+    promoNote: "Trợ lý AI riêng hỗ trợ viết nội dung, chăm khách, nhắc việc và xử lý lead hằng ngày."
   },
   {
     id: "ai-sales-system",
@@ -62,7 +66,9 @@ export const pricingPackages: PricingPackage[] = [
       "Tự động hóa quy trình bán hàng"
     ],
     fitBadge: "Phù hợp: Đội sale / doanh nghiệp tăng trưởng",
-    ctaText: "Trao đổi giải pháp"
+    ctaText: "Trao đổi giải pháp",
+    promoBadge: "🎁 Tặng 30 ngày KODA ELITE",
+    promoNote: "Trợ lý AI vận hành nội bộ, cá nhân hóa theo ngành nghề và quy trình bán hàng của doanh nghiệp."
   },
   {
     id: "operating-optimizing",

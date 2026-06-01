@@ -36,7 +36,15 @@ export async function generateChatResponse(
         parts: [{ text: msg.text }]
       }));
 
-      const payload: any = {
+      const payload: {
+        contents: typeof contents;
+        systemInstruction: { parts: { text: string }[] };
+        generationConfig: {
+          temperature: number;
+          maxOutputTokens: number;
+          thinkingConfig?: { thinkingBudget: number };
+        };
+      } = {
         contents: contents,
         systemInstruction: {
           parts: [{ text: systemInstruction }]

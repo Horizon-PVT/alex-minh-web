@@ -1,6 +1,38 @@
-import { Database, Send, Bot, Check, Shield, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { Database, Send, Shield, Sparkles } from "lucide-react";
 
 export default function ProofFlowSection() {
+  const flowSteps = [
+    {
+      step: "01",
+      title: "Chatbot AI tư vấn tự động",
+      desc: "Trực website 24/7, lập tức trả lời nhanh khách dưới 2s theo kịch bản huấn luyện riêng biệt, tự động hỏi nhu cầu và thu thập SĐT/Zalo.",
+      badge: "Tương tác",
+      color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20"
+    },
+    {
+      step: "02",
+      title: "Google Sheets lưu lead",
+      desc: "Thông tin liên hệ và nhu cầu được tự động chèn vào bảng tính Google Sheets tập trung tức thì, không sợ trôi hay thất lạc số khách.",
+      badge: "Lưu trữ",
+      color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+    },
+    {
+      step: "03",
+      title: "Telegram báo ngay",
+      desc: "Gửi tin nhắn cảnh báo lead mới tức thời kèm theo nhu cầu chi tiết về điện thoại cá nhân hoặc nhóm chat của doanh nghiệp.",
+      badge: "Cảnh báo",
+      color: "text-sky-400 bg-sky-500/10 border-sky-500/20"
+    },
+    {
+      step: "04",
+      title: "Đội ngũ chốt đơn nhanh hơn",
+      desc: "Chủ doanh nghiệp hoặc nhân viên click gọi điện chốt khách trong 5 phút đầu tiên - tỷ lệ chuyển đổi đơn hàng tăng vượt trội.",
+      badge: "Chốt sales",
+      color: "text-amber-400 bg-amber-500/10 border-amber-500/20"
+    }
+  ];
+
   return (
     <section id="proof-flow" className="scroll-mt-24 md:scroll-mt-28 py-16 md:py-24 bg-[#090d16] border-b border-slate-800/30 relative overflow-hidden">
       {/* Self-contained styling for flow connector animations */}
@@ -42,155 +74,56 @@ export default function ProofFlowSection() {
           <div className="h-1 w-12 bg-[#00E5FF]/60 mx-auto mt-5 rounded-full"></div>
         </div>
 
-        {/* Visual Columns (3 Steps of Flow) */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        {/* Split Flow Content Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Desktop Laser Connector Line */}
-          <div className="hidden lg:block absolute top-[220px] left-[12%] right-[12%] h-[1.5px] bg-gradient-to-r from-cyan-500/20 via-emerald-500/20 to-sky-500/20 z-0 pointer-events-none">
-            <div className="absolute top-0 bottom-0 w-28 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-flow-pulse"></div>
+          {/* Steps Timeline Column */}
+          <div className="lg:col-span-5 space-y-4">
+            {flowSteps.map((item, index) => (
+              <div
+                key={index}
+                className="bg-[#0b1220]/60 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-4 sm:p-5 flex space-x-3.5 items-start hover:border-[#00E5FF]/20 hover:shadow-[0_10px_20px_rgba(0,229,255,0.02)] transition-all duration-300 group relative overflow-hidden"
+              >
+                <div className="absolute -inset-px bg-gradient-to-r from-[#00E5FF]/0 via-[#00E5FF]/3 to-[#00E5FF]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                
+                {/* Step badge/number */}
+                <div className="flex flex-col items-center shrink-0 mt-0.5">
+                  <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-bold text-xs border ${item.color} font-mono`}>
+                    {item.step}
+                  </div>
+                </div>
+                
+                <div className="flex-1 space-y-1.5 text-left">
+                  <div className="flex flex-wrap items-center justify-between gap-1.5">
+                    <h4 className="text-slate-100 font-extrabold text-sm sm:text-base tracking-tight group-hover:text-white transition-colors">
+                      {item.title}
+                    </h4>
+                    <span className={`text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded border ${item.color}`}>
+                      {item.badge}
+                    </span>
+                  </div>
+                  <p className="text-slate-400 text-xs leading-relaxed font-medium">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Step 1: Chatbot AI */}
-          <div className="bg-[#0b1220]/60 backdrop-blur-md border border-slate-800/60 p-6 md:p-7 rounded-3xl flex flex-col justify-between hover:border-[#00E5FF]/20 hover:shadow-[0_15px_30px_rgba(0,229,255,0.03)] transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden z-10">
-            {/* Step Number Backdrop */}
-            <div className="absolute top-2 right-4 text-6xl font-black text-slate-850/30 select-none group-hover:text-cyan-500/5 transition-colors pointer-events-none font-mono">01</div>
+          {/* Visual Column */}
+          <div className="lg:col-span-7 flex justify-center relative group w-full">
+            {/* Ambient Glow */}
+            <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-emerald-500/10 to-sky-500/20 opacity-20 blur-2xl group-hover:opacity-45 transition-opacity duration-500 pointer-events-none"></div>
             
-            <div className="mb-6 relative z-10 text-left">
-              <span className="px-2.5 py-0.8 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[9px] font-black uppercase tracking-wider">
-                Bước 1: Tương Tác
-              </span>
-              <h4 className="text-white font-extrabold text-lg mt-3 mb-2">
-                Chatbot tư vấn 24/7
-              </h4>
-              <p className="text-slate-400 text-xs leading-relaxed font-medium">
-                Tự động trả lời nhanh dưới 2s, khai thác đúng nhu cầu đặt phòng/dịch vụ của khách.
-              </p>
-            </div>
-            
-            {/* Mini Chat UI Mockup */}
-            <div className="rounded-2xl bg-[#070b13] border border-slate-850 p-4 space-y-3 font-sans text-[10px] sm:text-[11px] h-[155px] overflow-hidden flex flex-col justify-between text-left relative z-10">
-              <div className="flex items-center space-x-1.5 border-b border-slate-900 pb-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">AI Trợ lý Khách Sạn</span>
-              </div>
-              <div className="space-y-2 flex-1 pt-1.5">
-                <div className="flex justify-end">
-                  <div className="bg-[#0068ff] text-white px-2.5 py-1 rounded-xl rounded-tr-none max-w-[85%] leading-normal font-semibold">
-                    Giá phòng cuối tuần ở Sầm Sơn còn không?
-                  </div>
-                </div>
-                <div className="flex items-start space-x-1.5">
-                  <div className="w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[9px] border border-slate-750 shrink-0">
-                    <Bot className="h-2.5 w-2.5" />
-                  </div>
-                  <div className="bg-[#18222f] text-slate-200 px-2.5 py-1.5 rounded-xl rounded-tl-none max-w-[80%] leading-normal border border-slate-855">
-                    Dạ còn ạ. Anh/chị đi ngày nào và mấy người?
-                  </div>
-                </div>
-                <div className="flex justify-end">
-                  <div className="bg-[#0068ff] text-white px-2.5 py-1 rounded-xl rounded-tr-none max-w-[85%] leading-normal font-semibold">
-                    Thứ 7, 2 người.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-5.5 pt-3 border-t border-slate-850/40 text-left relative z-10 flex items-center space-x-1.5">
-              <Check className="h-4 w-4 text-cyan-400 shrink-0" />
-              <span className="text-slate-450 text-[10.5px] font-bold">✓ Bot đang thu nhu cầu khách</span>
-            </div>
-          </div>
-
-          {/* Step 2: Google Sheets */}
-          <div className="bg-[#0b1220]/60 backdrop-blur-md border border-slate-800/60 p-6 md:p-7 rounded-3xl flex flex-col justify-between hover:border-emerald-500/20 hover:shadow-[0_15px_30px_rgba(16,185,129,0.03)] transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden z-10">
-            {/* Step Number Backdrop */}
-            <div className="absolute top-2 right-4 text-6xl font-black text-slate-850/30 select-none group-hover:text-emerald-500/5 transition-colors pointer-events-none font-mono">02</div>
-
-            <div className="mb-6 relative z-10 text-left">
-              <span className="px-2.5 py-0.8 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-450 text-[9px] font-black uppercase tracking-wider">
-                Bước 2: Đồng Bộ
-              </span>
-              <h4 className="text-white font-extrabold text-lg mt-3 mb-2">
-                Lead lưu về Google Sheet
-              </h4>
-              <p className="text-slate-400 text-xs leading-relaxed font-medium">
-                Ngay khi khách cung cấp SĐT, thông tin được tự động điền vào spreadsheet không cần nhập tay.
-              </p>
-            </div>
-
-            {/* Mini Sheet Table Mockup */}
-            <div className="rounded-2xl bg-[#070b13] border border-slate-850 p-3 h-[155px] overflow-hidden flex flex-col justify-between text-[9.5px] font-mono relative z-10">
-              <div className="flex items-center space-x-1.5 border-b border-slate-900 pb-1.5 mb-1 text-left">
-                <Database className="h-3 w-3 text-emerald-500" />
-                <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Google Sheets Database</span>
-              </div>
-              <div className="rounded border border-slate-850 overflow-hidden flex-1 flex flex-col">
-                <div className="grid grid-cols-3 bg-slate-900 border-b border-slate-850 text-slate-500 font-bold p-1 text-left">
-                  <div>Họ tên</div>
-                  <div>Điện thoại</div>
-                  <div>Nhu cầu</div>
-                </div>
-                <div className="grid grid-cols-3 p-1 text-slate-350 bg-emerald-500/5 border-b border-emerald-500/10 text-left items-center font-bold">
-                  <div className="truncate">Nguyễn Văn A</div>
-                  <div className="font-mono text-amber-500">0912345678</div>
-                  <div className="truncate text-emerald-400">KS Sầm Sơn</div>
-                </div>
-                <div className="grid grid-cols-3 p-1 text-slate-655 opacity-40 text-left items-center">
-                  <div className="truncate">Trần Thị B</div>
-                  <div className="font-mono">0987xxx321</div>
-                  <div className="truncate">Spa Tắm Trắng</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-5.5 pt-3 border-t border-slate-850/40 text-left relative z-10 flex items-center space-x-1.5">
-              <Check className="h-4 w-4 text-emerald-400 shrink-0" />
-              <span className="text-slate-450 text-[10.5px] font-bold">✓ Dữ liệu lưu tập trung</span>
-            </div>
-          </div>
-
-          {/* Step 3: Telegram Alert */}
-          <div className="bg-[#0b1220]/60 backdrop-blur-md border border-slate-800/60 p-6 md:p-7 rounded-3xl flex flex-col justify-between hover:border-sky-500/20 hover:shadow-[0_15px_30px_rgba(14,165,233,0.03)] transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden z-10">
-            {/* Step Number Backdrop */}
-            <div className="absolute top-2 right-4 text-6xl font-black text-slate-850/30 select-none group-hover:text-sky-500/5 transition-colors pointer-events-none font-mono">03</div>
-
-            <div className="mb-6 relative z-10 text-left">
-              <span className="px-2.5 py-0.8 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-[9px] font-black uppercase tracking-wider">
-                Bước 3: Chốt Nhanh
-              </span>
-              <h4 className="text-white font-extrabold text-lg mt-3 mb-2">
-                Thông báo Telegram về ngay
-              </h4>
-              <p className="text-slate-400 text-xs leading-relaxed font-medium">
-                Bắn cảnh báo lead mới tức thời vào điện thoại của bạn, giúp liên hệ lại ngay trong 5 phút.
-              </p>
-            </div>
-
-            {/* Mini Telegram Mockup */}
-            <div className="rounded-2xl bg-[#17212b] border border-sky-500/20 p-3 h-[155px] overflow-hidden flex flex-col justify-between text-[9.5px] text-left relative z-10 font-sans">
-              <div className="flex items-center space-x-1.5 border-b border-slate-800 pb-1.5">
-                <div className="w-4 h-4 rounded-full bg-[#24a1de] flex items-center justify-center text-white text-[8px] font-black shrink-0">
-                  <Send className="h-2 w-2 transform rotate-[-30deg]" fill="white" />
-                </div>
-                <span className="text-[9px] text-sky-400 font-bold uppercase tracking-wider">Telegram Alert</span>
-              </div>
-              <div className="font-mono text-[9px] text-slate-200 space-y-0.5 flex-1 pt-1.5 leading-normal">
-                <div className="font-extrabold text-sky-400">🔔 Lead mới từ alexminh.com</div>
-                <div className="pl-1.5 border-l border-sky-500/30 font-sans text-[8.5px] space-y-0.2 mt-1">
-                  <div><span className="text-slate-450">Khách:</span> <span className="font-bold text-white">Nguyễn Văn A</span></div>
-                  <div><span className="text-slate-450">SĐT:</span> <span className="font-bold text-amber-400">0912345678</span></div>
-                  <div><span className="text-slate-450">Nhu cầu:</span> <span className="text-slate-300">Khách sạn Sầm Sơn</span></div>
-                </div>
-              </div>
-              <div className="py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[8.5px] font-black uppercase text-center flex items-center justify-center space-x-1">
-                <Check className="h-2.5 w-2.5 shrink-0" />
-                <span>Gọi lại chốt ngay</span>
-              </div>
-            </div>
-
-            <div className="mt-5.5 pt-3 border-t border-slate-850/40 text-left relative z-10 flex items-center space-x-1.5">
-              <Check className="h-4 w-4 text-emerald-400 shrink-0" />
-              <span className="text-slate-450 text-[10.5px] font-bold">✓ Chốt nhanh hơn</span>
+            <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 bg-[#050b16] shadow-2xl transition-transform duration-500 group-hover:scale-[1.01] p-1.5">
+              <Image
+                src="/images/hero/hero-banner-03-solution-flow.png"
+                alt="Hệ thống Chatbot AI Google Sheets Telegram khép kín"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-contain"
+                priority={false}
+              />
             </div>
           </div>
 

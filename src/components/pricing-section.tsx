@@ -112,13 +112,28 @@ export default function PricingSection() {
                   </div>
 
                   {/* Fit Badge */}
-                  <div className={`mb-6 px-3 py-1.8 rounded-xl text-[10px] font-bold tracking-wide ${
+                  <div className={`mb-4 px-3 py-1.8 rounded-xl text-[10px] font-bold tracking-wide ${
                     isFeatured 
                       ? "bg-amber-500/10 border border-amber-500/20 text-amber-300" 
                       : "bg-slate-900/60 border border-slate-805 text-slate-400"
                   }`}>
                     {pkg.fitBadge}
                   </div>
+
+                  {/* Promo Badge & Note */}
+                  {pkg.promoBadge && (
+                    <div className="mb-6 p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/25 text-left animate-pulse">
+                      <div className="text-[11px] font-black text-amber-400 tracking-wide flex items-center gap-1.5">
+                        <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+                        <span>{pkg.promoBadge}</span>
+                      </div>
+                      {pkg.promoNote && (
+                        <p className="text-[10px] text-slate-300 leading-relaxed mt-1.5 font-medium">
+                          {pkg.promoNote}
+                        </p>
+                      )}
+                    </div>
+                  )}
 
                   {/* Features list */}
                   <ul className="space-y-3.5 mb-8">
@@ -230,7 +245,11 @@ export default function PricingSection() {
         </div>
 
         {/* Small Notice */}
-        <div className="text-center mt-12 pt-8 border-t border-slate-800/20">
+        <div className="text-center mt-12 pt-8 border-t border-slate-800/20 space-y-3">
+          <p className="text-xs text-amber-400 font-extrabold tracking-wide flex items-center justify-center gap-1.5">
+            <Sparkles className="h-4 w-4 text-amber-400 animate-pulse animate-duration-1000" />
+            <span>🎁 Ưu đãi KODA ELITE áp dụng cho khách triển khai trong giai đoạn ra mắt.</span>
+          </p>
           <p className="text-[11px] text-slate-500 max-w-xl mx-auto leading-relaxed font-medium">
             * Chi phí triển khai thực tế phụ thuộc vào độ phức tạp của kịch bản chatbot, khối lượng dữ liệu huấn luyện, số lượng trang website và các cổng tích hợp phần mềm khác.
           </p>

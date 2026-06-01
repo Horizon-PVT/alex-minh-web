@@ -8,12 +8,73 @@ import PricingSection from "@/components/pricing-section";
 import FaqSection from "@/components/faq-section";
 import LeadForm from "@/components/lead-form";
 import { Phone, MessageSquare, CheckCircle2, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="relative">
       {/* Hero Intro - Premium first view */}
       <HeroSection />
+
+      {/* Launch Promo Banner - KODA ELITE */}
+      <section className="py-12 bg-[#090d16] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="relative rounded-3xl overflow-hidden border border-amber-500/20 bg-gradient-to-r from-amber-500/5 via-slate-900/90 to-indigo-950/20 p-8 sm:p-10 shadow-[0_0_30px_rgba(245,158,11,0.08)] flex flex-col md:flex-row items-center gap-8 group">
+            {/* Ambient decorative glows */}
+            <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-amber-500/10 blur-2xl group-hover:bg-amber-500/20 transition-all pointer-events-none"></div>
+            <div className="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-indigo-500/5 blur-2xl pointer-events-none"></div>
+
+            {/* Left Column: Promo Content */}
+            <div className="flex-1 space-y-4 text-left relative z-10">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-black uppercase tracking-wider">
+                <Sparkles className="h-3 w-3 animate-spin [animation-duration:3s]" />
+                <span>QUÀ TẶNG RA MẮT</span>
+              </div>
+              
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+                🎁 Tặng Trợ Lý AI Riêng Cho Chủ Doanh Nghiệp
+              </h3>
+
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
+                Không chỉ là chatbot cho website — anh/chị còn được tặng thêm <span className="text-amber-400 font-extrabold">KODA ELITE</span>, một trợ lý AI riêng có thể hỗ trợ bán hàng, nhắc việc, lên lịch, phân tích sản phẩm, gợi ý nội dung và đồng hành cùng chủ doanh nghiệp mỗi ngày.
+              </p>
+
+              <p className="text-slate-400 text-[11px] sm:text-xs leading-relaxed italic">
+                “Như có thêm một trợ lý kinh doanh AI bên cạnh — luôn sẵn sàng hỗ trợ anh/chị suy nghĩ, sắp xếp và bán hàng tốt hơn.”
+              </p>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <a
+                  href="#dang-ky"
+                  className="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 text-slate-950 text-xs font-black uppercase tracking-wider transition-all shadow-md shadow-amber-500/10"
+                >
+                  Nhận trợ lý AI riêng
+                </a>
+                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider border-l border-slate-800 pl-4 py-1">
+                  Powered by KODA ELITE
+                </span>
+              </div>
+
+              <div className="text-[10px] text-slate-500 font-medium">
+                * Áp dụng cho khách triển khai Web + Chatbot AI trong giai đoạn ra mắt.
+              </div>
+            </div>
+
+            {/* Right Column: Visual Avatar */}
+            <div className="w-28 h-28 sm:w-36 sm:h-36 shrink-0 relative rounded-full p-1.5 bg-gradient-to-br from-amber-500 via-purple-500 to-cyan-400 shadow-2xl flex items-center justify-center animate-[pulse_6s_infinite]">
+              <div className="w-full h-full rounded-full overflow-hidden relative bg-slate-950">
+                <Image
+                  src="/images/brand/koda-elite-avatar.jpg"
+                  alt="KODA ELITE - Trợ lý AI riêng cho chủ doanh nghiệp"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 150px, 200px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Pain points of local businesses (3 core items) */}
       <ProblemSection />
@@ -102,6 +163,10 @@ export default function Home() {
                   <li className="flex items-start space-x-2.5">
                     <CheckCircle2 className="h-5 w-5 text-cyan-400 shrink-0 mt-0.5 drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]" />
                     <span>Demo miễn phí trong 24h làm việc nếu phù hợp</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <CheckCircle2 className="h-5 w-5 text-amber-400 shrink-0 mt-0.5 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]" />
+                    <span className="text-amber-300 font-extrabold">🎁 Khách triển khai giai đoạn đầu được tặng KODA ELITE — trợ lý AI riêng cho chủ doanh nghiệp.</span>
                   </li>
                 </ul>
 
