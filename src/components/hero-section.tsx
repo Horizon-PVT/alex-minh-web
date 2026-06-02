@@ -51,7 +51,7 @@ export default function HeroSection() {
             alt="Website và Chatbot AI cho doanh nghiệp Thanh Hóa"
             fill
             sizes="100vw"
-            className="object-cover object-center opacity-[0.85] md:opacity-[0.98]"
+            className="object-cover object-center md:object-[82%_50%] opacity-[0.85] md:opacity-[0.98]"
             style={{ filter: "brightness(1.08) contrast(1.06) saturate(1.08)" }}
             priority
           />
@@ -59,7 +59,7 @@ export default function HeroSection() {
       ) : (
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover object-center md:object-[65%_50%] opacity-[0.88] md:opacity-[1.0] pointer-events-none z-0 hero-video-element"
+          className="absolute inset-0 w-full h-full object-cover object-center md:object-[82%_50%] opacity-[0.88] md:opacity-[1.0] pointer-events-none z-0 hero-video-element"
           style={{ filter: "brightness(1.08) contrast(1.06) saturate(1.08)" }}
           autoPlay
           muted
@@ -78,8 +78,8 @@ export default function HeroSection() {
       )}
 
       {/* Overlays to blend background video and text */}
-      {/* 1. Gradient overlay targeting left text area only (smoother, wider fade to protect text) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16]/98 via-[#050b16]/82 via-[#050b16]/50 to-transparent w-full md:w-[65%] pointer-events-none z-5"></div>
+      {/* 1. Gradient overlay targeting left text area only (smoother, wider, and slightly darker fade to protect text) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16]/98 via-[#050b16]/90 via-[#050b16]/45 to-transparent w-full md:w-[68%] pointer-events-none z-5"></div>
       
       {/* 2. Light bottom gradient to blend into adjacent sections (max 20%) */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050b16]/20 pointer-events-none z-5"></div>
@@ -98,21 +98,21 @@ export default function HeroSection() {
               <Sparkles className="h-3 w-3 text-cyan-400 md:text-amber-400 animate-pulse shrink-0" />
               <span>Thiết kế Website • Chatbot AI • Tự động hóa bán hàng</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight" style={{ filter: "drop-shadow(0 4px 12px rgba(5, 11, 22, 0.95)) drop-shadow(0 2px 4px rgba(5, 11, 22, 0.8))" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight" style={{ filter: "drop-shadow(0 4px 16px rgba(0, 0, 0, 0.95)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.95))" }}>
               <span className="bg-gradient-to-r from-white via-white to-slate-100 bg-clip-text text-transparent">
                 Website & <span className="whitespace-nowrap">Chatbot AI</span>
               </span>{" "}
               <br className="hidden sm:inline" />
-              <span className="bg-gradient-to-r from-[#00E5FF] via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#00E5FF] via-cyan-200 to-sky-300 bg-clip-text text-transparent">
                 Cho Doanh Nghiệp Thanh Hóa
               </span>
             </h1>
 
-            <p className="text-white text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-bold" style={{ textShadow: "0 2px 6px rgba(5, 11, 22, 0.98), 0 4px 15px rgba(5, 11, 22, 0.9)" }}>
+            <p className="text-white text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-bold" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.95), 0 4px 12px rgba(0, 0, 0, 0.9)" }}>
               Tự động tư vấn khách, thu lead về Google Sheet/Telegram và giúp doanh nghiệp không bỏ lỡ khách hàng.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-white text-xs font-bold max-w-md mx-auto lg:mx-0" style={{ textShadow: "0 2px 6px rgba(5, 11, 22, 0.95), 0 1px 3px rgba(5, 11, 22, 0.95)" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-white text-xs font-bold max-w-md mx-auto lg:mx-0" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.95), 0 1px 2px rgba(0, 0, 0, 0.9)" }}>
               <div className="flex items-center space-x-2 justify-center lg:justify-start">
                 <CheckCircle2 className="h-4 w-4 text-[#00E5FF] shrink-0" />
                 <span>Trả lời tự động &lt; 2s</span>
@@ -145,7 +145,7 @@ export default function HeroSection() {
               <Link
                 href="/#bang-gia"
                 className="text-[#00E5FF] hover:text-white text-xs font-extrabold transition-all hover:underline flex items-center space-x-1 px-4 py-2 group whitespace-nowrap shrink-0"
-                style={{ textShadow: "0 2px 6px rgba(5, 11, 22, 0.95), 0 1px 3px rgba(5, 11, 22, 0.95)" }}
+                style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.95), 0 1px 2px rgba(0, 0, 0, 0.9)" }}
               >
                 <span>Xem bảng giá dịch vụ</span>
                 <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
