@@ -78,8 +78,8 @@ export default function HeroSection() {
       )}
 
       {/* Overlays to blend background video and text */}
-      {/* 1. Gradient overlay targeting left text area only */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16]/96 via-[#050b16]/62 to-transparent w-full md:w-[58%] pointer-events-none z-5"></div>
+      {/* 1. Gradient overlay targeting left text area only (smoother, wider fade to protect text) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16]/98 via-[#050b16]/82 via-[#050b16]/50 to-transparent w-full md:w-[65%] pointer-events-none z-5"></div>
       
       {/* 2. Light bottom gradient to blend into adjacent sections (max 20%) */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050b16]/20 pointer-events-none z-5"></div>
@@ -98,22 +98,21 @@ export default function HeroSection() {
               <Sparkles className="h-3 w-3 text-cyan-400 md:text-amber-400 animate-pulse shrink-0" />
               <span>Thiết kế Website • Chatbot AI • Tự động hóa bán hàng</span>
             </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight" style={{ textShadow: "0 2px 10px rgba(5, 11, 22, 0.9)" }}>
-              <span className="bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight" style={{ filter: "drop-shadow(0 4px 12px rgba(5, 11, 22, 0.95)) drop-shadow(0 2px 4px rgba(5, 11, 22, 0.8))" }}>
+              <span className="bg-gradient-to-r from-white via-white to-slate-100 bg-clip-text text-transparent">
                 Website & <span className="whitespace-nowrap">Chatbot AI</span>
               </span>{" "}
               <br className="hidden sm:inline" />
-              <span className="bg-gradient-to-r from-primary via-secondary to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#00E5FF] via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 Cho Doanh Nghiệp Thanh Hóa
               </span>
             </h1>
 
-            <p className="text-slate-200 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-semibold" style={{ textShadow: "0 2px 6px rgba(5, 11, 22, 0.95)" }}>
+            <p className="text-white text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-bold" style={{ textShadow: "0 2px 6px rgba(5, 11, 22, 0.98), 0 4px 15px rgba(5, 11, 22, 0.9)" }}>
               Tự động tư vấn khách, thu lead về Google Sheet/Telegram và giúp doanh nghiệp không bỏ lỡ khách hàng.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-slate-300 text-xs font-semibold max-w-md mx-auto lg:mx-0" style={{ textShadow: "0 1px 4px rgba(5, 11, 22, 0.9)" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-white text-xs font-bold max-w-md mx-auto lg:mx-0" style={{ textShadow: "0 2px 6px rgba(5, 11, 22, 0.95), 0 1px 3px rgba(5, 11, 22, 0.95)" }}>
               <div className="flex items-center space-x-2 justify-center lg:justify-start">
                 <CheckCircle2 className="h-4 w-4 text-[#00E5FF] shrink-0" />
                 <span>Trả lời tự động &lt; 2s</span>
@@ -138,15 +137,15 @@ export default function HeroSection() {
               </Link>
               <Link
                 href="/demo-chatbot-ai"
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-950/40 backdrop-blur-sm border border-white/10 hover:border-cyan-500/40 text-slate-200 hover:text-white text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap shrink-0"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-955/40 backdrop-blur-sm border border-white/10 hover:border-cyan-500/40 text-slate-200 hover:text-white text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap shrink-0"
               >
                 <MessageSquare className="h-3.5 w-3.5 text-[#00E5FF]" />
                 <span>Xem Demo Chatbot</span>
               </Link>
               <Link
                 href="/#bang-gia"
-                className="text-[#00E5FF] hover:text-white text-xs font-bold transition-all hover:underline flex items-center space-x-1 px-4 py-2 group whitespace-nowrap shrink-0"
-                style={{ textShadow: "0 1px 4px rgba(5, 11, 22, 0.9)" }}
+                className="text-[#00E5FF] hover:text-white text-xs font-extrabold transition-all hover:underline flex items-center space-x-1 px-4 py-2 group whitespace-nowrap shrink-0"
+                style={{ textShadow: "0 2px 6px rgba(5, 11, 22, 0.95), 0 1px 3px rgba(5, 11, 22, 0.95)" }}
               >
                 <span>Xem bảng giá dịch vụ</span>
                 <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
