@@ -79,7 +79,7 @@ export default function HeroSection() {
 
       {/* Overlays to blend background video and text */}
       {/* 1. Gradient overlay targeting left text area only (smoother, wider, and slightly darker fade to protect text) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16]/98 via-[#050b16]/90 via-[#050b16]/45 to-transparent w-full md:w-[68%] pointer-events-none z-5"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16]/85 via-[#050b16]/45 to-transparent w-full md:w-[55%] pointer-events-none z-5"></div>
       
       {/* 2. Light bottom gradient to blend into adjacent sections (max 20%) */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050b16]/20 pointer-events-none z-5"></div>
