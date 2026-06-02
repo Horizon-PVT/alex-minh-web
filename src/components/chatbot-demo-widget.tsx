@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { MessageSquare, X, Send, RotateCcw, Bot, User, CheckCircle, AlertTriangle } from "lucide-react";
+import { MessageSquare, X, Send, RotateCcw, User, CheckCircle, AlertTriangle } from "lucide-react";
 import { chatbotScript } from "@/lib/chatbot-script";
 import { industries } from "@/lib/industries";
 import { trackEvent } from "@/lib/analytics";
@@ -432,13 +432,18 @@ export default function ChatbotDemoWidget() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 w-[350px] sm:w-[380px] h-[500px] rounded-3xl glass border border-slate-700/50 shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-300">
           {/* Header */}
-          <div className="bg-gradient-to-r from-primary/80 to-secondary/80 px-4 py-4 flex items-center justify-between border-b border-slate-700/50">
+          <div className="bg-gradient-to-r from-primary/80 to-secondary/80 px-4 py-3 flex items-center justify-between border-b border-slate-700/50">
             <div className="flex items-center space-x-3">
-              <div className="p-1.5 rounded-lg bg-white/10 text-white">
-                <Bot className="h-5 w-5" />
+              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/20 bg-slate-900 shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/brand/alex-minh-avatar.jpg"
+                  alt="Alex Minh AI"
+                  className="object-cover w-full h-full"
+                />
               </div>
               <div>
-                <h4 className="text-white text-sm font-semibold leading-tight">Trợ lý AI Demo</h4>
+                <h4 className="text-white text-sm font-bold leading-tight">Trợ lý Alex Minh AI</h4>
                 <div className="flex items-center space-x-1.5">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span className="text-[10px] text-emerald-200">Online | Phản hồi ngay</span>
@@ -502,13 +507,22 @@ export default function ChatbotDemoWidget() {
               >
                 {/* Avatar */}
                 <div
-                  className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs shrink-0 ${
+                  className={`w-7 h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 ${
                     msg.sender === "user"
-                      ? "bg-secondary text-white"
-                      : "bg-slate-800 text-slate-300 border border-slate-700"
+                      ? "bg-secondary text-white text-xs"
+                      : "border border-slate-700 bg-slate-900"
                   }`}
                 >
-                  {msg.sender === "user" ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
+                  {msg.sender === "user" ? (
+                    <User className="w-4 h-4" />
+                  ) : (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src="/images/brand/alex-minh-avatar.jpg"
+                      alt="Alex Minh AI"
+                      className="object-cover w-full h-full"
+                    />
+                  )}
                 </div>
 
                 {/* Bubble */}
@@ -529,8 +543,13 @@ export default function ChatbotDemoWidget() {
             {/* Typing indicator */}
             {isTyping && (
               <div className="flex items-start gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 flex items-center justify-center shrink-0">
-                  <Bot className="w-4 h-4" />
+                <div className="w-7 h-7 rounded-full overflow-hidden border border-slate-700 bg-slate-900 flex items-center justify-center shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/brand/alex-minh-avatar.jpg"
+                    alt="Alex Minh AI"
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <div className="bg-slate-800/80 border border-slate-700/30 rounded-2xl rounded-tl-none px-4 py-3 flex items-center space-x-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"></span>

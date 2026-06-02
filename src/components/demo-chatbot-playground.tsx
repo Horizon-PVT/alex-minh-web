@@ -1,10 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
+
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import BrandLogo from "@/components/brand-logo";
 import { industries, IndustryDemo } from "@/lib/industries";
-import { Bot, User, Send, RotateCcw, CheckCircle, Sparkles, MessageSquare, AlertTriangle, Play, Pause, ArrowRight, Hotel, Home, GraduationCap, ShoppingBag } from "lucide-react";
+import { User, Send, RotateCcw, CheckCircle, Sparkles, MessageSquare, AlertTriangle, Play, Pause, ArrowRight, Hotel, Home, GraduationCap, ShoppingBag } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 interface Message {
@@ -797,12 +799,15 @@ export default function DemoChatbotPlayground() {
                 </div>
               )}
 
-              {/* Chat Simulator Header */}
               <div className="bg-[#0c1224] px-5 py-4 flex items-center justify-between border-b border-slate-800/80">
                 <div className="flex items-center space-x-3.5">
                   <div className="relative">
-                    <div className="p-2.5 rounded-xl bg-secondary/10 text-secondary border border-secondary/20">
-                      <Bot className="h-5 w-5" />
+                    <div className="w-10 h-10 rounded-full overflow-hidden border border-secondary/20 bg-slate-900 shrink-0">
+                      <img
+                        src="/images/brand/alex-minh-avatar.jpg"
+                        alt="Alex Minh AI"
+                        className="object-cover w-full h-full"
+                      />
                     </div>
                     <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-500 border-2 border-[#0a0f1d] animate-pulse"></span>
                   </div>
@@ -949,13 +954,21 @@ export default function DemoChatbotPlayground() {
                     >
                       {/* Message Sender Icon Bubble */}
                       <div
-                        className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border text-[11px] ${
+                        className={`w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0 border ${
                           isBot
-                            ? "bg-slate-900 text-slate-350 border-slate-800"
+                            ? "border-slate-800 bg-slate-900"
                             : "bg-secondary text-white border-secondary/20"
                         }`}
                       >
-                        {isBot ? <Bot className="w-4 h-4" /> : <User className="w-4 h-4" />}
+                        {isBot ? (
+                          <img
+                            src="/images/brand/alex-minh-avatar.jpg"
+                            alt="Alex Minh AI"
+                            className="object-cover w-full h-full"
+                          />
+                        ) : (
+                          <User className="w-4 h-4" />
+                        )}
                       </div>
                       
                       {/* Message Bubble Content */}
@@ -973,8 +986,12 @@ export default function DemoChatbotPlayground() {
                 {/* Real-time Typing indicator dot sequence */}
                 {isTyping && (
                   <div className="flex items-start gap-3 message-bubble">
-                    <div className="w-8 h-8 rounded-xl bg-slate-900 text-slate-350 border border-slate-800 flex items-center justify-center shrink-0">
-                      <Bot className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-full overflow-hidden bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0">
+                      <img
+                        src="/images/brand/alex-minh-avatar.jpg"
+                        alt="Alex Minh AI"
+                        className="object-cover w-full h-full"
+                      />
                     </div>
                     <div className="bg-[#11192e] border border-slate-800/80 rounded-2xl rounded-tl-none px-4 py-3 flex items-center space-x-1 shadow-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0s" }}></span>
