@@ -39,11 +39,11 @@ export default function SiteHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 ${
         scrolled
-          ? "bg-[#090d16]/90 backdrop-blur-md shadow-xl shadow-black/35 border-b border-slate-800/80 py-2.5"
-          : "bg-transparent py-4"
+          ? "bg-[#090d16]/95 backdrop-blur-md shadow-xl shadow-black/35 border-b border-slate-800/80 py-2.5"
+          : "bg-gradient-to-b from-[#050b16]/95 via-[#050b16]/45 to-transparent py-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="group transition-transform duration-300 hover:scale-[1.02] block">
@@ -58,31 +58,48 @@ export default function SiteHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
+                  className={`relative px-3.5 py-2.5 text-sm transition-all duration-200 ${
                     isActive
-                      ? "text-secondary bg-secondary/10 border border-secondary/15 shadow-sm"
-                      : "text-slate-350 hover:text-white hover:bg-slate-800/40 border border-transparent"
+                      ? "text-secondary font-bold"
+                      : "text-slate-250 hover:text-secondary font-medium"
                   }`}
+                  style={{ 
+                    fontFamily: "var(--font-sans)", 
+                    letterSpacing: "-0.01em",
+                    textShadow: "0 1px 3px rgba(0,0,0,0.8)" 
+                  }}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {isActive && (
+                    <span className="absolute bottom-[-1px] left-1/2 -translate-x-1/2 w-6 h-[2.5px] bg-secondary rounded-full" />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-3.5">
             <a
               href={`tel:${siteConfig.hotline.replace(/\./g, "")}`}
               onClick={() => trackEvent("phone_click", { location: "header_desktop" })}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-slate-900/50 border border-slate-800 hover:border-secondary/40 text-slate-300 hover:text-white transition-all text-xs font-bold shadow-inner"
+              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-[#050b16]/30 border border-white/10 hover:border-secondary/40 text-slate-200 hover:text-white transition-all text-sm font-medium"
+              style={{ 
+                fontFamily: "var(--font-sans)", 
+                letterSpacing: "-0.01em",
+                textShadow: "0 1px 3px rgba(0,0,0,0.8)" 
+              }}
             >
               <PhoneCall className="h-3.5 w-3.5 text-secondary animate-pulse" />
               <span>{siteConfig.hotline}</span>
             </a>
             <Link
               href="/lien-he"
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-xs font-extrabold shadow-lg shadow-primary/20 hover:shadow-secondary/30 transition-all duration-300 transform hover:-translate-y-0.5 hover:brightness-110"
+              className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-secondary/30 transition-all duration-300 transform hover:-translate-y-0.5 hover:brightness-110"
+              style={{ 
+                fontFamily: "var(--font-sans)", 
+                letterSpacing: "-0.01em" 
+              }}
             >
               Tư vấn ngay
             </Link>

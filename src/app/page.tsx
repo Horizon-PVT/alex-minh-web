@@ -5,6 +5,7 @@ import ProofFlowSection from "@/components/proof-flow-section";
 import ServicesSection from "@/components/services-section";
 import IndustryDemoSection from "@/components/industry-demo-section";
 import PricingSection from "@/components/pricing-section";
+import LaunchOfferSection from "@/components/launch-offer-section";
 import FaqSection from "@/components/faq-section";
 import LeadForm from "@/components/lead-form";
 import { Phone, MessageSquare, CheckCircle2, Sparkles } from "lucide-react";
@@ -87,6 +88,9 @@ export default function Home() {
 
       {/* Industry verticals dynamic chatbot showcase */}
       <IndustryDemoSection />
+
+      {/* Launch Offer Promo Details */}
+      <LaunchOfferSection />
 
       {/* Pricing packages section (Simplified) */}
       <PricingSection />
