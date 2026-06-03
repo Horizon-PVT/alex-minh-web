@@ -611,7 +611,7 @@ export default function DemoChatbotPlayground() {
                 "🎯 Thu lead khách hàng tự động",
                 "💬 Tư vấn theo kịch bản ngành"
               ].map((chip, idx) => (
-                <div key={idx} className="flex items-center gap-1.5 px-3 py-1 text-slate-350 text-xs font-semibold">
+                <div key={idx} className="flex items-center gap-1.5 px-3 py-1 text-slate-300 text-xs font-semibold">
                   <span>{chip}</span>
                 </div>
               ))}
@@ -676,7 +676,7 @@ export default function DemoChatbotPlayground() {
             </h3>
             
             {/* Industry selector tab cards */}
-            <div className="bg-[#0e1626]/60 border border-slate-800/80 p-4.5 rounded-3xl flex flex-col space-y-4 shadow-xl">
+            <div className="bg-[#0e1626]/60 border border-slate-800/80 p-[18px] rounded-3xl flex flex-col space-y-4 shadow-xl">
               <div className="flex flex-col gap-3">
                 {industries.map((ind) => {
                   const IndIcon = industryIconMap[ind.icon] || Sparkles;
@@ -689,15 +689,15 @@ export default function DemoChatbotPlayground() {
                       className={`text-left w-full p-3.5 rounded-2xl text-xs transition-all border flex items-start gap-3.5 cursor-pointer relative group ${
                         isActive
                           ? "bg-secondary/10 border-secondary/50 text-white shadow-[0_0_15px_rgba(0,229,255,0.08)]"
-                          : "bg-slate-900/50 border-slate-850 hover:border-slate-700 text-slate-400 hover:text-slate-200"
+                          : "bg-slate-900/50 border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200"
                       }`}
                     >
                       <div className={`p-2.5 rounded-xl border shrink-0 mt-0.5 transition-all ${
                         isActive 
                           ? "bg-secondary/20 border-secondary/30 text-secondary" 
-                          : "bg-slate-800/60 border-slate-750 text-slate-455 group-hover:text-slate-300"
+                          : "bg-slate-800/60 border-slate-700 text-slate-400 group-hover:text-slate-300"
                       }`}>
-                        <IndIcon className="h-4.5 w-4.5" />
+                        <IndIcon className="h-[18px] w-[18px]" />
                       </div>
                       
                       <div className="flex-grow">
@@ -718,12 +718,12 @@ export default function DemoChatbotPlayground() {
             </div>
 
             {/* Note card / Disclaimer */}
-            <div className="p-4 bg-slate-900/40 border border-slate-850 rounded-2xl text-slate-400 font-medium shadow-md">
+            <div className="p-4 bg-slate-900/40 border border-slate-800 rounded-2xl text-slate-400 font-medium shadow-md">
               <div className="flex items-center gap-2 mb-1.5 text-slate-300 text-xs font-bold">
                 <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0" />
                 <span>Lưu ý về bản giả lập</span>
               </div>
-              <p className="text-[10px] leading-relaxed text-slate-450">
+              <p className="text-[10px] leading-relaxed text-slate-400">
                 Trình giả lập mô phỏng quy trình hoạt động của chatbot theo kịch bản mẫu. Chatbot AI thực tế khi bàn giao sẽ được huấn luyện sâu theo dữ liệu riêng biệt của doanh nghiệp và tự xử lý các tình huống phức tạp.
               </p>
             </div>
@@ -748,10 +748,10 @@ export default function DemoChatbotPlayground() {
                     <button
                       key={idx}
                       onClick={() => processUserMessage(q)}
-                      className="text-left w-full px-4 py-3 bg-slate-900/60 hover:bg-slate-800/80 border border-slate-850 hover:border-secondary/40 text-slate-300 hover:text-white rounded-xl text-xs leading-normal transition-all cursor-pointer flex items-center justify-between group"
+                      className="text-left w-full px-4 py-3 bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-secondary/40 text-slate-300 hover:text-white rounded-xl text-xs leading-normal transition-all cursor-pointer flex items-center justify-between group"
                     >
                       <span className="pr-2">“{q}”</span>
-                      <ArrowRight className="h-3 w-3 text-slate-650 group-hover:text-secondary transition-colors shrink-0" />
+                      <ArrowRight className="h-3 w-3 text-slate-600 group-hover:text-secondary transition-colors shrink-0" />
                     </button>
                   ))}
                 </div>
@@ -764,10 +764,10 @@ export default function DemoChatbotPlayground() {
                     <button
                       key={idx}
                       onClick={() => processUserMessage(q)}
-                      className="text-left w-full px-4 py-3 bg-slate-900/60 hover:bg-slate-800/80 border border-slate-850 hover:border-amber-500/40 text-slate-300 hover:text-white rounded-xl text-xs leading-normal transition-all cursor-pointer flex items-center justify-between group"
+                      className="text-left w-full px-4 py-3 bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-amber-500/40 text-slate-300 hover:text-white rounded-xl text-xs leading-normal transition-all cursor-pointer flex items-center justify-between group"
                     >
                       <span className="pr-2">“{q}”</span>
-                      <ArrowRight className="h-3 w-3 text-slate-650 group-hover:text-amber-400 transition-colors shrink-0" />
+                      <ArrowRight className="h-3 w-3 text-slate-600 group-hover:text-amber-400 transition-colors shrink-0" />
                     </button>
                   ))}
                 </div>
@@ -852,7 +852,7 @@ export default function DemoChatbotPlayground() {
                   {/* Reset Button */}
                   <button
                     onClick={handleReset}
-                    className="p-2 rounded-xl text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-855 border border-slate-800 transition-all flex items-center gap-1 text-[11px] font-bold cursor-pointer"
+                    className="p-2 rounded-xl text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all flex items-center gap-1 text-[11px] font-bold cursor-pointer"
                     title="Khởi động lại cuộc hội thoại"
                   >
                     <RotateCcw className="h-3.5 w-3.5" />
@@ -868,7 +868,7 @@ export default function DemoChatbotPlayground() {
                   className={`flex-1 px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer text-center border ${
                     chatMode === "scripted"
                       ? "bg-primary/20 border-primary/30 text-white shadow-md shadow-primary/10"
-                      : "bg-slate-950/40 border-slate-850/60 text-slate-455 hover:text-slate-200"
+                      : "bg-slate-950/40 border-slate-800/60 text-slate-400 hover:text-slate-200"
                   }`}
                 >
                   🤖 Demo Tự Động
@@ -878,7 +878,7 @@ export default function DemoChatbotPlayground() {
                   className={`flex-1 px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 border ${
                     chatMode === "ai"
                       ? "bg-secondary/20 border-secondary/30 text-white shadow-md shadow-secondary/10"
-                      : "bg-slate-950/40 border-slate-850/60 text-slate-455 hover:text-slate-200"
+                      : "bg-slate-950/40 border-slate-800/60 text-slate-400 hover:text-slate-200"
                   }`}
                 >
                   ✨ Hỏi AI Thật
@@ -921,14 +921,14 @@ export default function DemoChatbotPlayground() {
                   <span className={`px-2 py-0.5 rounded text-[9px] font-bold border transition-all ${
                     showCrmAlerts 
                       ? "bg-emerald-950/50 border-emerald-500/30 text-emerald-400" 
-                      : "bg-slate-900 border-slate-850 text-slate-500"
+                      : "bg-slate-900 border-slate-800 text-slate-500"
                   }`}>
                     Sheets Synced
                   </span>
                   <span className={`px-2 py-0.5 rounded text-[9px] font-bold border transition-all ${
                     showCrmAlerts 
                       ? "bg-cyan-950/50 border-cyan-500/30 text-cyan-400" 
-                      : "bg-slate-900 border-slate-850 text-slate-500"
+                      : "bg-slate-900 border-slate-800 text-slate-500"
                   }`}>
                     Telegram Sent
                   </span>
@@ -1005,10 +1005,10 @@ export default function DemoChatbotPlayground() {
                 {showPhoneCta && (
                   <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-left space-y-3 animate-[slideUp_0.3s_cubic-bezier(0.2,0.8,0.2,1)_forwards] mx-2">
                     <div className="flex items-start gap-2.5">
-                      <AlertTriangle className="h-4.5 w-4.5 text-amber-400 shrink-0 mt-0.5" />
+                      <AlertTriangle className="h-[18px] w-[18px] text-amber-400 shrink-0 mt-0.5" />
                       <div>
                         <h5 className="text-xs font-bold text-white">Yêu cầu tư vấn dịch vụ</h5>
-                        <p className="text-[11px] text-slate-350 leading-relaxed mt-1">
+                        <p className="text-[11px] text-slate-300 leading-relaxed mt-1">
                           Em phát hiện số điện thoại của anh/chị trong tin nhắn ({detectedPhone}). Anh/chị có muốn gửi thông tin này cho chuyên viên của Alex Minh AI liên hệ tư vấn trực tiếp không ạ?
                         </p>
                       </div>

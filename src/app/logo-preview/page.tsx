@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import BrandLogo from "@/components/brand-logo";
 import { siteConfig } from "@/lib/site-config";
 import { Sparkles, Info } from "lucide-react";
@@ -41,7 +41,7 @@ export default function LogoPreviewPage() {
                 {/* Full Horizontal */}
                 <div className="space-y-2">
                   <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">1. Full Horizontal Logo (Desktop Header)</span>
-                  <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-850 flex items-center justify-center">
+                  <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-800 flex items-center justify-center">
                     <BrandLogo variant="full" />
                   </div>
                 </div>
@@ -49,7 +49,7 @@ export default function LogoPreviewPage() {
                 {/* Compact */}
                 <div className="space-y-2">
                   <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">2. Compact Logo (Mobile Header / App Tiles)</span>
-                  <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-850 flex items-center justify-center">
+                  <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-800 flex items-center justify-center">
                     <BrandLogo variant="compact" />
                   </div>
                 </div>
@@ -57,7 +57,7 @@ export default function LogoPreviewPage() {
                 {/* Footer lockup */}
                 <div className="space-y-2">
                   <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">3. Footer Logo (Includes Tagline Subtext)</span>
-                  <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-850 flex items-center justify-center">
+                  <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-800 flex items-center justify-center">
                     <BrandLogo variant="footer" />
                   </div>
                 </div>
@@ -66,13 +66,13 @@ export default function LogoPreviewPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">4. Icon Only</span>
-                    <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-850 flex items-center justify-center">
+                    <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-800 flex items-center justify-center">
                       <BrandLogo variant="icon" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">5. Favicon App Style</span>
-                    <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-850 flex items-center justify-center">
+                    <div className="p-6 rounded-2xl bg-[#090d16] border border-slate-800 flex items-center justify-center">
                       <div className="w-14 h-14 rounded-2xl bg-[#0b1220] border-2 border-primary/25 p-1 flex items-center justify-center shadow-lg">
                         <BrandLogo variant="icon" className="scale-110" />
                       </div>
@@ -96,13 +96,13 @@ export default function LogoPreviewPage() {
               <ul className="space-y-4 text-xs sm:text-sm">
                 <li className="space-y-1">
                   <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">Primary Slogan</span>
-                  <p className="text-white font-semibold italic bg-[#090d16] p-2.5 rounded-lg border border-slate-850">
+                  <p className="text-white font-semibold italic bg-[#090d16] p-2.5 rounded-lg border border-slate-800">
                     &quot;{siteConfig.tagline}&quot;
                   </p>
                 </li>
                 <li className="space-y-1">
                   <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">Brand Positioning / Description</span>
-                  <p className="text-slate-300 leading-relaxed bg-[#090d16] p-2.5 rounded-lg border border-slate-850">
+                  <p className="text-slate-300 leading-relaxed bg-[#090d16] p-2.5 rounded-lg border border-slate-800">
                     {siteConfig.description}
                   </p>
                 </li>
@@ -117,35 +117,35 @@ export default function LogoPreviewPage() {
               </h2>
 
               <div className="grid grid-cols-2 gap-3 text-[10px] font-bold">
-                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-850">
-                  <span className="w-5 h-5 rounded bg-[#0b1220] border border-slate-750 shrink-0"></span>
+                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-800">
+                  <span className="w-5 h-5 rounded bg-[#0b1220] border border-slate-700 shrink-0"></span>
                   <div>
                     <span className="text-white block font-mono">#0B1220</span>
                     <span className="text-slate-500 text-[8px]">Deep Navy</span>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-850">
+                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-800">
                   <span className="w-5 h-5 rounded bg-[#1677FF] shrink-0"></span>
                   <div>
                     <span className="text-white block font-mono">#1677FF</span>
                     <span className="text-slate-500 text-[8px]">Electric Blue</span>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-850">
+                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-800">
                   <span className="w-5 h-5 rounded bg-[#00E5FF] shrink-0"></span>
                   <div>
                     <span className="text-white block font-mono">#00E5FF</span>
                     <span className="text-slate-500 text-[8px]">Cyan</span>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-850">
+                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-800">
                   <span className="w-5 h-5 rounded bg-[#7C3AED] shrink-0"></span>
                   <div>
                     <span className="text-white block font-mono">#7C3AED</span>
                     <span className="text-slate-500 text-[8px]">Violet</span>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-850 col-span-2">
+                <div className="flex items-center space-x-2 p-2 rounded bg-slate-900 border border-slate-800 col-span-2">
                   <span className="w-5 h-5 rounded bg-[#FFB020] shrink-0"></span>
                   <div>
                     <span className="text-white block font-mono">#FFB020</span>

@@ -72,7 +72,7 @@ export const pricingPackages: PricingPackage[] = [
     promoNote: "Trợ lý AI vận hành nội bộ, cá nhân hóa theo ngành nghề và quy trình bán hàng của doanh nghiệp."
   },
   {
-    id: "operating-optimizing",
+    id: "growth-partner",
     name: "Vận hành Growth Partner",
     price: "Từ 500k/tháng",
     pricePrefix: "Từ",
@@ -135,4 +135,3 @@ export const comparisonFeatures: ComparisonFeature[] = [
   { name: "Đề xuất cải thiện website/chatbot/kênh bán hàng", web: false, bot: false, sys: false, opt: "Full Channel Ops" },
   { name: "Tư vấn automation cho sales/admin", web: false, bot: false, sys: "Tích hợp", opt: "Theo gói" }
 ];
-

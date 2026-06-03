@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -271,7 +271,7 @@ export default function ProjectDemoPage() {
                         <div className="glass px-3 py-2 rounded-xl border border-white/10 shadow-lg max-w-[85%] self-start">
                           <div className="flex items-center gap-1.5 mb-0.5">
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></div>
-                            <span className="text-[9px] font-bold text-slate-350 uppercase tracking-wider">Trợ lý AI</span>
+                            <span className="text-[9px] font-bold text-slate-300 uppercase tracking-wider">Trợ lý AI</span>
                           </div>
                           <p className="text-[10px] text-white leading-normal font-medium">{cs.chatbotMessage}</p>
                         </div>
@@ -308,7 +308,7 @@ export default function ProjectDemoPage() {
                     </h2>
                     
                     {/* Business Context */}
-                    <p className="text-slate-350 text-xs sm:text-sm leading-relaxed border-l-2 border-primary/30 pl-4 py-0.5 italic">
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed border-l-2 border-primary/30 pl-4 py-0.5 italic">
                       <strong className="text-slate-200 block not-italic text-xs font-bold uppercase tracking-wider mb-1">Bối cảnh doanh nghiệp:</strong>
                       {cs.context}
                     </p>
@@ -352,15 +352,15 @@ export default function ProjectDemoPage() {
                   {/* Sơ đồ quy trình triển khai mẫu */}
                   <div className="pt-2 border-t border-slate-800/60">
                     <h4 className="text-slate-200 font-bold text-xs tracking-wide uppercase flex items-center gap-2 mb-3">
-                      <Clock className="h-4 w-4 text-slate-450 shrink-0" />
+                      <Clock className="h-4 w-4 text-slate-400 shrink-0" />
                       Quy trình triển khai mẫu:
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {cs.timeline.map((step, sIdx) => (
-                        <div key={sIdx} className="flex items-center text-[10.5px] font-semibold text-slate-400 bg-slate-900/60 border border-slate-850/80 px-2.5 py-1.5 rounded-lg shadow-sm">
+                        <div key={sIdx} className="flex items-center text-[10.5px] font-semibold text-slate-400 bg-slate-900/60 border border-slate-800/80 px-2.5 py-1.5 rounded-lg shadow-sm">
                           <span className="text-secondary mr-1">{sIdx + 1}.</span>
                           <span>{step}</span>
-                          {sIdx < 4 && <ArrowRight className="h-3 w-3 text-slate-650 ml-2 hidden sm:inline" />}
+                          {sIdx < 4 && <ArrowRight className="h-3 w-3 text-slate-600 ml-2 hidden sm:inline" />}
                         </div>
                       ))}
                     </div>
@@ -411,7 +411,7 @@ export default function ProjectDemoPage() {
         </div>
 
         {/* Section: Quy trình triển khai chung */}
-        <div className="mt-36 border-t border-slate-850 pt-28 relative">
+        <div className="mt-36 border-t border-slate-800 pt-28 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-extrabold text-white tracking-tight">
               Quy Trình Triển Khai Giải Pháp Web & Chatbot AI
@@ -449,7 +449,7 @@ export default function ProjectDemoPage() {
         </div>
 
         {/* Section: Khách hàng nhận được gì? */}
-        <div className="mt-36 border-t border-slate-850 pt-28">
+        <div className="mt-36 border-t border-slate-800 pt-28">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-extrabold text-white tracking-tight">
               Giá Trị Đạt Được Khi Triển Khai Hệ Thống
@@ -471,9 +471,9 @@ export default function ProjectDemoPage() {
             ].map((v, vIdx) => {
               const ValIcon = v.icon;
               return (
-                <div key={vIdx} className="flex gap-4 p-5 rounded-2xl bg-[#0b1220]/40 border border-slate-850 shadow-sm items-start">
+                <div key={vIdx} className="flex gap-4 p-5 rounded-2xl bg-[#0b1220]/40 border border-slate-800 shadow-sm items-start">
                   <div className="p-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20 shrink-0">
-                    <ValIcon className="h-4.5 w-4.5" />
+                    <ValIcon className="h-[18px] w-[18px]" />
                   </div>
                   <div>
                     <h4 className="text-white font-bold text-sm mb-1.5">{v.title}</h4>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CheckCircle2, AlertCircle, Send } from "lucide-react";
 import { industries } from "@/lib/industries";
 import { services } from "@/lib/services";
@@ -13,6 +13,8 @@ interface FormData {
   serviceInterest: string;
   budget: string;
   message: string;
+  packageSlug: string;
+  selectedPackage: string;
   email_confirm: string; // Honeypot
 }
 
@@ -24,6 +26,21 @@ interface FormErrors {
   budget?: string;
 }
 
+const packageIntentMap: Record<string, string> = {
+  "web-uy-tin": "Web Uy Tín",
+  "web-chatbot-ai": "Web + Chatbot AI",
+  "ai-sales-system": "AI Sales System",
+  "growth-partner": "Vận hành Growth Partner",
+  "operating-optimizing": "Vận hành Growth Partner"
+};
+
+const packageOptions = [
+  { slug: "web-uy-tin", label: packageIntentMap["web-uy-tin"] },
+  { slug: "web-chatbot-ai", label: packageIntentMap["web-chatbot-ai"] },
+  { slug: "ai-sales-system", label: packageIntentMap["ai-sales-system"] },
+  { slug: "growth-partner", label: packageIntentMap["growth-partner"] }
+];
+
 export default function LeadForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -32,6 +49,8 @@ export default function LeadForm() {
     serviceInterest: "",
     budget: "",
     message: "",
+    packageSlug: "",
+    selectedPackage: "",
     email_confirm: ""
   });
 
@@ -45,6 +64,26 @@ export default function LeadForm() {
     { label: "Từ 10 – 20 triệu", value: "10m-20m" },
     { label: "Trên 20 triệu", value: "above-20m" }
   ];
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const packageSlug = params.get("package")?.trim() || "";
+    const selectedPackage = packageIntentMap[packageSlug];
+
+    if (!selectedPackage) return;
+
+    const normalizedSlug = packageSlug === "operating-optimizing" ? "growth-partner" : packageSlug;
+    const prefillTimer = window.setTimeout(() => {
+      setFormData((prev) => ({
+        ...prev,
+        serviceInterest: normalizedSlug,
+        packageSlug: normalizedSlug,
+        selectedPackage
+      }));
+    }, 0);
+
+    return () => window.clearTimeout(prefillTimer);
+  }, []);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -85,7 +124,13 @@ export default function LeadForm() {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
+      ...(name === "serviceInterest"
+        ? {
+            packageSlug: packageIntentMap[value] ? value : "",
+            selectedPackage: packageIntentMap[value] || ""
+          }
+        : {})
     }));
     // Clear error when editing
     if (errors[name as keyof FormErrors]) {
@@ -116,6 +161,8 @@ export default function LeadForm() {
           serviceInterest: formData.serviceInterest,
           budget: formData.budget,
           message: formData.message,
+          package: formData.packageSlug,
+          selectedPackage: formData.selectedPackage,
           source: "lead-form",
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
           email_confirm: formData.email_confirm,
@@ -138,6 +185,8 @@ export default function LeadForm() {
           serviceInterest: "",
           budget: "",
           message: "",
+          packageSlug: "",
+          selectedPackage: "",
           email_confirm: "",
         });
       } else {
@@ -154,7 +203,7 @@ export default function LeadForm() {
   };
 
   return (
-    <div className="bg-[#0f192b]/95 border border-slate-750 p-6 sm:p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_40px_rgba(6,182,212,0.06)] w-full text-left relative overflow-hidden group hover:border-[#00E5FF]/30 transition-all duration-300">
+    <div className="bg-[#0f192b]/95 border border-slate-700 p-6 sm:p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_40px_rgba(6,182,212,0.06)] w-full text-left relative overflow-hidden group hover:border-[#00E5FF]/30 transition-all duration-300">
       <div className="absolute -inset-px bg-gradient-to-br from-cyan-500/0 via-cyan-500/4 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
       {submitStatus === "success" && (
@@ -174,7 +223,7 @@ export default function LeadForm() {
           <AlertCircle className="h-5 w-5 text-rose-400 shrink-0 mt-0.5" />
           <div>
             <h4 className="font-extrabold text-sm text-white">Chưa gửi được thông tin!</h4>
-            <p className="text-xs text-slate-350 leading-relaxed mt-1">
+            <p className="text-xs text-slate-300 leading-relaxed mt-1">
               Anh/chị vui lòng thử lại hoặc nhắn Zalo trực tiếp qua <a href="https://zalo.me/0789284078" target="_blank" rel="noopener noreferrer" className="text-[#00E5FF] underline font-bold">0789.284.078</a>.
             </p>
           </div>
@@ -198,7 +247,7 @@ export default function LeadForm() {
               placeholder="Ví dụ: Nguyễn Văn A"
               className={`bg-[#080d16] border ${
                 errors.name ? "border-rose-500/60" : "border-slate-800 focus:border-[#00E5FF]/50"
-              } rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-450 outline-none transition-colors shadow-inner`}
+              } rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-400 outline-none transition-colors shadow-inner`}
             />
             {errors.name && <span className="text-[10px] text-rose-400 font-medium pl-1">{errors.name}</span>}
           </div>
@@ -217,7 +266,7 @@ export default function LeadForm() {
               placeholder="Ví dụ: 0912345678"
               className={`bg-[#080d16] border ${
                 errors.phone ? "border-rose-500/60" : "border-slate-800 focus:border-[#00E5FF]/50"
-              } rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-450 outline-none transition-colors shadow-inner`}
+              } rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-400 outline-none transition-colors shadow-inner`}
             />
             {errors.phone && <span className="text-[10px] text-rose-400 font-medium pl-1">{errors.phone}</span>}
           </div>
@@ -270,6 +319,13 @@ export default function LeadForm() {
                   {svc.title}
                 </option>
               ))}
+              <optgroup label="Gói dịch vụ theo link đã chọn" className="bg-slate-950 text-slate-400">
+                {packageOptions.map((pkg) => (
+                  <option key={pkg.slug} value={pkg.slug} className="bg-slate-950 text-slate-200 font-medium">
+                    {pkg.label}
+                  </option>
+                ))}
+              </optgroup>
               <option value="all-in-one" className="bg-slate-950 text-slate-200 font-medium">Tất cả giải pháp (Hệ thống AI)</option>
             </select>
             {errors.serviceInterest && (
@@ -315,7 +371,7 @@ export default function LeadForm() {
             value={formData.message}
             onChange={handleInputChange}
             placeholder="Ví dụ: Tôi muốn tích hợp chatbot hỏi đáp tự động cho khách sạn 30 phòng ở Sầm Sơn..."
-            className="bg-[#080d16] border border-slate-805 focus:border-[#00E5FF]/50 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-450 outline-none resize-none h-[110px] transition-colors shadow-inner"
+            className="bg-[#080d16] border border-slate-800 focus:border-[#00E5FF]/50 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-400 outline-none resize-none h-[110px] transition-colors shadow-inner"
           />
         </div>
 

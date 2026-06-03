@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { Phone, MessageCircle } from "lucide-react";
@@ -22,7 +22,7 @@ export default function FloatingContact() {
         </span>
         {/* Ringing effect animation */}
         <span className="absolute inset-0 rounded-full bg-emerald-500/40 animate-ping opacity-75"></span>
-        <Phone className="w-4.5 h-4.5 md:w-6 md:h-6 relative z-10 animate-bounce" />
+        <Phone className="w-[18px] h-[18px] md:w-6 md:h-6 relative z-10 animate-bounce" />
       </a>
 
       {/* Zalo Button */}

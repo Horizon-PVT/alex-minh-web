@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -42,7 +42,7 @@ export default function ServicesSection() {
                   Giải pháp chủ lực
                 </span>
                 <div className="h-9 w-9 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 border border-cyan-500/20 shrink-0">
-                  <Globe className="h-4.5 w-4.5" />
+                  <Globe className="h-[18px] w-[18px]" />
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Mini Website Mockup / Preview flow */}
-              <div className="rounded-2xl bg-[#070b13]/90 border border-slate-850 p-4 relative overflow-hidden h-[180px] flex flex-col justify-between text-left font-sans text-[10.5px]">
+              <div className="rounded-2xl bg-[#070b13]/90 border border-slate-800 p-4 relative overflow-hidden h-[180px] flex flex-col justify-between text-left font-sans text-[10.5px]">
                 <div className="flex items-center justify-between border-b border-slate-900 pb-2">
                   <div className="flex items-center space-x-1">
                     <span className="h-1.5 w-1.5 rounded-full bg-rose-500/80"></span>
@@ -98,18 +98,18 @@ export default function ServicesSection() {
                 
                 <div className="flex-1 flex items-center justify-around space-x-2 py-1">
                   <div className="bg-[#0b1220] border border-slate-800 p-2 rounded-xl text-center flex-1">
-                    <Globe className="h-4.5 w-4.5 text-cyan-400 mx-auto mb-1 animate-pulse" />
-                    <span className="text-[8px] text-slate-350 font-bold block">1. Web &amp; Chatbot</span>
+                    <Globe className="h-[18px] w-[18px] text-cyan-400 mx-auto mb-1 animate-pulse" />
+                    <span className="text-[8px] text-slate-300 font-bold block">1. Web &amp; Chatbot</span>
                   </div>
                   <div className="text-slate-600 text-xs font-bold animate-pulse">&rarr;</div>
                   <div className="bg-[#0b1220] border border-slate-800 p-2 rounded-xl text-center flex-1">
-                    <Database className="h-4.5 w-4.5 text-emerald-400 mx-auto mb-1" />
-                    <span className="text-[8px] text-slate-350 font-bold block">2. Google Sheet</span>
+                    <Database className="h-[18px] w-[18px] text-emerald-400 mx-auto mb-1" />
+                    <span className="text-[8px] text-slate-300 font-bold block">2. Google Sheet</span>
                   </div>
                   <div className="text-slate-600 text-xs font-bold animate-pulse">&rarr;</div>
                   <div className="bg-[#0b1220] border border-[#24a1de]/20 p-2 rounded-xl text-center flex-1">
-                    <Send className="h-4.5 w-4.5 text-[#24a1de] mx-auto mb-1" />
-                    <span className="text-[8px] text-slate-350 font-bold block">3. Telegram Alert</span>
+                    <Send className="h-[18px] w-[18px] text-[#24a1de] mx-auto mb-1" />
+                    <span className="text-[8px] text-slate-300 font-bold block">3. Telegram Alert</span>
                   </div>
                 </div>
                 
@@ -119,7 +119,7 @@ export default function ServicesSection() {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-850/40 relative z-10">
+            <div className="pt-6 border-t border-slate-800/40 relative z-10">
               <Link
                 href="/demo-chatbot-ai"
                 className="inline-flex items-center space-x-1.5 px-4.5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white hover:brightness-110 text-xs font-extrabold transition-all duration-300 shadow-md shadow-primary/10"
@@ -162,24 +162,24 @@ export default function ServicesSection() {
                 </p>
                 {/* Bullets */}
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1.5">
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>Giao diện chuẩn UI/UX</span>
                   </li>
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>CTA rõ ràng, mobile</span>
                   </li>
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450 col-span-1 sm:col-span-2">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400 col-span-1 sm:col-span-2">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>Tối ưu tốc độ và SEO local</span>
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 mt-4 border-t border-slate-850/40">
+              <div className="pt-4 mt-4 border-t border-slate-800/40">
                 <Link
                   href="/dich-vu#website-landing"
-                  className="inline-flex items-center space-x-1.5 text-slate-350 hover:text-white text-xs font-bold transition-colors group"
+                  className="inline-flex items-center space-x-1.5 text-slate-300 hover:text-white text-xs font-bold transition-colors group"
                 >
                   <span>Tìm hiểu dịch vụ</span>
                   <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />
@@ -216,24 +216,24 @@ export default function ServicesSection() {
                 </p>
                 {/* Bullets */}
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1.5">
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>Form &rarr; Sheet &rarr; Tele</span>
                   </li>
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>Nhắc lịch &amp; xử lý lead</span>
                   </li>
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450 col-span-1 sm:col-span-2">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400 col-span-1 sm:col-span-2">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>Giảm bỏ sót khách hàng</span>
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 mt-4 border-t border-slate-850/40">
+              <div className="pt-4 mt-4 border-t border-slate-800/40">
                 <Link
                   href="/dich-vu#automation-sales"
-                  className="inline-flex items-center space-x-1.5 text-slate-355 hover:text-white text-xs font-bold transition-colors group"
+                  className="inline-flex items-center space-x-1.5 text-slate-300 hover:text-white text-xs font-bold transition-colors group"
                 >
                   <span>Tìm hiểu dịch vụ</span>
                   <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />
@@ -270,24 +270,24 @@ export default function ServicesSection() {
                 </p>
                 {/* Bullets */}
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1.5">
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>Viết bài giới thiệu web</span>
                   </li>
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>Nội dung social / FAQ</span>
                   </li>
-                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-450 col-span-1 sm:col-span-2">
+                  <li className="flex items-center space-x-1.5 text-[10.5px] text-slate-400 col-span-1 sm:col-span-2">
                     <Check className="h-3.5 w-3.5 text-secondary shrink-0" />
                     <span>Tối ưu chatbot học hỏi</span>
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 mt-4 border-t border-slate-850/40">
+              <div className="pt-4 mt-4 border-t border-slate-800/40">
                 <Link
                   href="/dich-vu#ai-content"
-                  className="inline-flex items-center space-x-1.5 text-slate-355 hover:text-white text-xs font-bold transition-colors group"
+                  className="inline-flex items-center space-x-1.5 text-slate-300 hover:text-white text-xs font-bold transition-colors group"
                 >
                   <span>Tìm hiểu dịch vụ</span>
                   <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />

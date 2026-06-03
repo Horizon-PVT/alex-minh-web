@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import LeadForm from "@/components/lead-form";
 import { siteConfig } from "@/lib/site-config";
 import { MapPin, Phone, Mail, Clock, MessageSquare } from "lucide-react";
@@ -36,7 +36,7 @@ export default function ContactPage() {
             <div className="bg-[#131926]/40 border border-slate-800 p-6 rounded-3xl flex-1 flex flex-col justify-between space-y-6">
               
               <div className="space-y-6">
-                <h3 className="text-white font-bold text-base border-b border-slate-850 pb-3">
+                <h3 className="text-white font-bold text-base border-b border-slate-800 pb-3">
                   Thông tin liên hệ
                 </h3>
 
@@ -97,7 +97,7 @@ export default function ContactPage() {
               </div>
 
               {/* Instant Social Chat buttons */}
-              <div className="pt-6 border-t border-slate-850 space-y-3">
+              <div className="pt-6 border-t border-slate-800 space-y-3">
                 <TrackedLink
                   href={siteConfig.zalo}
                   target="_blank"
@@ -106,7 +106,7 @@ export default function ContactPage() {
                   eventParams={{ location: "contact_page_cta" }}
                   className="w-full py-3 rounded-2xl bg-[#0068ff] text-white text-xs font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 transition-all transform hover:-translate-y-0.5"
                 >
-                  <MessageSquare className="h-4.5 w-4.5" />
+                  <MessageSquare className="h-[18px] w-[18px]" />
                   <span>Nhắn tin Zalo tư vấn trực tiếp</span>
                 </TrackedLink>
                 <TrackedLink
@@ -115,7 +115,7 @@ export default function ContactPage() {
                   eventParams={{ location: "contact_page_cta" }}
                   className="w-full py-3 rounded-2xl bg-emerald-600 text-white text-xs font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5"
                 >
-                  <Phone className="h-4.5 w-4.5" />
+                  <Phone className="h-[18px] w-[18px]" />
                   <span>Gọi Hotline: {siteConfig.hotline}</span>
                 </TrackedLink>
               </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
           {/* Right: Lead Form */}
           <div className="lg:col-span-7">
             <div className="bg-[#131926]/20 border border-slate-800 p-6 sm:p-8 rounded-3xl h-full flex flex-col justify-center">
-              <h3 className="text-white font-bold text-base mb-6 border-b border-slate-850 pb-3">
+              <h3 className="text-white font-bold text-base mb-6 border-b border-slate-800 pb-3">
                 Gửi nhu cầu tư vấn thiết kế
               </h3>
               <LeadForm />

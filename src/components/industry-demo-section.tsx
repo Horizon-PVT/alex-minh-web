@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -143,7 +143,7 @@ export default function IndustryDemoSection() {
                 <div className="flex items-center justify-between pb-2 border-b border-slate-800/40 text-[10px] text-slate-400 font-medium">
                   <div className="flex items-center space-x-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span className="font-semibold text-slate-350">Khách sạn / Homestay Demo</span>
+                    <span className="font-semibold text-slate-300">Khách sạn / Homestay Demo</span>
                   </div>
                   <span className="text-[9px] text-[#00E5FF]/70 font-semibold uppercase">Live preview</span>
                 </div>
@@ -156,7 +156,7 @@ export default function IndustryDemoSection() {
                     </div>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <div className="w-5 h-5 rounded-full bg-slate-850 text-slate-300 flex items-center justify-center shrink-0 border border-slate-750">
+                    <div className="w-5 h-5 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center shrink-0 border border-slate-700">
                       <Bot className="h-3 w-3 text-cyan-400" />
                     </div>
                     <div className="bg-[#18222f] text-slate-200 px-3 py-2 rounded-2xl rounded-tl-none max-w-[85%] leading-relaxed border border-slate-800">
@@ -252,7 +252,7 @@ export default function IndustryDemoSection() {
                       </span>
                     </div>
                     <div className="flex items-start space-x-1.5">
-                      <div className="w-4.5 h-4.5 rounded-full bg-slate-850 text-slate-350 flex items-center justify-center shrink-0 border border-slate-750 text-[8px]">
+                      <div className="w-[18px] h-[18px] rounded-full bg-slate-800 text-slate-300 flex items-center justify-center shrink-0 border border-slate-700 text-[8px]">
                         <Bot className="h-2.5 w-2.5 text-cyan-400" />
                       </div>
                       <span className="bg-[#18222f] text-slate-200 px-2.5 py-1.5 rounded-xl rounded-tl-none max-w-[85%] border border-slate-800">
@@ -343,7 +343,7 @@ export default function IndustryDemoSection() {
                       </span>
                     </div>
                     <div className="flex items-start space-x-1.5">
-                      <div className="w-4.5 h-4.5 rounded-full bg-slate-850 text-slate-300 flex items-center justify-center shrink-0 border border-slate-750 text-[8px]">
+                      <div className="w-[18px] h-[18px] rounded-full bg-slate-800 text-slate-300 flex items-center justify-center shrink-0 border border-slate-700 text-[8px]">
                         <Bot className="h-2.5 w-2.5 text-cyan-400" />
                       </div>
                       <span className="bg-[#18222f] text-slate-200 px-2.5 py-1.5 rounded-xl rounded-tl-none max-w-[85%] border border-slate-800">
@@ -382,7 +382,7 @@ export default function IndustryDemoSection() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <div className="h-8 w-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 border border-cyan-500/20 shrink-0">
-                      <GraduationCap className="h-4.5 w-4.5" />
+                      <GraduationCap className="h-[18px] w-[18px]" />
                     </div>
                     <h4 className="text-white font-extrabold text-sm tracking-tight">Trung tâm giáo dục / Tiếng Anh</h4>
                   </div>
@@ -434,7 +434,7 @@ export default function IndustryDemoSection() {
                       </span>
                     </div>
                     <div className="flex items-start space-x-1.5">
-                      <div className="w-4.5 h-4.5 rounded-full bg-slate-850 text-slate-300 flex items-center justify-center shrink-0 border border-slate-750 text-[8px]">
+                      <div className="w-[18px] h-[18px] rounded-full bg-slate-800 text-slate-300 flex items-center justify-center shrink-0 border border-slate-700 text-[8px]">
                         <Bot className="h-2.5 w-2.5 text-cyan-400" />
                       </div>
                       <span className="bg-[#18222f] text-slate-200 px-2.5 py-1.5 rounded-xl rounded-tl-none max-w-[85%] border border-slate-800">
@@ -525,7 +525,7 @@ export default function IndustryDemoSection() {
                       </span>
                     </div>
                     <div className="flex items-start space-x-1.5">
-                      <div className="w-4.5 h-4.5 rounded-full bg-slate-855 text-slate-300 flex items-center justify-center shrink-0 border border-slate-750 text-[8px]">
+                      <div className="w-[18px] h-[18px] rounded-full bg-slate-800 text-slate-300 flex items-center justify-center shrink-0 border border-slate-700 text-[8px]">
                         <Bot className="h-2.5 w-2.5 text-cyan-400" />
                       </div>
                       <span className="bg-[#18222f] text-slate-200 px-2.5 py-1.5 rounded-xl rounded-tl-none max-w-[85%] border border-slate-800">

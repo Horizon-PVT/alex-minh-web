@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { Database, Send, Shield, Sparkles } from "lucide-react";
 
 export default function ProofFlowSection() {
@@ -130,7 +130,7 @@ export default function ProofFlowSection() {
         </div>
 
         {/* Proof Strip under Section 2 */}
-        <div className="mt-16 bg-[#0b1220]/45 border border-slate-800/40 rounded-2xl p-4.5 flex flex-col md:flex-row items-center justify-around gap-4 max-w-5xl mx-auto text-left shadow-lg">
+        <div className="mt-16 bg-[#0b1220]/45 border border-slate-800/40 rounded-2xl p-[18px] flex flex-col md:flex-row items-center justify-around gap-4 max-w-5xl mx-auto text-left shadow-lg">
           <div className="flex items-center space-x-2.5">
             <div className="w-8 h-8 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 border border-cyan-500/20 shrink-0">
               <Shield className="h-4 w-4 text-cyan-455" />

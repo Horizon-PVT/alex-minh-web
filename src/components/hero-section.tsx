@@ -79,14 +79,14 @@ export default function HeroSection() {
 
       {/* Overlays to blend background video and text */}
       {/* 1. Sleek left-side gradient overlay targeting left text area only, matching the exact darkness and fade of the target image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16] via-[#050b16]/92 via-[#050b16]/60 via-[#050b16]/15 to-transparent w-full md:w-[64%] pointer-events-none z-5"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16] via-[#050b16]/92 via-[#050b16]/60 via-[#050b16]/15 to-transparent w-full md:w-[64%] pointer-events-none z-[5]"></div>
       
       {/* 2. Light bottom gradient to blend into adjacent sections (max 20%) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050b16]/20 pointer-events-none z-5"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050b16]/20 pointer-events-none z-[5]"></div>
 
       {/* Ambient background glows */}
-      <div className="absolute top-1/6 left-1/6 w-[350px] h-[350px] rounded-full bg-cyan-500/10 blur-[100px] pointer-events-none animate-drift-glow z-2"></div>
-      <div className="absolute bottom-1/6 right-1/6 w-[350px] h-[350px] rounded-full bg-primary/8 blur-[100px] pointer-events-none animate-drift-glow z-2" style={{ animationDelay: "-7s" }}></div>
+      <div className="absolute top-1/6 left-1/6 w-[350px] h-[350px] rounded-full bg-cyan-500/10 blur-[100px] pointer-events-none animate-drift-glow z-[2]"></div>
+      <div className="absolute bottom-1/6 right-1/6 w-[350px] h-[350px] rounded-full bg-primary/8 blur-[100px] pointer-events-none animate-drift-glow z-[2]" style={{ animationDelay: "-7s" }}></div>
 
       {/* Foreground Content */}
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-6 relative z-10 w-full">
@@ -146,15 +146,15 @@ export default function HeroSection() {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 mb-8 text-white text-xs sm:text-sm font-bold"
             >
               <div className="flex items-center space-x-1.5">
-                <CheckCircle2 className="h-4.5 w-4.5 text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
+                <CheckCircle2 className="h-[18px] w-[18px] text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
                 <span>Trả lời 24/7</span>
               </div>
               <div className="flex items-center space-x-1.5">
-                <CheckCircle2 className="h-4.5 w-4.5 text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
+                <CheckCircle2 className="h-[18px] w-[18px] text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
                 <span>Lưu lead tự động</span>
               </div>
               <div className="flex items-center space-x-1.5">
-                <CheckCircle2 className="h-4.5 w-4.5 text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
+                <CheckCircle2 className="h-[18px] w-[18px] text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
                 <span>Báo Telegram ngay</span>
               </div>
             </div>
@@ -176,6 +176,11 @@ export default function HeroSection() {
                 <Play className="h-3.5 w-3.5 text-[#00E5FF] fill-[#00E5FF] stroke-2" />
                 <span>Xem Demo Chatbot</span>
               </Link>
+            </div>
+
+            <div className="inline-flex items-center justify-center lg:justify-start gap-2 rounded-full border border-cyan-400/25 bg-[#050b16]/45 px-4 py-2 text-xs sm:text-sm font-semibold text-cyan-100 shadow-[0_0_18px_rgba(0,229,255,0.08)] backdrop-blur-sm mb-4">
+              <CheckCircle2 className="h-4 w-4 text-[#00E5FF] shrink-0" />
+              <span>Đồng hành cùng doanh nghiệp địa phương trong chuyển đổi số và tự động hóa bán hàng</span>
             </div>
 
             {/* Launch Offer Promo Line */}

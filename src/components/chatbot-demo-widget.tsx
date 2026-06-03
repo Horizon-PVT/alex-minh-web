@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { MessageSquare, X, Send, RotateCcw, User, CheckCircle, AlertTriangle } from "lucide-react";
@@ -416,12 +416,12 @@ export default function ChatbotDemoWidget() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-45 flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-gradient-to-tr from-primary to-secondary text-white shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:scale-110"
+          className="fixed bottom-6 right-6 z-[45] flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-gradient-to-tr from-primary to-secondary text-white shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:scale-110"
           title="Thử Chatbot AI"
         >
           <div className="relative">
             <MessageSquare className="w-5 h-5 md:w-6 md:h-6 animate-pulse" />
-            <span className="absolute -top-2 -right-2 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-rose-500 text-[9px] font-bold text-white border border-[#090d16]">
+            <span className="absolute -top-2 -right-2 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-rose-500 text-[9px] font-bold text-white border border-[#090d16]">
               1
             </span>
           </div>
@@ -430,7 +430,7 @@ export default function ChatbotDemoWidget() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-[350px] sm:w-[380px] h-[500px] rounded-3xl glass border border-slate-700/50 shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-300">
+        <div className="fixed bottom-6 right-6 z-[5]0 w-[350px] sm:w-[380px] h-[500px] rounded-3xl glass border border-slate-700/50 shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-300">
           {/* Header */}
           <div className="bg-gradient-to-r from-primary/80 to-secondary/80 px-4 py-3 flex items-center justify-between border-b border-slate-700/50">
             <div className="flex items-center space-x-3">
@@ -463,7 +463,7 @@ export default function ChatbotDemoWidget() {
                 className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-colors"
                 title="Đóng chat"
               >
-                <X className="h-4.5 w-4.5" />
+                <X className="h-[18px] w-[18px]" />
               </button>
             </div>
           </div>
@@ -475,7 +475,7 @@ export default function ChatbotDemoWidget() {
               className={`flex-1 py-1.5 rounded-lg text-[10px] font-extrabold transition-all cursor-pointer text-center border ${
                 chatMode === "scripted"
                   ? "bg-primary/20 border-primary/30 text-white"
-                  : "bg-slate-950/40 border-slate-850/60 text-slate-400 hover:text-slate-200"
+                  : "bg-slate-950/40 border-slate-800/60 text-slate-400 hover:text-slate-200"
               }`}
             >
               📋 Trải Nghiệm Demo
@@ -485,7 +485,7 @@ export default function ChatbotDemoWidget() {
               className={`flex-1 py-1.5 rounded-lg text-[10px] font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1 border ${
                 chatMode === "ai"
                   ? "bg-secondary/20 border-secondary/30 text-white"
-                  : "bg-slate-950/40 border-slate-850/60 text-slate-400 hover:text-slate-200"
+                  : "bg-slate-950/40 border-slate-800/60 text-slate-400 hover:text-slate-200"
               }`}
             >
               ✨ Hỏi Tư Vấn AI
@@ -568,7 +568,7 @@ export default function ChatbotDemoWidget() {
                   <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-left space-y-2 animate-[slideUp_0.3s_ease-out] flex gap-2 items-start">
                     <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
                     <div className="flex-1 space-y-2">
-                      <p className="text-[10px] text-slate-350 leading-normal">
+                      <p className="text-[10px] text-slate-300 leading-normal">
                         Em phát hiện số điện thoại của anh/chị ({detectedPhone}). Anh/chị có muốn gửi thông tin cho chuyên viên của Alex Minh AI liên hệ tư vấn không ạ?
                       </p>
                       <div className="flex items-center gap-1.5">

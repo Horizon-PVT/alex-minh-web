@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { services } from "@/lib/services";
 import { CheckCircle2, Bot, Cpu, Globe, PenTool, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -209,7 +209,7 @@ export default function ServicesPage() {
                       </Link>
                       <Link
                         href="/demo-chatbot-ai"
-                        className="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-850 text-slate-200 hover:text-white text-xs font-bold tracking-wide transition-all hover:-translate-y-0.5 text-center flex items-center justify-center gap-1.5"
+                        className="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 text-slate-200 hover:text-white text-xs font-bold tracking-wide transition-all hover:-translate-y-0.5 text-center flex items-center justify-center gap-1.5"
                       >
                         Trải nghiệm chatbot mẫu
                       </Link>

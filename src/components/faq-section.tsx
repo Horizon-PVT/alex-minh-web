@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -174,19 +174,19 @@ export default function FaqSection() {
               </h4>
               <ul className="space-y-3.5 text-xs text-slate-300 font-medium">
                 <li className="flex items-start space-x-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_6px_rgba(34,211,238,0.2)]" />
+                  <CheckCircle2 className="h-[18px] w-[18px] text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_6px_rgba(34,211,238,0.2)]" />
                   <span>Không cần biết code - Bàn giao chìa khóa trao tay</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_6px_rgba(34,211,238,0.2)]" />
+                  <CheckCircle2 className="h-[18px] w-[18px] text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_6px_rgba(34,211,238,0.2)]" />
                   <span>Có hướng dẫn sử dụng và hỗ trợ chu đáo</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_6px_rgba(34,211,238,0.2)]" />
+                  <CheckCircle2 className="h-[18px] w-[18px] text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_6px_rgba(34,211,238,0.2)]" />
                   <span>Có hỗ trợ kỹ thuật và vận hành sau triển khai</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_6px_rgba(34,211,238,0.2)]" />
+                  <CheckCircle2 className="h-[18px] w-[18px] text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_6px_rgba(34,211,238,0.2)]" />
                   <span>Tùy chỉnh kịch bản theo đúng đặc thù ngành nghề</span>
                 </li>
               </ul>

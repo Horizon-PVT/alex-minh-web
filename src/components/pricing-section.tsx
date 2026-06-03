@@ -32,7 +32,7 @@ export default function PricingSection() {
         <div className="max-w-4xl mx-auto mb-16 bg-[#0b1220]/60 backdrop-blur-md border border-slate-800/60 rounded-3xl p-5 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-5">
           <div className="space-y-1.5">
             <div className="flex items-center justify-center md:justify-start space-x-2">
-              <HelpCircle className="h-4.5 w-4.5 text-[#00E5FF]" />
+              <HelpCircle className="h-[18px] w-[18px] text-[#00E5FF]" />
               <h4 className="text-white font-extrabold text-sm sm:text-base">
                 Chưa chắc nên chọn gói nào?
               </h4>
@@ -42,16 +42,16 @@ export default function PricingSection() {
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-2 text-[10px] sm:text-xs">
-            <span className="px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-350 font-bold">
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-300 font-bold">
               Web Uy Tín = Hiện diện chuyên nghiệp
             </span>
             <span className="px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 font-black">
               Web + Chatbot AI = Ra lead tự động
             </span>
-            <span className="px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-355 font-bold">
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-300 font-bold">
               AI Sales System = Tối ưu quy trình
             </span>
-            <span className="px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-355 font-bold">
+            <span className="px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-300 font-bold">
               Vận hành = Đồng hành lâu dài
             </span>
           </div>
@@ -70,7 +70,7 @@ export default function PricingSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch max-w-6xl mx-auto">
-            {pricingPackages.filter(pkg => pkg.id !== "operating-optimizing").map((pkg) => {
+            {pricingPackages.filter(pkg => pkg.id !== "growth-partner").map((pkg) => {
               const isFeatured = pkg.isPopular;
               return (
                 <div
@@ -78,7 +78,7 @@ export default function PricingSection() {
                   className={`rounded-3xl p-6 flex flex-col justify-between relative transition-all duration-300 transform group text-left ${
                     isFeatured
                       ? "bg-[#0e1626]/95 border-2 border-amber-500/60 shadow-[0_20px_50px_rgba(245,158,11,0.25),0_0_30px_rgba(6,182,212,0.15)] lg:scale-[1.03] lg:-translate-y-1.5 z-20 ring-1 ring-cyan-500/30"
-                      : "bg-[#0b1220]/50 border border-slate-800/40 hover:border-slate-850 hover:-translate-y-0.5 z-10"
+                      : "bg-[#0b1220]/50 border border-slate-800/40 hover:border-slate-800 hover:-translate-y-0.5 z-10"
                   }`}
                 >
                   {/* Popular Badge */}
@@ -102,7 +102,7 @@ export default function PricingSection() {
                       )}
                     </div>
                     
-                    <p className="text-slate-455 text-xs leading-relaxed min-h-[32px] font-medium">
+                    <p className="text-slate-400 text-xs leading-relaxed min-h-[32px] font-medium">
                       {pkg.description}
                     </p>
 
@@ -128,10 +128,10 @@ export default function PricingSection() {
                     </div>
 
                     {/* Fit Badge */}
-                    <div className={`mb-4 px-3 py-1.8 rounded-xl text-[10px] font-bold tracking-wide ${
+                    <div className={`mb-4 px-3 py-[7px] rounded-xl text-[10px] font-bold tracking-wide ${
                       isFeatured 
                         ? "bg-amber-500/10 border border-amber-500/20 text-amber-300" 
-                        : "bg-slate-900/60 border border-slate-805 text-slate-400"
+                        : "bg-slate-900/60 border border-slate-800 text-slate-400"
                     }`}>
                       {pkg.fitBadge}
                     </div>
@@ -155,7 +155,7 @@ export default function PricingSection() {
                     <ul className="space-y-3.5 mb-8">
                       {pkg.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start space-x-2.5 text-xs text-slate-300 leading-relaxed font-medium">
-                          <div className={`h-4.5 w-4.5 rounded-full flex items-center justify-center shrink-0 border mt-0.5 ${
+                          <div className={`h-[18px] w-[18px] rounded-full flex items-center justify-center shrink-0 border mt-0.5 ${
                             isFeatured 
                               ? "bg-amber-500/10 border-amber-500/20 text-amber-400" 
                               : "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
@@ -188,7 +188,7 @@ export default function PricingSection() {
         </div>
 
         {/* Group 2: Dịch Vụ Growth Partner Hàng Tháng */}
-        {pricingPackages.filter(pkg => pkg.id === "operating-optimizing").map((pkg) => (
+        {pricingPackages.filter(pkg => pkg.id === "growth-partner").map((pkg) => (
           <div key={pkg.id} className="mb-20 max-w-5xl mx-auto">
             <div className="text-center md:text-left mb-8">
               <h3 className="text-xl sm:text-2xl font-black text-white flex items-center justify-center md:justify-start space-x-2.5">
@@ -240,7 +240,7 @@ export default function PricingSection() {
 
                   {/* Fit Badge & CTA */}
                   <div className="space-y-4">
-                    <div className="inline-block px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[10px] sm:text-xs text-slate-350 font-bold">
+                    <div className="inline-block px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[10px] sm:text-xs text-slate-300 font-bold">
                       {pkg.fitBadge}
                     </div>
 
@@ -261,14 +261,14 @@ export default function PricingSection() {
                 </div>
 
                 {/* Right Side: Detailed bullets */}
-                <div className="lg:col-span-6 bg-[#070b13]/60 backdrop-blur-sm border border-slate-850 p-6 rounded-2xl flex flex-col justify-center">
+                <div className="lg:col-span-6 bg-[#070b13]/60 backdrop-blur-sm border border-slate-800 p-6 rounded-2xl flex flex-col justify-center">
                   <h5 className="text-white font-extrabold text-xs sm:text-sm mb-4 tracking-wide uppercase text-slate-300">
                     Phạm vi hỗ trợ trong gói:
                   </h5>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3.5">
                     {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-2.5 text-xs text-slate-350 leading-relaxed font-medium">
-                        <div className="h-4.5 w-4.5 rounded-full flex items-center justify-center shrink-0 border mt-0.5 bg-[#00E5FF]/10 border-[#00E5FF]/20 text-[#00E5FF]">
+                      <li key={idx} className="flex items-start space-x-2.5 text-xs text-slate-300 leading-relaxed font-medium">
+                        <div className="h-[18px] w-[18px] rounded-full flex items-center justify-center shrink-0 border mt-0.5 bg-[#00E5FF]/10 border-[#00E5FF]/20 text-[#00E5FF]">
                           <Check className="h-2.5 w-2.5" />
                         </div>
                         <span>{feature}</span>
@@ -296,7 +296,7 @@ export default function PricingSection() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="bg-[#0b1220]/40 backdrop-blur-md border border-slate-850 p-5 rounded-2xl text-left space-y-2.5">
+            <div className="bg-[#0b1220]/40 backdrop-blur-md border border-slate-800 p-5 rounded-2xl text-left space-y-2.5">
               <div className="h-9 w-9 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/20 flex items-center justify-center text-[#00E5FF] font-black text-sm">
                 01
               </div>
@@ -306,7 +306,7 @@ export default function PricingSection() {
               </p>
             </div>
 
-            <div className="bg-[#0b1220]/40 backdrop-blur-md border border-slate-850 p-5 rounded-2xl text-left space-y-2.5">
+            <div className="bg-[#0b1220]/40 backdrop-blur-md border border-slate-800 p-5 rounded-2xl text-left space-y-2.5">
               <div className="h-9 w-9 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/20 flex items-center justify-center text-[#00E5FF] font-black text-sm">
                 02
               </div>
@@ -316,7 +316,7 @@ export default function PricingSection() {
               </p>
             </div>
 
-            <div className="bg-[#0b1220]/40 backdrop-blur-md border border-slate-850 p-5 rounded-2xl text-left space-y-2.5">
+            <div className="bg-[#0b1220]/40 backdrop-blur-md border border-slate-800 p-5 rounded-2xl text-left space-y-2.5">
               <div className="h-9 w-9 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/20 flex items-center justify-center text-[#00E5FF] font-black text-sm">
                 03
               </div>
@@ -355,7 +355,7 @@ export default function PricingSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0b1220]/40 border border-slate-850 p-6 rounded-2xl text-left space-y-4 hover:border-slate-800 transition-all duration-350">
+            <div className="bg-[#0b1220]/40 border border-slate-800 p-6 rounded-2xl text-left space-y-4 hover:border-slate-800 transition-all duration-350">
               <div>
                 <h5 className="text-white font-extrabold text-base sm:text-lg">Starter Ops</h5>
                 <div className="text-xs font-semibold text-[#00E5FF] mt-1">Từ 500k/tháng</div>
@@ -366,19 +366,19 @@ export default function PricingSection() {
             </div>
 
             <div className="bg-[#0b1220]/75 border-2 border-amber-500/30 p-6 rounded-2xl text-left space-y-4 hover:border-amber-500/50 transition-all duration-350 relative">
-              <span className="absolute -top-3px right-6 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[8px] font-black tracking-widest uppercase">
+              <span className="absolute top-[-3px] right-6 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[8px] font-black tracking-widest uppercase">
                 PHỔ BIẾN
               </span>
               <div>
                 <h5 className="text-white font-extrabold text-base sm:text-lg">Growth Ops</h5>
                 <div className="text-xs font-semibold text-amber-400 mt-1">Từ 2tr/tháng</div>
               </div>
-              <p className="text-slate-350 text-xs sm:text-sm leading-relaxed font-medium border-t border-slate-800/40 pt-3">
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium border-t border-slate-800/40 pt-3">
                 Quản trị website, tối ưu chatbot, nội dung, media và báo cáo hiệu quả hàng tháng.
               </p>
             </div>
 
-            <div className="bg-[#0b1220]/40 border border-slate-850 p-6 rounded-2xl text-left space-y-4 hover:border-slate-800 transition-all duration-350">
+            <div className="bg-[#0b1220]/40 border border-slate-800 p-6 rounded-2xl text-left space-y-4 hover:border-slate-800 transition-all duration-350">
               <div>
                 <h5 className="text-white font-extrabold text-base sm:text-lg">Full Channel Ops</h5>
                 <div className="text-xs font-semibold text-[#00E5FF] mt-1">Từ 5tr+/tháng</div>
@@ -412,7 +412,7 @@ export default function PricingSection() {
             {/* Horizontal line connector for desktop grid */}
             <div className="hidden lg:block absolute top-[44px] left-[12%] right-[12%] h-[1px] bg-slate-800/40 z-0"></div>
 
-            <div className="bg-[#0b1220]/30 border border-slate-850 p-5 rounded-2xl text-left relative z-10 space-y-3">
+            <div className="bg-[#0b1220]/30 border border-slate-800 p-5 rounded-2xl text-left relative z-10 space-y-3">
               <div className="h-10 w-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 text-xs font-black shadow-inner">
                 T1
               </div>
@@ -422,7 +422,7 @@ export default function PricingSection() {
               </p>
             </div>
 
-            <div className="bg-[#0b1220]/30 border border-slate-850 p-5 rounded-2xl text-left relative z-10 space-y-3">
+            <div className="bg-[#0b1220]/30 border border-slate-800 p-5 rounded-2xl text-left relative z-10 space-y-3">
               <div className="h-10 w-10 rounded-full bg-[#00E5FF]/10 border border-[#00E5FF]/25 flex items-center justify-center text-[#00E5FF] text-xs font-black shadow-inner">
                 T2
               </div>
@@ -432,7 +432,7 @@ export default function PricingSection() {
               </p>
             </div>
 
-            <div className="bg-[#0b1220]/30 border border-slate-850 p-5 rounded-2xl text-left relative z-10 space-y-3">
+            <div className="bg-[#0b1220]/30 border border-slate-800 p-5 rounded-2xl text-left relative z-10 space-y-3">
               <div className="h-10 w-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 text-xs font-black shadow-inner">
                 T3
               </div>
@@ -442,7 +442,7 @@ export default function PricingSection() {
               </p>
             </div>
 
-            <div className="bg-[#0b1220]/30 border border-slate-850 p-5 rounded-2xl text-left relative z-10 space-y-3">
+            <div className="bg-[#0b1220]/30 border border-slate-800 p-5 rounded-2xl text-left relative z-10 space-y-3">
               <div className="h-10 w-10 rounded-full bg-[#00E5FF]/10 border border-[#00E5FF]/25 flex items-center justify-center text-[#00E5FF] text-xs font-black shadow-inner">
                 T4
               </div>
@@ -463,7 +463,7 @@ export default function PricingSection() {
               <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
               <span>Bảng So Sánh Chi Tiết Tính Năng</span>
             </h3>
-            <span className="text-slate-400 text-xs bg-slate-900/60 border border-slate-850 px-3 py-1.5 rounded-full inline-block md:hidden font-bold">
+            <span className="text-slate-400 text-xs bg-slate-900/60 border border-slate-800 px-3 py-1.5 rounded-full inline-block md:hidden font-bold">
               👉 Vuốt ngang để xem chi tiết →
             </span>
           </div>
@@ -477,7 +477,7 @@ export default function PricingSection() {
                   <th className="py-5 px-4 text-center w-[16%] bg-amber-500/3 border-x border-amber-500/10 text-amber-300 font-black uppercase text-[10px] tracking-wider relative">
                     <span className="inline-block relative">
                       Web + Chatbot AI
-                      <span className="absolute -top-4.5 left-1/2 -translate-x-1/2 text-[7px] font-black tracking-widest text-amber-400 bg-amber-500/10 px-1 py-0.2 rounded border border-amber-500/25">RECOMMENDED</span>
+                      <span className="absolute -top-[18px] left-1/2 -translate-x-1/2 text-[7px] font-black tracking-widest text-amber-400 bg-amber-500/10 px-1 py-0.2 rounded border border-amber-500/25">RECOMMENDED</span>
                     </span>
                   </th>
                   <th className="py-5 px-4 text-center w-[16%] uppercase text-[10px] tracking-wider">AI Sales System</th>
@@ -504,14 +504,14 @@ export default function PricingSection() {
                         {typeof feat.web === "boolean" ? (
                           feat.web ? <Check className="h-5 w-5 text-emerald-400 mx-auto" /> : <span className="text-slate-700 font-bold">—</span>
                         ) : (
-                          <span className="font-bold text-[11px] text-slate-355">{feat.web}</span>
+                          <span className="font-bold text-[11px] text-slate-300">{feat.web}</span>
                         )}
                       </td>
 
                       {/* Bot column (Recommended - Highlighted) */}
                       <td className="py-4 px-4 text-center bg-amber-500/3 border-x border-amber-500/10 text-amber-250 font-bold">
                         {typeof feat.bot === "boolean" ? (
-                          feat.bot ? <Check className="h-5 w-5 text-amber-400 mx-auto drop-shadow-[0_0_6px_rgba(245,158,11,0.4)]" /> : <span className="text-slate-750 font-bold">—</span>
+                          feat.bot ? <Check className="h-5 w-5 text-amber-400 mx-auto drop-shadow-[0_0_6px_rgba(245,158,11,0.4)]" /> : <span className="text-slate-700 font-bold">—</span>
                         ) : (
                           <span className="font-black text-[11px] text-amber-300">{feat.bot}</span>
                         )}
@@ -522,7 +522,7 @@ export default function PricingSection() {
                         {typeof feat.sys === "boolean" ? (
                           feat.sys ? <Check className="h-5 w-5 text-emerald-400 mx-auto" /> : <span className="text-slate-700 font-bold">—</span>
                         ) : (
-                          <span className="font-bold text-[11px] text-slate-355">{feat.sys}</span>
+                          <span className="font-bold text-[11px] text-slate-300">{feat.sys}</span>
                         )}
                       </td>
 
@@ -531,7 +531,7 @@ export default function PricingSection() {
                         {typeof feat.opt === "boolean" ? (
                           feat.opt ? <Check className="h-5 w-5 text-emerald-400 mx-auto" /> : <span className="text-slate-700 font-bold">—</span>
                         ) : (
-                          <span className="font-bold text-[11px] text-slate-355">{feat.opt}</span>
+                          <span className="font-bold text-[11px] text-slate-300">{feat.opt}</span>
                         )}
                       </td>
                     </tr>

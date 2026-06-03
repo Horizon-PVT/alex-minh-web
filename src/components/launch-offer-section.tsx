@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { Gift, ShieldCheck, Globe, Bot, Send } from "lucide-react";
@@ -46,7 +46,7 @@ export default function LaunchOfferSection() {
           
           <p 
             style={{ fontFamily: "var(--font-sans)", fontWeight: 450 }}
-            className="text-slate-350 text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed"
+            className="text-slate-300 text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed"
           >
             Dành cho doanh nghiệp muốn có website chuyên nghiệp, chatbot tư vấn 24/7 và hệ thống lưu khách hàng tự động.
           </p>
@@ -92,11 +92,11 @@ export default function LaunchOfferSection() {
           </div>
           
           <div style={{ fontFamily: "var(--font-sans)" }} className="flex-1 space-y-2">
-            <p className="text-slate-350 text-xs sm:text-sm leading-relaxed">
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
               <strong className="text-slate-200">Điều khoản ưu đãi:</strong> Áp dụng cho gói website + chatbot AI. Không áp dụng tên miền premium hoặc tên miền đã có chủ sở hữu.
             </p>
             
-            <p className="text-slate-350 text-xs sm:text-sm leading-relaxed border-t border-slate-900 pt-2.5">
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-900 pt-2.5">
               <strong className="text-cyan-400">Nếu doanh nghiệp đã có tên miền:</strong> Có thể đổi sang 1 tháng chăm sóc kỹ thuật hoặc tối ưu chatbot.
             </p>
           </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -37,7 +37,7 @@ export default function SiteHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 ${
+      className={`fixed top-0 left-0 right-0 z-[5]0 transition-all duration-350 ${
         scrolled
           ? "bg-[#090d16]/95 backdrop-blur-md shadow-xl shadow-black/35 border-b border-slate-800/80 py-2.5"
           : "bg-gradient-to-b from-[#050b16]/95 via-[#050b16]/45 to-transparent py-4"
@@ -61,7 +61,7 @@ export default function SiteHeader() {
                   className={`relative px-3.5 py-2.5 text-sm transition-all duration-200 ${
                     isActive
                       ? "text-secondary font-bold"
-                      : "text-slate-250 hover:text-secondary font-medium"
+                      : "text-slate-200 hover:text-secondary font-medium"
                   }`}
                   style={{ 
                     fontFamily: "var(--font-sans)", 
@@ -145,7 +145,7 @@ export default function SiteHeader() {
                 onClick={() => trackEvent("phone_click", { location: "header_mobile" })}
                 className="flex items-center space-x-2 text-slate-300 hover:text-white text-sm font-semibold py-2"
               >
-                <PhoneCall className="h-4.5 w-4.5 text-secondary" />
+                <PhoneCall className="h-[18px] w-[18px] text-secondary" />
                 <span>{siteConfig.hotline}</span>
               </a>
               <Link

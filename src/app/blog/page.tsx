@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { BookOpen, Calendar, Clock, ArrowRight, Sparkles } from "lucide-react";
 import { blogPosts } from "@/lib/blog-posts";
@@ -88,7 +88,7 @@ export default function BlogPage() {
             <input
               type="email"
               placeholder="Nhập email của bạn..."
-              className="flex-1 bg-slate-900 border border-slate-850 rounded-xl px-4 py-2 text-xs sm:text-sm text-slate-100 placeholder-slate-650 outline-none focus:border-secondary/50"
+              className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2 text-xs sm:text-sm text-slate-100 placeholder-slate-600 outline-none focus:border-secondary/50"
             />
             <button className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold text-xs transition-all cursor-pointer">
               Đăng ký

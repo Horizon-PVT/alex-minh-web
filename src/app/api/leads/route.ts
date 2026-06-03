@@ -49,6 +49,8 @@ export async function POST(request: Request) {
       serviceInterest,
       budget,
       message,
+      package: packageSlug,
+      selectedPackage,
       source,
       pageUrl,
       email_confirm, // Honeypot field
@@ -73,6 +75,8 @@ export async function POST(request: Request) {
     const cleanService = String(serviceInterest || "Tư vấn chung").trim();
     const cleanBudget = String(budget || "Chưa khảo sát").trim();
     const cleanMessage = String(message || "Không có").trim();
+    const cleanPackageSlug = String(packageSlug || "").trim();
+    const cleanSelectedPackage = String(selectedPackage || "").trim();
     const cleanSource = String(source || "lead-form").trim();
     const cleanPageUrl = String(pageUrl || siteConfig.domain).trim();
 
@@ -136,6 +140,8 @@ export async function POST(request: Request) {
           industry: cleanIndustry,
           serviceInterest: cleanService,
           budget: cleanBudget,
+          package: cleanPackageSlug,
+          selectedPackage: cleanSelectedPackage,
           message: cleanMessage,
           source: cleanSource,
           pageUrl: cleanPageUrl,
@@ -158,6 +164,8 @@ export async function POST(request: Request) {
             industry: cleanIndustry,
             serviceInterest: cleanService,
             budget: cleanBudget,
+            package: cleanPackageSlug,
+            selectedPackage: cleanSelectedPackage,
             message: cleanMessage,
             source: cleanSource,
             pageUrl: cleanPageUrl,
@@ -172,6 +180,8 @@ export async function POST(request: Request) {
               industry: cleanIndustry,
               serviceInterest: cleanService,
               budget: cleanBudget,
+              package: cleanPackageSlug,
+              selectedPackage: cleanSelectedPackage,
               message: cleanMessage,
               source: cleanSource,
               pageUrl: cleanPageUrl,
@@ -251,6 +261,7 @@ export async function POST(request: Request) {
 📞 SĐT/Zalo: ${cleanPhone}
 🏢 Ngành: ${cleanIndustry}
 💡 Dịch vụ: ${cleanService}
+📦 Gói quan tâm: ${cleanSelectedPackage || cleanPackageSlug || "Chưa xác định"}
 💰 Ngân sách: ${cleanBudget}
 💬 Ghi chú: ${cleanMessage}
 📢 Nguồn: ${cleanSource === "lead-form" ? "Form Đăng Ký Website" : "Chatbot AI Demo"}

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import HeroSection from "@/components/hero-section";
 import ProblemSection from "@/components/problem-section";
 import ProofFlowSection from "@/components/proof-flow-section";
@@ -138,7 +138,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto mt-12">
             
             {/* Left Column: Conversion / Trust Panel - 5 columns */}
-            <div className="lg:col-span-5 bg-[#0b1220]/75 border border-slate-750 rounded-3xl p-6 sm:p-8 space-y-6 text-left relative overflow-hidden group hover:border-[#00E5FF]/20 transition-all duration-300">
+            <div className="lg:col-span-5 bg-[#0b1220]/75 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 text-left relative overflow-hidden group hover:border-[#00E5FF]/20 transition-all duration-300">
               <div className="absolute -inset-px bg-gradient-to-br from-cyan-500/0 via-cyan-500/4 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               
               <div className="space-y-4">
@@ -203,7 +203,7 @@ export default function Home() {
 
               {/* Contact shortcuts */}
               <div className="pt-5 border-t border-slate-800/40 space-y-3">
-                <span className="text-[9.5px] text-slate-550 uppercase font-black tracking-wider block">Kênh kết nối nhanh</span>
+                <span className="text-[9.5px] text-slate-500 uppercase font-black tracking-wider block">Kênh kết nối nhanh</span>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
                     href="tel:0789284078"
