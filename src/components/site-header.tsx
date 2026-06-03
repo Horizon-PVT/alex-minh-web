@@ -37,7 +37,7 @@ export default function SiteHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[5]0 transition-all duration-350 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 ${
         scrolled
           ? "bg-[#090d16]/95 backdrop-blur-md shadow-xl shadow-black/35 border-b border-slate-800/80 py-2.5"
           : "bg-gradient-to-b from-[#050b16]/95 via-[#050b16]/45 to-transparent py-4"
