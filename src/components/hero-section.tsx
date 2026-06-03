@@ -181,7 +181,7 @@ export default function HeroSection() {
             {/* Launch Offer Promo Line */}
             <div 
               style={{ fontFamily: "var(--font-sans)", fontWeight: 500, letterSpacing: "-0.01em" }}
-              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-slate-900/40 to-cyan-500/15 border border-amber-500/25 text-[11px] sm:text-xs text-amber-400 mb-6 select-none"
+              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-slate-900/40 to-cyan-500/15 border border-amber-500/25 text-[11px] sm:text-xs text-amber-400 mb-2 select-none"
             >
               <span className="flex h-2 w-2 relative shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
@@ -191,6 +191,14 @@ export default function HeroSection() {
                 <strong className="text-amber-400 font-bold">Ưu đãi ra mắt:</strong>{" "}
                 <span className="text-slate-200">Tặng tên miền năm đầu + setup hệ thống AI thu lead tự động</span>
               </span>
+            </div>
+
+            {/* Growth Partner Promo Subtext */}
+            <div 
+              style={{ fontFamily: "var(--font-sans)", fontWeight: 550, letterSpacing: "-0.015em" }}
+              className="text-[10px] sm:text-xs text-cyan-400/90 mb-6 text-center lg:text-left pl-1"
+            >
+              * Có gói đồng hành xây thương hiệu, vận hành kênh và tối ưu lead hàng tháng.
             </div>
 
             {/* Trust section (Stars and customers avatars) */}
