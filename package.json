@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audit:tailwind-classes": "node scripts/check-invalid-tailwind-classes.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.16.0",

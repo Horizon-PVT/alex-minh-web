@@ -430,7 +430,7 @@ export default function ChatbotDemoWidget() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-[5]0 w-[350px] sm:w-[380px] h-[500px] rounded-3xl glass border border-slate-700/50 shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-300">
+        <div className="fixed bottom-6 right-6 z-50 w-[350px] sm:w-[380px] h-[500px] rounded-3xl glass border border-slate-700/50 shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-300">
           {/* Header */}
           <div className="bg-gradient-to-r from-primary/80 to-secondary/80 px-4 py-3 flex items-center justify-between border-b border-slate-700/50">
             <div className="flex items-center space-x-3">
