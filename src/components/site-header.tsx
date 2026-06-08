@@ -31,6 +31,7 @@ export default function SiteHeader() {
     { label: "Demo Chatbot", href: "/demo-chatbot-ai" },
     { label: "Dự án mẫu", href: "/du-an-mau" },
     { label: "Bảng giá", href: "/bang-gia" },
+    { label: "Tài liệu", href: "/tai-lieu" },
     { label: "Blog", href: "/blog" },
     { label: "Liên hệ", href: "/lien-he" }
   ];
@@ -58,7 +59,7 @@ export default function SiteHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-3.5 py-2.5 text-sm transition-all duration-200 ${
+                  className={`relative px-2.5 py-2.5 text-sm transition-all duration-200 lg:px-3 ${
                     isActive
                       ? "text-secondary font-bold"
                       : "text-slate-200 hover:text-secondary font-medium"

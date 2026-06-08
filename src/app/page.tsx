@@ -5,6 +5,7 @@ import ProofFlowSection from "@/components/proof-flow-section";
 import ServicesSection from "@/components/services-section";
 import IndustryDemoSection from "@/components/industry-demo-section";
 import PricingSection from "@/components/pricing-section";
+import SalesDocsSection from "@/components/sales-docs-section";
 import LaunchOfferSection from "@/components/launch-offer-section";
 import FaqSection from "@/components/faq-section";
 import LeadForm from "@/components/lead-form";
@@ -94,6 +95,9 @@ export default function Home() {
 
       {/* Pricing packages section (Simplified) */}
       <PricingSection />
+
+      {/* Sales document previews */}
+      <SalesDocsSection />
 
       {/* Shortened FAQ Section (4 items) */}
       <FaqSection />
