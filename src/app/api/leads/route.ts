@@ -107,7 +107,8 @@ export async function POST(request: Request) {
       );
     }
 
-    if (cleanSource !== "lead-form" && cleanSource !== "chatbot") {
+    const allowedSources = new Set(["lead-form", "chatbot", "profile", "catalog", "sales-docs"]);
+    if (!allowedSources.has(cleanSource)) {
       return NextResponse.json(
         { success: false, message: "Nguồn dữ liệu không hợp lệ." },
         { status: 400 }
@@ -123,6 +124,14 @@ export async function POST(request: Request) {
 
     const createdAt = new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" });
     const userAgent = request.headers.get("user-agent") || "unknown";
+    const sourceLabelMap: Record<string, string> = {
+      "lead-form": "Form Đăng Ký Website",
+      chatbot: "Chatbot AI Demo",
+      profile: "Hồ sơ năng lực",
+      catalog: "Catalog dịch vụ",
+      "sales-docs": "Trang tài liệu bán hàng"
+    };
+    const sourceLabel = sourceLabelMap[cleanSource] || cleanSource;
 
     // 5. Google Sheet Integration
     const sheetWebhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
@@ -264,7 +273,7 @@ export async function POST(request: Request) {
 📦 Gói quan tâm: ${cleanSelectedPackage || cleanPackageSlug || "Chưa xác định"}
 💰 Ngân sách: ${cleanBudget}
 💬 Ghi chú: ${cleanMessage}
-📢 Nguồn: ${cleanSource === "lead-form" ? "Form Đăng Ký Website" : "Chatbot AI Demo"}
+📢 Nguồn: ${sourceLabel}
 🔗 Trang: ${cleanPageUrl}
 ⏰ Thời gian: ${createdAt}
 ────────────────────────`;

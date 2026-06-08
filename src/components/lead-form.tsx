@@ -15,6 +15,7 @@ interface FormData {
   message: string;
   packageSlug: string;
   selectedPackage: string;
+  source: string;
   email_confirm: string; // Honeypot
 }
 
@@ -41,6 +42,12 @@ const packageOptions = [
   { slug: "growth-partner", label: packageIntentMap["growth-partner"] }
 ];
 
+const leadSourceMap: Record<string, string> = {
+  profile: "profile",
+  catalog: "catalog",
+  "sales-docs": "sales-docs"
+};
+
 export default function LeadForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -51,6 +58,7 @@ export default function LeadForm() {
     message: "",
     packageSlug: "",
     selectedPackage: "",
+    source: "lead-form",
     email_confirm: ""
   });
 
@@ -69,16 +77,23 @@ export default function LeadForm() {
     const params = new URLSearchParams(window.location.search);
     const packageSlug = params.get("package")?.trim() || "";
     const selectedPackage = packageIntentMap[packageSlug];
+    const sourceParam = params.get("source")?.trim() || "";
+    const source = leadSourceMap[sourceParam] || "lead-form";
 
-    if (!selectedPackage) return;
+    if (!selectedPackage && source === "lead-form") return;
 
     const normalizedSlug = packageSlug === "operating-optimizing" ? "growth-partner" : packageSlug;
     const prefillTimer = window.setTimeout(() => {
       setFormData((prev) => ({
         ...prev,
-        serviceInterest: normalizedSlug,
-        packageSlug: normalizedSlug,
-        selectedPackage
+        source,
+        ...(selectedPackage
+          ? {
+              serviceInterest: normalizedSlug,
+              packageSlug: normalizedSlug,
+              selectedPackage
+            }
+          : {})
       }));
     }, 0);
 
@@ -163,7 +178,7 @@ export default function LeadForm() {
           message: formData.message,
           package: formData.packageSlug,
           selectedPackage: formData.selectedPackage,
-          source: "lead-form",
+          source: formData.source,
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
           email_confirm: formData.email_confirm,
         }),
@@ -177,6 +192,7 @@ export default function LeadForm() {
           industry: formData.industry,
           serviceInterest: formData.serviceInterest,
           budget: formData.budget,
+          source: formData.source,
         });
         setFormData({
           name: "",
@@ -187,6 +203,7 @@ export default function LeadForm() {
           message: "",
           packageSlug: "",
           selectedPackage: "",
+          source: formData.source,
           email_confirm: "",
         });
       } else {

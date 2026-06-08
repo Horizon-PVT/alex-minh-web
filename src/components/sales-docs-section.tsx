@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Download, Eye, FileText, MessageSquare, ShieldCheck } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const salesDocuments = [
   {
+    type: "profile",
     title: "Hồ sơ năng lực Alex Minh AI",
     label: "Company Profile",
     description:
@@ -15,6 +19,7 @@ const salesDocuments = [
     tags: ["Corporate tech", "Hồ sơ năng lực"],
   },
   {
+    type: "catalog",
     title: "Catalog dịch vụ Alex Minh AI",
     label: "Service Catalog",
     description:
@@ -32,6 +37,20 @@ type SalesDocsSectionProps = {
 };
 
 export default function SalesDocsSection({ pageMode = false }: SalesDocsSectionProps) {
+  const pageLocation = pageMode ? "tai_lieu" : "homepage";
+
+  const trackSalesDocumentClick = (
+    eventName: "sales_doc_view_pdf" | "sales_doc_download_pdf" | "sales_doc_consult_click",
+    doc: (typeof salesDocuments)[number]
+  ) => {
+    trackEvent(eventName, {
+      document_type: doc.type,
+      page_location: pageLocation,
+      document_url: doc.pdf,
+      timestamp: new Date().toISOString(),
+    });
+  };
+
   return (
     <section
       id="tai-lieu"
@@ -131,6 +150,7 @@ export default function SalesDocsSection({ pageMode = false }: SalesDocsSectionP
                       href={doc.pdf}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackSalesDocumentClick("sales_doc_view_pdf", doc)}
                       className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 to-blue-500 px-5 py-3.5 text-xs font-black uppercase tracking-wider text-slate-950 shadow-lg shadow-cyan-500/20 transition-all hover:brightness-110"
                     >
                       <Eye className="h-4 w-4" />
@@ -139,6 +159,7 @@ export default function SalesDocsSection({ pageMode = false }: SalesDocsSectionP
                     <a
                       href={doc.pdf}
                       download={doc.downloadName}
+                      onClick={() => trackSalesDocumentClick("sales_doc_download_pdf", doc)}
                       className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-600 bg-slate-900 px-5 py-3.5 text-xs font-black uppercase tracking-wider text-white transition-all hover:border-slate-400 hover:bg-slate-800"
                     >
                       <Download className="h-4 w-4" />
@@ -146,6 +167,7 @@ export default function SalesDocsSection({ pageMode = false }: SalesDocsSectionP
                     </a>
                     <Link
                       href={doc.consultHref}
+                      onClick={() => trackSalesDocumentClick("sales_doc_consult_click", doc)}
                       className="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-300/40 bg-cyan-400/10 px-5 py-3.5 text-xs font-black uppercase tracking-wider text-cyan-100 transition-all hover:border-cyan-200/70 hover:bg-cyan-400/15"
                     >
                       <MessageSquare className="h-4 w-4" />
