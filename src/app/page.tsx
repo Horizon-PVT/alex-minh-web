@@ -11,6 +11,7 @@ import FaqSection from "@/components/faq-section";
 import LeadForm from "@/components/lead-form";
 import { Phone, MessageSquare, CheckCircle2, Sparkles } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       {/* Hero Intro - Premium first view */}
       <HeroSection />
 
-      {/* Launch Promo Banner - KODA ELITE */}
+      {/* June offer banner - keeps KODA ELITE as a bonus, not the main product */}
       <section className="py-12 bg-[#090d16] relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="relative rounded-3xl overflow-hidden border border-amber-500/20 bg-gradient-to-r from-amber-500/5 via-slate-900/90 to-indigo-950/20 p-8 sm:p-10 shadow-[0_0_30px_rgba(245,158,11,0.08)] flex flex-col md:flex-row items-center gap-8 group">
@@ -30,35 +31,35 @@ export default function Home() {
             <div className="flex-1 space-y-4 text-left relative z-10">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-black uppercase tracking-wider">
                 <Sparkles className="h-3 w-3 animate-spin [animation-duration:3s]" />
-                <span>QUÀ TẶNG RA MẮT</span>
+                <span>ƯU ĐÃI THÁNG 6</span>
               </div>
               
               <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
-                🎁 Tặng Trợ Lý AI Riêng Cho Chủ Doanh Nghiệp
+                Ưu đãi cho gói Web + Chatbot AI
               </h3>
 
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
-                Không chỉ là chatbot cho website — anh/chị còn được tặng thêm <span className="text-amber-400 font-extrabold">KODA ELITE</span>, một trợ lý AI riêng có thể hỗ trợ bán hàng, nhắc việc, lên lịch, phân tích sản phẩm, gợi ý nội dung và đồng hành cùng chủ doanh nghiệp mỗi ngày.
+                Dành cho doanh nghiệp đăng ký gói <span className="text-amber-400 font-extrabold">Web + Chatbot AI</span> trở lên: tặng demo chatbot AI theo ngành trong 24h nếu phù hợp, tặng tên miền năm đầu và 7 ngày KODA ELITE cho chủ doanh nghiệp.
               </p>
 
               <p className="text-slate-400 text-[11px] sm:text-xs leading-relaxed italic">
-                “Như có thêm một trợ lý kinh doanh AI bên cạnh — luôn sẵn sàng hỗ trợ anh/chị suy nghĩ, sắp xếp và bán hàng tốt hơn.”
+                Nếu doanh nghiệp đã có tên miền, có thể đổi sang 1 tháng chăm sóc kỹ thuật hoặc tối ưu chatbot.
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <a
-                  href="#dang-ky"
+                <Link
+                  href="/lien-he?source=june-offer"
                   className="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 text-slate-950 text-xs font-black uppercase tracking-wider transition-all shadow-md shadow-amber-500/10"
                 >
-                  Nhận trợ lý AI riêng
-                </a>
+                  Nhận demo chatbot AI theo ngành
+                </Link>
                 <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider border-l border-slate-800 pl-4 py-1">
-                  Powered by KODA ELITE
+                  KODA ELITE là quà tặng, không phải sản phẩm chính
                 </span>
               </div>
 
               <div className="text-[10px] text-slate-500 font-medium">
-                * Áp dụng cho khách triển khai Web + Chatbot AI trong giai đoạn ra mắt.
+                * Không giảm giá trực tiếp. Không áp dụng cho tên miền premium hoặc tên miền đã có chủ sở hữu.
               </div>
             </div>
 
@@ -116,10 +117,10 @@ export default function Home() {
               <span>ĐĂNG KÝ TƯ VẤN</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Nhận Bản Gợi Ý Web + Chatbot AI Riêng Cho Ngành Của Anh/Chị
+              Nhận demo chatbot AI theo ngành
             </h2>
             <p className="text-slate-400 text-sm md:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
-              Điền thông tin bên dưới, Alex Minh AI sẽ phân tích nhanh mô hình kinh doanh và gợi ý cách xây website, chatbot và hệ thống thu lead phù hợp.
+              Điền 3 thông tin chính: tên, SĐT/Zalo và ngành kinh doanh. Alex Minh AI sẽ xem nhanh nhu cầu và gợi ý demo chatbot AI phù hợp nếu đủ dữ liệu.
             </p>
             
             {/* 3 Conversion Trust Badges */}
@@ -158,11 +159,11 @@ export default function Home() {
                   </li>
                   <li className="flex items-start space-x-2.5">
                     <CheckCircle2 className="h-5 w-5 text-cyan-400 shrink-0 mt-0.5 drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]" />
-                    <span>Kịch bản chatbot tư vấn khách hàng mẫu</span>
+                    <span>Demo chatbot AI theo ngành nếu phù hợp</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
                     <CheckCircle2 className="h-5 w-5 text-cyan-400 shrink-0 mt-0.5 drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]" />
-                    <span>Ước tính gói triển khai phù hợp ngân sách</span>
+                    <span>Gợi ý gói Web từ 4.9 triệu hoặc Web + Chatbot AI từ 12.9 triệu</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
                     <CheckCircle2 className="h-5 w-5 text-cyan-400 shrink-0 mt-0.5 drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]" />
@@ -174,7 +175,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-start space-x-2.5">
                     <CheckCircle2 className="h-5 w-5 text-amber-400 shrink-0 mt-0.5 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]" />
-                    <span className="text-amber-300 font-extrabold">🎁 Khách triển khai giai đoạn đầu được tặng KODA ELITE — trợ lý AI riêng cho chủ doanh nghiệp.</span>
+                    <span className="text-amber-300 font-extrabold">🎁 Gói Web + Chatbot AI trở lên được tặng 7 ngày KODA ELITE trong ưu đãi tháng 6.</span>
                   </li>
                 </ul>
 

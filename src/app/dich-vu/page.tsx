@@ -204,7 +204,7 @@ export default function ServicesPage() {
                             : "bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover shadow-primary/10"
                         }`}
                       >
-                        Nhận tư vấn triển khai
+                        Nhận demo chatbot AI theo ngành
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                       <Link
@@ -229,13 +229,13 @@ export default function ServicesPage() {
                       <div className="lg:col-span-7 space-y-6">
                         <div className="space-y-3">
                           <span className="text-[11px] font-black tracking-wider uppercase px-3 py-1 rounded-md inline-block border text-purple-400 bg-purple-500/5 border-purple-500/20">
-                            Powered by KODA ELITE
+                            Quà tặng tháng 6
                           </span>
                           <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                            🎁 Tặng kèm KODA ELITE — Trợ Lý AI Riêng Cho Chủ Doanh Nghiệp
+                            🎁 Tặng 7 ngày KODA ELITE cho gói Web + Chatbot AI trở lên
                           </h3>
                           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
-                            KODA ELITE là trợ lý AI cá nhân hóa được cấu hình theo ngành nghề, sản phẩm, dịch vụ và cách làm việc của chủ doanh nghiệp. Không chỉ hỗ trợ viết nội dung hay trả lời khách, trợ lý này còn có thể giúp anh/chị lên lịch, nhắc việc, phân tích sản phẩm, gợi ý chương trình khuyến mại, chuẩn bị kịch bản chăm khách và hỗ trợ xử lý lead hằng ngày.
+                            KODA ELITE chỉ là quà tặng hỗ trợ chủ doanh nghiệp trong ưu đãi tháng 6. Sản phẩm chính vẫn là Website AI tích hợp chatbot tư vấn theo dữ liệu doanh nghiệp, form nhận khách và thông báo lead tự động.
                           </p>
                         </div>
 
@@ -269,10 +269,10 @@ export default function ServicesPage() {
                         {/* CTA & Safety Note */}
                         <div className="pt-4 space-y-4">
                           <Link
-                            href="/lien-he?package=personal-ai-promo"
+                            href="/lien-he?source=june-offer"
                             className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-bold tracking-wide shadow-lg shadow-purple-500/10 transition-all hover:-translate-y-0.5"
                           >
-                            Nhận tư vấn KODA ELITE
+                            Nhận demo chatbot AI theo ngành
                             <ArrowRight className="h-3.5 w-3.5" />
                           </Link>
                           <p className="text-[10px] text-slate-500 font-medium">
@@ -319,20 +319,20 @@ export default function ServicesPage() {
               Sẵn Sàng Nâng Tầm Doanh Nghiệp Của Bạn?
             </h3>
             <p className="text-slate-400 text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
-              Đừng để đối thủ vượt mặt về công nghệ. Hãy bắt đầu ngay hôm nay với giải pháp Website chuyên nghiệp, tích hợp Chatbot AI và hệ thống tự động hóa bán hàng tinh gọn.
+              Bắt đầu với Website AI rõ phạm vi: website chuyên nghiệp, chatbot AI theo dữ liệu doanh nghiệp, form nhận khách và thông báo lead để đội ngũ xử lý kịp thời.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
               <Link
-                href="/lien-he"
+                href="/lien-he?source=services-demo"
                 className="px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-white hover:from-primary-hover hover:to-secondary-hover text-sm font-bold tracking-wide shadow-[0_4px_15px_rgba(0,229,255,0.25)] transition-all hover:-translate-y-0.5 text-center"
               >
-                Liên hệ nhận tư vấn miễn phí
+                Nhận demo chatbot AI theo ngành
               </Link>
               <Link
-                href="/bang-gia"
+                href="/bang-gia#bang-gia"
                 className="px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:text-white text-sm font-bold tracking-wide transition-all hover:-translate-y-0.5 text-center"
               >
-                Xem chi tiết bảng giá
+                Xem gói Web từ 4.9 triệu
               </Link>
             </div>
           </div>

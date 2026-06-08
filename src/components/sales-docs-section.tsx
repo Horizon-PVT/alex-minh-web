@@ -11,7 +11,7 @@ const salesDocuments = [
     title: "Hồ sơ năng lực Alex Minh AI",
     label: "Company Profile",
     description:
-      "Tài liệu giới thiệu năng lực triển khai Website, Chatbot AI, Automation và Growth Partner cho doanh nghiệp địa phương.",
+      "Tài liệu giới thiệu năng lực triển khai Website AI, Chatbot AI theo dữ liệu doanh nghiệp và hệ thống nhận lead cho doanh nghiệp địa phương.",
     preview: "/sales-docs/previews/ho-so-nang-luc-cover.jpg",
     pdf: "/sales-docs/ho-so-nang-luc-alex-minh-ai.pdf",
     consultHref: "/lien-he?source=profile",
@@ -23,7 +23,7 @@ const salesDocuments = [
     title: "Catalog dịch vụ Alex Minh AI",
     label: "Service Catalog",
     description:
-      "Bảng dịch vụ giúp doanh nghiệp chọn đúng gói Web Uy Tín, Web + Chatbot AI, AI Sales System hoặc Growth Partner.",
+      "Bảng dịch vụ giúp doanh nghiệp chọn đúng gói Web Uy Tín, Web + Chatbot AI hoặc AI Sales System theo nhu cầu hiện tại.",
     preview: "/sales-docs/previews/catalog-dich-vu-cover.jpg",
     pdf: "/sales-docs/catalog-dich-vu-alex-minh-ai.pdf",
     consultHref: "/lien-he?source=catalog",
@@ -187,7 +187,7 @@ export default function SalesDocsSection({ pageMode = false }: SalesDocsSectionP
                 Muốn nhận tư vấn theo ngành và ngân sách hiện tại?
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-300">
-                Gửi thông tin để Alex Minh AI đề xuất gói triển khai phù hợp, từ website nền tảng đến hệ thống thu lead và vận hành tăng trưởng.
+                Gửi thông tin để Alex Minh AI đề xuất gói triển khai phù hợp, từ website nền tảng đến Web + Chatbot AI và AI Sales System.
               </p>
             </div>
             <Link

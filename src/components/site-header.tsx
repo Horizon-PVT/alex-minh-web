@@ -95,14 +95,14 @@ export default function SiteHeader() {
               <span>{siteConfig.hotline}</span>
             </a>
             <Link
-              href="/lien-he"
+              href="/lien-he?source=header-demo"
               className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-secondary/30 transition-all duration-300 transform hover:-translate-y-0.5 hover:brightness-110"
               style={{ 
                 fontFamily: "var(--font-sans)", 
                 letterSpacing: "-0.01em" 
               }}
             >
-              Tư vấn ngay
+              Nhận demo
             </Link>
           </div>
 
@@ -150,11 +150,11 @@ export default function SiteHeader() {
                 <span>{siteConfig.hotline}</span>
               </a>
               <Link
-                href="/lien-he"
+                href="/lien-he?source=header-demo"
                 onClick={() => setIsOpen(false)}
                 className="w-full text-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-sm font-bold shadow-md shadow-primary/10 hover:brightness-110 transition-all"
               >
-                Tư vấn ngay
+                Nhận demo chatbot AI theo ngành
               </Link>
             </div>
           </div>

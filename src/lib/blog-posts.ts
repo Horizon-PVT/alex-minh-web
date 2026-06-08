@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "chatbot-ai-khach-san-sam-son",
-    title: "Chatbot AI cho khách sạn, homestay Sầm Sơn: trả lời khách 24/7, không bỏ lỡ booking",
+    title: "Chatbot AI cho khách sạn, homestay Sầm Sơn: hỗ trợ phản hồi khách và ghi nhận nhu cầu đặt phòng",
     description: "Giải pháp ứng dụng chatbot AI tự động báo giá phòng, combo du lịch và hỗ trợ khách hàng đặt phòng 24/7 cho các khách sạn, homestay tại Sầm Sơn, Thanh Hóa.",
     date: "30 Tháng 5, 2026",
     category: "Giải pháp ngành",

@@ -256,7 +256,7 @@ export default function DemoChatbotPlayground() {
           industry: selectedIndustry.name,
           serviceInterest: "Thiết kế Website + Chatbot AI",
           budget: "Chưa khảo sát",
-          message: "Lead tự nguyện bấm nút 'Nhận tư vấn & demo phù hợp' sau khi gửi SĐT trong AI chat.",
+          message: "Lead tự nguyện bấm nút 'Nhận demo chatbot AI theo ngành' sau khi gửi SĐT trong AI chat.",
           source: "chatbot",
           pageUrl: typeof window !== "undefined" ? window.location.href : ""
         })
@@ -584,7 +584,7 @@ export default function DemoChatbotPlayground() {
             </h1>
             
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              Em là chatbot AI tư vấn khách hàng của Alex Minh AI. Anh/chị hãy chọn ngành nghề và trải nghiệm năng lực phản hồi 24/7, tự động thu lead và gửi thông tin qua Zalo của em ngay bên dưới nhé.
+              Em là chatbot AI tư vấn khách hàng của Alex Minh AI. Anh/chị hãy chọn ngành nghề để xem demo cách chatbot phản hồi theo dữ liệu mẫu, ghi nhận thông tin khách và hỗ trợ đội ngũ xử lý lead nhanh hơn.
             </p>
 
             {/* CTA Buttons */}
@@ -607,8 +607,8 @@ export default function DemoChatbotPlayground() {
             {/* Benefit chips */}
             <div className="pt-6 flex flex-wrap gap-4 border-t border-slate-900/40">
               {[
-                "⚡ Phản hồi tự động 24/7",
-                "🎯 Thu lead khách hàng tự động",
+                "⚡ Phản hồi theo kịch bản mẫu",
+                "🎯 Ghi nhận thông tin khách",
                 "💬 Tư vấn theo kịch bản ngành"
               ].map((chip, idx) => (
                 <div key={idx} className="flex items-center gap-1.5 px-3 py-1 text-slate-300 text-xs font-semibold">
@@ -724,7 +724,7 @@ export default function DemoChatbotPlayground() {
                 <span>Lưu ý về bản giả lập</span>
               </div>
               <p className="text-[10px] leading-relaxed text-slate-400">
-                Trình giả lập mô phỏng quy trình hoạt động của chatbot theo kịch bản mẫu. Chatbot AI thực tế khi bàn giao sẽ được huấn luyện sâu theo dữ liệu riêng biệt của doanh nghiệp và tự xử lý các tình huống phức tạp.
+                Trình giả lập mô phỏng quy trình hoạt động của chatbot theo kịch bản mẫu. Khi triển khai thật, chatbot AI sẽ được cấu hình theo dữ liệu riêng của doanh nghiệp và có giới hạn theo phạm vi bàn giao.
               </p>
             </div>
           </div>
@@ -817,7 +817,7 @@ export default function DemoChatbotPlayground() {
                       Trợ lý AI - {selectedIndustry.name.split(" / ")[0]}
                     </h4>
                     <span className="text-[10px] text-emerald-400/90 font-medium flex items-center gap-1.5">
-                      <span>• Trực tuyến 24/7</span>
+                      <span>• Demo ngành mẫu</span>
                       {isAutoPlaying && (
                         <span className="text-amber-400/90 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20 text-[9px] font-bold uppercase tracking-wider animate-pulse">
                           Auto Demo
@@ -1019,7 +1019,7 @@ export default function DemoChatbotPlayground() {
                         className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 text-slate-950 text-xs font-extrabold transition-all cursor-pointer shadow-md shadow-amber-500/10 flex items-center gap-1.5 animate-pulse"
                       >
                         <CheckCircle className="h-3.5 w-3.5" />
-                        <span>Nhận tư vấn & demo phù hợp</span>
+                        <span>Nhận demo chatbot AI theo ngành</span>
                       </button>
                       <button
                         onClick={() => {
@@ -1105,19 +1105,19 @@ export default function DemoChatbotPlayground() {
           
           <div className="relative z-10">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
-              Bạn muốn sở hữu trợ lý AI thông minh thế này?
+              Muốn xem demo chatbot AI theo ngành của anh/chị?
             </h3>
             
             <p className="text-slate-400 text-xs sm:text-sm mb-8 leading-relaxed">
-              Alex Minh AI cung cấp dịch vụ huấn luyện Chatbot AI thông minh chuyên sâu cho từng doanh nghiệp, kết nối API đồng bộ CRM, Telegram, Google Sheets mượt mà.
+              Alex Minh AI triển khai Website AI tích hợp chatbot theo dữ liệu doanh nghiệp, form nhận khách, Google Sheet và Telegram/email alert theo phạm vi đã thống nhất.
             </p>
             
             <Link
-              href="/lien-he"
+              href="/lien-he?source=chatbot-demo"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-white hover:from-primary-hover hover:to-secondary-hover text-xs font-bold tracking-wide shadow-[0_4px_15px_rgba(0,229,255,0.2)] transition-all hover:-translate-y-0.5"
             >
               <MessageSquare className="h-4 w-4" />
-              <span>Đăng ký thiết kế chatbot riêng</span>
+              <span>Nhận demo chatbot AI theo ngành</span>
             </Link>
           </div>
         </div>

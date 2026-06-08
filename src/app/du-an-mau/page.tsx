@@ -19,8 +19,8 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Dự Án Mẫu & Case Study Thực Tế - Alex Minh AI",
-  description: "Khám phá các Case Study Website & Chatbot AI giả lập theo từng ngành tại Thanh Hóa giúp giải quyết khó khăn doanh nghiệp, thu hút lead và tự động hóa vận hành."
+  title: "Demo Ngành Mẫu Website AI - Alex Minh AI",
+  description: "Khám phá các mẫu demo Website AI và chatbot AI theo từng ngành để hình dung cách hệ thống có thể hoạt động cho doanh nghiệp địa phương."
 };
 
 interface CaseStudy {
@@ -59,13 +59,13 @@ export default function ProjectDemoPage() {
       ],
       timeline: ["Khảo sát thực địa & thông tin phòng", "Thiết kế Web giới thiệu Sầm Sơn", "Huấn luyện kịch bản Chatbot AI", "Cài đặt đồng bộ Telegram & Sheet", "Test vận hành & Bàn giao"],
       expectedResults: [
-        "100% tin nhắn hỏi phòng được phản hồi lập tức dưới 2 giây tự động.",
-        "Thu nhận trung bình 15-20 lead đăng ký phòng chất lượng mỗi ngày vào mùa hè.",
-        "Giảm 60% công việc lễ tân phải nghe điện thoại báo giá cơ bản."
+        "Khách hỏi phòng được phản hồi nhanh hơn theo kịch bản đã cấu hình.",
+        "Thông tin khách quan tâm được ghi nhận tập trung để đội lễ tân xử lý tiếp.",
+        "Giảm bớt các câu hỏi lặp lại về loại phòng, giá tham khảo và cách đặt lịch."
       ],
       chatbotDemoId: "tourism",
       chatbotMessage: "Lễ tân AI: Dạ Khách Sạn có phòng Deluxe hướng biển trống ngày 15/6 ạ. Anh/chị cho em xin SĐT để giữ phòng nhé!",
-      leadBadge: "[Lead mới] Anh Tuấn vừa gửi SĐT 0978***567"
+      leadBadge: "[Mẫu lead] Anh Tuấn vừa gửi SĐT 0978***567"
     },
     {
       id: "spa-dental",
@@ -86,13 +86,13 @@ export default function ProjectDemoPage() {
       ],
       timeline: ["Khảo sát dịch vụ & bảng giá chi tiết", "Thiết kế Landing Page đặt lịch", "Xây bộ câu hỏi FAQ cho chatbot học", "Kết nối Sheets & Google Calendar", "Kiểm thử & Bàn giao hệ thống"],
       expectedResults: [
-        "Thu nhận 8-12 lịch hẹn thăm khám tự động mỗi tuần vào khung giờ đêm muộn.",
-        "Giảm 95% tình trạng trùng lịch hoặc quên lịch của phòng khám.",
-        "Nâng cao độ chuyên nghiệp của thương hiệu nha khoa/spa online."
+        "Khách có thể để lại thông tin đặt lịch ngay cả ngoài giờ hành chính.",
+        "Thông tin lịch hẹn được gom về một nơi để đội tư vấn xác nhận lại.",
+        "Website thể hiện dịch vụ, quy trình và thông tin tư vấn rõ ràng hơn."
       ],
       chatbotDemoId: "spa",
       chatbotMessage: "Nha khoa AI: Em đã đăng ký lịch khám răng miễn phí cho chị vào 15h00 ngày mai. Chị vui lòng check Zalo nhận mã hẹn ạ!",
-      leadBadge: "[Lead mới] Chị Lan (TP Thanh Hóa) đặt lịch răng sứ"
+      leadBadge: "[Mẫu lead] Chị Lan (TP Thanh Hóa) đặt lịch răng sứ"
     },
     {
       id: "thanh-hoa-realty",
@@ -113,13 +113,13 @@ export default function ProjectDemoPage() {
       ],
       timeline: ["Khảo sát tài liệu & mặt bằng dự án", "Thiết kế Landing Page dự án", "Cài đặt phễu lọc nhu cầu Chatbot", "Kết nối CRM/Bảng dữ liệu", "Bàn giao phễu thu lead"],
       expectedResults: [
-        "Giảm 50% thời gian sale phải gọi điện tư vấn sàng lọc khách hàng không đúng tệp.",
-        "Tăng 25% tỷ lệ lead thực tế phát sinh giao dịch nhờ lọc phễu thông tin chuẩn.",
-        "Hỗ trợ gửi tài liệu tự động tức thì cho khách hàng 24/7."
+        "Sale có thêm thông tin ban đầu trước khi gọi tư vấn khách.",
+        "Khách nhận được tài liệu và câu trả lời cơ bản theo nội dung doanh nghiệp cung cấp.",
+        "Lead được phân loại sơ bộ để đội sale ưu tiên xử lý."
       ],
       chatbotDemoId: "realestate",
       chatbotMessage: "BĐS AI: Đã gửi bảng giá và mặt bằng chi tiết khu đô thị Nam Sầm Sơn qua Zalo của anh. Anh cần hỗ trợ thêm thông tin gì ạ?",
-      leadBadge: "[Lead mới] Anh Dũng vừa tải báo giá Đất nền"
+      leadBadge: "[Mẫu lead] Anh Dũng vừa tải báo giá Đất nền"
     },
     {
       id: "edu-center",
@@ -140,13 +140,13 @@ export default function ProjectDemoPage() {
       ],
       timeline: ["Khảo sát chương trình học & độ tuổi", "Thiết kế Website trung tâm", "Thiết lập kịch bản chatbot tuyển sinh", "Đồng bộ phễu đăng ký học thử", "Bàn giao & hướng dẫn quản lý"],
       expectedResults: [
-        "Tăng tỷ lệ chuyển đổi đăng ký học thử trên website lên 18% nhờ phễu chat tương tác tự nhiên.",
-        "Giảm tải 40% công việc tư vấn thông tin cơ bản cho phòng tuyển sinh.",
-        "Dễ dàng quản lý và chăm sóc danh sách học viên tiềm năng."
+        "Phụ huynh có thể hỏi thông tin cơ bản và để lại nhu cầu học thử nhanh hơn.",
+        "Đội tuyển sinh có danh sách đăng ký tập trung để gọi xác nhận.",
+        "Nội dung khóa học, độ tuổi và lịch tư vấn được trình bày dễ hiểu hơn."
       ],
       chatbotDemoId: "education",
       chatbotMessage: "Anh ngữ AI: Em đã xếp lịch kiểm tra trình độ tiếng Anh miễn phí cho bé lúc 17h30 thứ 7 này. Hẹn gặp phụ huynh và bé ạ!",
-      leadBadge: "[Lead mới] Phụ huynh bé Minh Đăng đăng ký học thử"
+      leadBadge: "[Mẫu lead] Phụ huynh bé Minh Đăng đăng ký học thử"
     },
     {
       id: "local-ocop",
@@ -167,13 +167,13 @@ export default function ProjectDemoPage() {
       ],
       timeline: ["Khảo sát quy cách sản phẩm & chiết khấu", "Thiết kế Website OCOP chuyên nghiệp", "Cấu hình kịch bản chatbot báo giá sỉ", "Đồng bộ đơn đặt hàng sỉ/lẻ", "Test & Bàn giao"],
       expectedResults: [
-        "Thu hút 30-40 khách hàng đại lý đăng ký nhận mẫu thử nem/nước mắm mỗi tháng.",
-        "Nâng tầm uy tín thương hiệu OCOP Thanh Hóa trên môi trường số.",
-        "Bảo đảm thông tin đại lý được ghi nhận tập trung, không thất lạc."
+        "Đại lý/khách sỉ có thể xem thông tin sản phẩm và để lại nhu cầu nhanh hơn.",
+        "Website giúp cơ sở trình bày chứng nhận, quy trình và năng lực sản xuất rõ ràng.",
+        "Thông tin đăng ký được ghi nhận tập trung để đội bán hàng liên hệ lại."
       ],
       chatbotDemoId: "ocop",
       chatbotMessage: "Nem Chua AI: Nem chua đặc biệt giá sỉ chỉ từ 2.800đ/quả từ 200 quả. Anh/chị có muốn nhận mẫu thử miễn phí không ạ?",
-      leadBadge: "[Lead mới] Đại lý OCOP Nghệ An đăng ký lấy sỉ"
+      leadBadge: "[Mẫu lead] Đại lý OCOP Nghệ An đăng ký lấy sỉ"
     }
   ];
 
@@ -192,18 +192,21 @@ export default function ProjectDemoPage() {
         <div className="text-center max-w-3xl mx-auto mb-24 relative">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-secondary/20 bg-secondary/5 text-secondary text-xs font-semibold mb-6 tracking-wide uppercase">
             <Sparkles className="h-3.5 w-3.5 text-secondary" />
-            <span>Thư viện Case Study</span>
+            <span>Demo ngành mẫu</span>
           </div>
           
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Dự Án Mẫu Web + Chatbot AI <br className="hidden sm:inline" />
+            Mẫu demo Website AI <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-primary via-secondary to-cyan-300 bg-clip-text text-transparent">
               Theo Từng Ngành
             </span>
           </h1>
           
           <p className="text-slate-400 text-sm sm:text-base mt-6 leading-relaxed max-w-2xl mx-auto">
-            Xem cách Alex Minh AI mô phỏng giải pháp website, chatbot tư vấn và hệ thống thu lead tự động cho các nhóm doanh nghiệp phổ biến tại Thanh Hóa.
+            Xem cách Alex Minh AI mô phỏng giải pháp website, chatbot tư vấn theo dữ liệu doanh nghiệp và hệ thống ghi nhận thông tin khách cho các nhóm doanh nghiệp phổ biến tại Thanh Hóa.
+          </p>
+          <p className="mt-4 rounded-2xl border border-amber-500/20 bg-amber-500/8 px-4 py-3 text-xs text-amber-100 leading-relaxed">
+            Đây là demo ngành mẫu để doanh nghiệp hình dung cách website và chatbot AI có thể hoạt động. Khi triển khai thật, nội dung sẽ được chỉnh theo dịch vụ, bảng giá và quy trình của từng doanh nghiệp.
           </p>
 
           <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary mx-auto mt-8 rounded-full shadow-[0_0_10px_rgba(0,229,255,0.4)]"></div>
@@ -224,7 +227,7 @@ export default function ProjectDemoPage() {
           </div>
         </div>
 
-        {/* Case Study Details (Alternating 2-Column Showcases) */}
+        {/* Industry demo details (alternating 2-column showcases) */}
         <div className="space-y-28 md:space-y-36">
           {cases.map((cs, idx) => {
             const isEven = idx % 2 === 0;
@@ -261,7 +264,7 @@ export default function ProjectDemoPage() {
                       <div className="absolute top-4 left-4 glass px-3 py-1.5 rounded-lg flex items-center gap-1.5 border border-amber-500/30 shadow-lg pointer-events-none">
                         <Sparkles className="h-3.5 w-3.5 text-amber-400 animate-pulse" />
                         <span className="text-[10px] font-bold text-amber-300 uppercase tracking-widest">
-                          Case Study 0{idx + 1}
+                          Demo mẫu 0{idx + 1}
                         </span>
                       </div>
 
@@ -295,7 +298,7 @@ export default function ProjectDemoPage() {
                   </div>
                 </div>
 
-                {/* Right Column: Case study content */}
+                {/* Right Column: demo content */}
                 <div className="lg:col-span-7 flex flex-col space-y-6">
                   <div>
                     {/* Category pill */}
@@ -370,7 +373,7 @@ export default function ProjectDemoPage() {
                   <div className="pt-4 border-t border-slate-800/60">
                     <h4 className="text-emerald-400 font-bold text-xs tracking-wider uppercase flex items-center gap-1.5 mb-3">
                       <TrendingUp className="h-4 w-4 text-emerald-400 shrink-0" />
-                      Kết quả mục tiêu kỳ vọng:
+                      Mục tiêu vận hành tham khảo:
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       {cs.expectedResults.map((res, rIdx) => (
@@ -414,7 +417,7 @@ export default function ProjectDemoPage() {
         <div className="mt-36 border-t border-slate-800 pt-28 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-extrabold text-white tracking-tight">
-              Quy Trình Triển Khai Giải Pháp Web & Chatbot AI
+              Quy Trình Triển Khai Website AI
             </h2>
             <p className="text-slate-400 text-sm mt-3">
               Chúng tôi chuẩn hóa quy trình 6 bước từ khâu tiếp nhận thông tin doanh nghiệp địa phương Thanh Hóa cho tới khi nghiệm thu, tối ưu hóa hệ thống.
@@ -455,7 +458,7 @@ export default function ProjectDemoPage() {
               Giá Trị Đạt Được Khi Triển Khai Hệ Thống
             </h2>
             <p className="text-slate-400 text-sm mt-3">
-              Không chỉ là làm web hay chatbot đơn lẻ, chúng tôi bàn giao một hệ thống phễu marketing số khép kín, hoạt động trơn tru.
+              Không chỉ là làm web hay chatbot đơn lẻ, chúng tôi bàn giao hệ thống website, chatbot AI theo dữ liệu doanh nghiệp và công cụ nhận lead rõ ràng.
             </p>
             <div className="h-1 w-12 bg-secondary mx-auto mt-4 rounded-full"></div>
           </div>
@@ -463,10 +466,10 @@ export default function ProjectDemoPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               { title: "Website chuẩn uy tín thương hiệu", desc: "Giao diện đẹp mắt, tạo ấn tượng chuyên nghiệp giúp giữ chân khách hàng từ cái nhìn đầu tiên.", icon: Shield },
-              { title: "Chatbot AI phản hồi 24/7", desc: "Tự động chăm sóc, tư vấn cho khách hàng ngay cả ban đêm hay ngày nghỉ lễ mà không mệt mỏi.", icon: Bot },
+              { title: "Chatbot AI theo dữ liệu doanh nghiệp", desc: "Hỗ trợ tư vấn theo thông tin dịch vụ, bảng giá, FAQ và quy trình mà doanh nghiệp cung cấp.", icon: Bot },
               { title: "Lead tự động đẩy về Google Sheets", desc: "Quản lý dữ liệu tập trung, khoa học trên Excel online, dễ dàng kiểm soát hiệu quả bán hàng.", icon: FileSpreadsheet },
               { title: "Cảnh báo Telegram ngay lập tức", desc: "Điện thoại của chủ doanh nghiệp nảy thông báo lead mới ngay khi khách vừa gửi SĐT trên web.", icon: SendHorizontal },
-              { title: "Tối ưu hóa phễu tư vấn bán hàng", desc: "Sàng lọc sẵn nhu cầu cơ bản trước khi chuyển cho sale, nâng cao tỷ lệ chốt đơn của nhóm tư vấn.", icon: TrendingUp },
+              { title: "Hỗ trợ đội sale xử lý nhanh hơn", desc: "Ghi nhận nhu cầu cơ bản trước khi chuyển cho đội tư vấn tiếp tục xử lý.", icon: TrendingUp },
               { title: "Quy trình mở rộng linh hoạt", desc: "Dễ dàng thêm dịch vụ, tích hợp các kênh quảng cáo (Facebook, TikTok Ads) khi doanh nghiệp phát triển.", icon: Workflow }
             ].map((v, vIdx) => {
               const ValIcon = v.icon;
@@ -504,7 +507,7 @@ export default function ProjectDemoPage() {
                 href="/lien-he"
                 className="px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-white hover:from-primary-hover hover:to-secondary-hover text-sm font-bold tracking-wide shadow-[0_4px_15px_rgba(0,229,255,0.25)] transition-all hover:-translate-y-0.5 text-center"
               >
-                Nhận tư vấn miễn phí
+                Nhận demo chatbot AI theo ngành
               </Link>
               <Link
                 href="/demo-chatbot-ai"

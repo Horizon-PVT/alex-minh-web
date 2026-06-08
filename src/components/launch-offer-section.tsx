@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import React from "react";
+import Link from "next/link";
 import { Gift, ShieldCheck, Globe, Bot, Send } from "lucide-react";
 
 export default function LaunchOfferSection() {
@@ -8,17 +9,17 @@ export default function LaunchOfferSection() {
     {
       icon: <Globe className="h-6 w-6 text-cyan-400" />,
       title: "Tặng tên miền năm đầu",
-      description: "Khởi tạo thương hiệu internet chuyên nghiệp với tên miền quốc tế (.com, .net, .vn) miễn phí năm đầu tiên."
+      description: "Áp dụng cho doanh nghiệp đăng ký gói Web + Chatbot AI trở lên, không bao gồm tên miền premium hoặc tên miền đã có chủ sở hữu."
     },
     {
       icon: <Bot className="h-6 w-6 text-[#00E5FF]" />,
-      title: "Chatbot AI tư vấn & xin thông tin khách",
-      description: "Kịch bản chatbot AI thiết kế theo ngành dọc, hoạt động 24/7 trả lời tư vấn và ghi nhận thông tin khách hàng mẫu."
+      title: "Tặng demo chatbot AI theo ngành trong 24h nếu phù hợp",
+      description: "Demo dùng để hình dung luồng tư vấn theo ngành. Khi triển khai thật, nội dung sẽ được cấu hình theo dữ liệu doanh nghiệp cung cấp."
     },
     {
       icon: <Send className="h-6 w-6 text-indigo-400" />,
-      title: "Lead tự động về Google Sheet/Telegram",
-      description: "Thông tin liên hệ của khách ngay lập tức đồng bộ về bảng tính Google Sheet và nhắn tin thông báo qua Telegram của bạn."
+      title: "Tặng 7 ngày KODA ELITE cho chủ doanh nghiệp",
+      description: "KODA ELITE là quà tặng hỗ trợ chủ doanh nghiệp suy nghĩ nội dung, kịch bản tư vấn và việc vận hành; không phải sản phẩm chính trên website."
     }
   ];
 
@@ -34,21 +35,21 @@ export default function LaunchOfferSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-black uppercase tracking-widest mb-4">
             <Gift className="h-3.5 w-3.5 animate-bounce" />
-            <span>CHƯƠNG TRÌNH ƯU ĐÃI RA MẮT (20 DOANH NGHIỆP ĐẦU TIÊN)</span>
+            <span>Ưu đãi triển khai tháng 6</span>
           </div>
           
           <h2 
             style={{ fontFamily: "var(--font-display)", fontWeight: 800, letterSpacing: "-0.03em" }}
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight"
           >
-            Gói Khởi Động AI Bán Hàng
+            Ưu đãi triển khai tháng 6
           </h2>
           
           <p 
             style={{ fontFamily: "var(--font-sans)", fontWeight: 450 }}
             className="text-slate-300 text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed"
           >
-            Dành cho doanh nghiệp muốn có website chuyên nghiệp, chatbot tư vấn 24/7 và hệ thống lưu khách hàng tự động.
+            Dành cho doanh nghiệp đăng ký gói Web + Chatbot AI trở lên. Không giảm giá trực tiếp, tập trung tặng thêm hạng mục giúp triển khai nhanh và vận hành rõ hơn.
           </p>
         </div>
 
@@ -93,12 +94,21 @@ export default function LaunchOfferSection() {
           
           <div style={{ fontFamily: "var(--font-sans)" }} className="flex-1 space-y-2">
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              <strong className="text-slate-200">Điều khoản ưu đãi:</strong> Áp dụng cho gói website + chatbot AI. Không áp dụng tên miền premium hoặc tên miền đã có chủ sở hữu.
+              <strong className="text-slate-200">Điều khoản ưu đãi:</strong> Không giảm giá trực tiếp. Không áp dụng cho tên miền premium hoặc tên miền đã có chủ sở hữu. Ưu đãi áp dụng theo tình trạng phù hợp của từng dự án.
             </p>
             
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-900 pt-2.5">
               <strong className="text-cyan-400">Nếu doanh nghiệp đã có tên miền:</strong> Có thể đổi sang 1 tháng chăm sóc kỹ thuật hoặc tối ưu chatbot.
             </p>
+
+            <div className="pt-3">
+              <Link
+                href="/lien-he?source=june-offer"
+                className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 px-5 py-3 text-xs font-black uppercase tracking-wider text-white transition-all hover:brightness-110"
+              >
+                Nhận demo chatbot AI theo ngành
+              </Link>
+            </div>
           </div>
         </div>
 

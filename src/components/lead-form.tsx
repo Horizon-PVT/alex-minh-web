@@ -23,8 +23,6 @@ interface FormErrors {
   name?: string;
   phone?: string;
   industry?: string;
-  serviceInterest?: string;
-  budget?: string;
 }
 
 const packageIntentMap: Record<string, string> = {
@@ -38,8 +36,7 @@ const packageIntentMap: Record<string, string> = {
 const packageOptions = [
   { slug: "web-uy-tin", label: packageIntentMap["web-uy-tin"] },
   { slug: "web-chatbot-ai", label: packageIntentMap["web-chatbot-ai"] },
-  { slug: "ai-sales-system", label: packageIntentMap["ai-sales-system"] },
-  { slug: "growth-partner", label: packageIntentMap["growth-partner"] }
+  { slug: "ai-sales-system", label: packageIntentMap["ai-sales-system"] }
 ];
 
 const leadSourceMap: Record<string, string> = {
@@ -119,14 +116,6 @@ export default function LeadForm() {
 
     if (!formData.industry) {
       newErrors.industry = "Vui lòng chọn lĩnh vực kinh doanh";
-    }
-
-    if (!formData.serviceInterest) {
-      newErrors.serviceInterest = "Vui lòng chọn giải pháp quan tâm";
-    }
-
-    if (!formData.budget) {
-      newErrors.budget = "Vui lòng chọn mức ngân sách dự kiến";
     }
 
     setErrors(newErrors);
@@ -248,6 +237,10 @@ export default function LeadForm() {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+        <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/8 px-4 py-3 text-xs text-cyan-100 leading-relaxed">
+          Chỉ cần 3 thông tin chính để nhận demo chatbot AI theo ngành: tên, SĐT/Zalo và ngành kinh doanh. Các mục còn lại là tùy chọn để tư vấn sát hơn.
+        </div>
+
         {/* Row 1: Name & Phone */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex flex-col space-y-1.5">
@@ -319,16 +312,14 @@ export default function LeadForm() {
           <div className="flex flex-col space-y-1.5">
             <label htmlFor="serviceInterest" className="text-slate-200 text-xs font-bold tracking-wide flex items-center justify-between">
               <span>Giải pháp quan tâm</span>
-              <span className="text-rose-400 text-[10px] font-bold">*</span>
+              <span className="text-slate-500 text-[10px] font-bold">tùy chọn</span>
             </label>
             <select
               id="serviceInterest"
               name="serviceInterest"
               value={formData.serviceInterest}
               onChange={handleInputChange}
-              className={`bg-[#080d16] border ${
-                errors.serviceInterest ? "border-rose-500/60" : "border-slate-800 focus:border-[#00E5FF]/50"
-              } rounded-xl px-3.5 py-3 text-sm text-slate-100 outline-none transition-colors shadow-inner cursor-pointer`}
+              className="bg-[#080d16] border border-slate-800 focus:border-[#00E5FF]/50 rounded-xl px-3.5 py-3 text-sm text-slate-100 outline-none transition-colors shadow-inner cursor-pointer"
             >
               <option value="" disabled className="text-slate-500 bg-slate-950">Chọn giải pháp...</option>
               {services.map((svc) => (
@@ -345,9 +336,6 @@ export default function LeadForm() {
               </optgroup>
               <option value="all-in-one" className="bg-slate-950 text-slate-200 font-medium">Tất cả giải pháp (Hệ thống AI)</option>
             </select>
-            {errors.serviceInterest && (
-              <span className="text-[10px] text-rose-400 font-medium pl-1">{errors.serviceInterest}</span>
-            )}
           </div>
         </div>
 
@@ -355,16 +343,14 @@ export default function LeadForm() {
         <div className="flex flex-col space-y-1.5">
           <label htmlFor="budget" className="text-slate-200 text-xs font-bold tracking-wide flex items-center justify-between">
             <span>Mức ngân sách dự kiến</span>
-            <span className="text-rose-400 text-[10px] font-bold">*</span>
+            <span className="text-slate-500 text-[10px] font-bold">tùy chọn</span>
           </label>
           <select
             id="budget"
             name="budget"
             value={formData.budget}
             onChange={handleInputChange}
-            className={`bg-[#080d16] border ${
-              errors.budget ? "border-rose-500/60" : "border-slate-800 focus:border-[#00E5FF]/50"
-            } rounded-xl px-3.5 py-3 text-sm text-slate-100 outline-none transition-colors shadow-inner cursor-pointer`}
+            className="bg-[#080d16] border border-slate-800 focus:border-[#00E5FF]/50 rounded-xl px-3.5 py-3 text-sm text-slate-100 outline-none transition-colors shadow-inner cursor-pointer"
           >
             <option value="" disabled className="text-slate-500 bg-slate-950">Chọn khoảng ngân sách...</option>
             {budgetOptions.map((opt) => (
@@ -373,7 +359,6 @@ export default function LeadForm() {
               </option>
             ))}
           </select>
-          {errors.budget && <span className="text-[10px] text-rose-400 font-medium pl-1">{errors.budget}</span>}
         </div>
 
         {/* Row 4: Message */}
@@ -415,7 +400,7 @@ export default function LeadForm() {
             ) : (
               <>
                 <Send className="h-4 w-4" />
-                <span>Nhận Tư Vấn & Demo Phù Hợp</span>
+                <span>Nhận demo chatbot AI theo ngành</span>
               </>
             )}
           </button>

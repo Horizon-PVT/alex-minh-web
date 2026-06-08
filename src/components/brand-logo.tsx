@@ -113,7 +113,7 @@ export default function BrandLogo({ variant = "full", className = "" }: BrandLog
         </span>
         {variant === "footer" && (
           <span className="text-[10px] text-[#8A94A6] tracking-wider uppercase font-bold mt-2">
-            Thiết kế Website • Chatbot AI • Tự động hóa bán hàng
+            Website AI • Chatbot AI • Form nhận khách
           </span>
         )}
       </div>

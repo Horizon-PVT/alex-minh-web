@@ -20,80 +20,91 @@ export const pricingPackages: PricingPackage[] = [
   {
     id: "web-uy-tin",
     name: "Web Uy Tín",
-    price: "Từ 3 – 7 triệu",
+    price: "Từ 4.9 triệu",
     pricePrefix: "Từ",
-    priceVal: "3 – 7",
+    priceVal: "4.9",
     priceUnit: "triệu",
-    description: "Website giới thiệu chuyên nghiệp cho doanh nghiệp nhỏ.",
+    description: "Gói entry để doanh nghiệp có website/landing page gọn gàng, rõ thông tin và dễ liên hệ.",
     features: [
-      "Website 1–5 trang chuẩn di động",
-      "Tích hợp Zalo, Gọi ngay, Form",
-      "Tối ưu tốc độ tải & SEO cơ bản"
+      "Website/landing page cơ bản",
+      "Mobile responsive",
+      "Nút Zalo/Gọi nhanh",
+      "Form liên hệ",
+      "Nội dung giới thiệu cơ bản",
+      "Không bao gồm chatbot AI"
     ],
-    fitBadge: "Phù hợp: Hộ kinh doanh / SME mới bắt đầu",
-    ctaText: "Nhận tư vấn gói này"
+    fitBadge: "Entry package: phù hợp khi cần nền tảng online chuyên nghiệp trước",
+    ctaText: "Xem gói Web từ 4.9 triệu"
   },
   {
     id: "web-chatbot-ai",
     name: "Web + Chatbot AI",
-    price: "Từ 8 – 18 triệu",
+    price: "Từ 12.9 triệu",
     pricePrefix: "Từ",
-    priceVal: "8 – 18",
+    priceVal: "12.9",
     priceUnit: "triệu",
-    description: "Website đẹp + chatbot AI tư vấn và thu lead tự động.",
+    description: "Gói mũi nhọn tháng 6 cho doanh nghiệp muốn website có chatbot AI tư vấn và nhận lead tự động.",
     features: [
-      "Chatbot trả lời khách 24/7",
-      "Lead tự động đổ về Google Sheet",
-      "Báo lead mới ngay qua Telegram"
+      "Website bán hàng/landing page chuyên nghiệp",
+      "Chatbot AI tư vấn theo dữ liệu doanh nghiệp cung cấp",
+      "Form thu lead",
+      "Google Sheet lưu lead",
+      "Telegram/email alert",
+      "CTA Zalo/Gọi/Form rõ ràng",
+      "Nội dung bán hàng theo ngành",
+      "Bàn giao hướng dẫn vận hành"
     ],
-    fitBadge: "Phù hợp: Doanh nghiệp muốn có lead tự động",
+    fitBadge: "Phù hợp nhất cho doanh nghiệp muốn website có chatbot AI tư vấn và nhận lead tự động",
     isPopular: true,
-    featuredNote: "Gói bán chạy nhất",
-    ctaText: "Chọn gói nổi bật này",
-    promoBadge: "🎁 Tặng 7 ngày KODA ELITE",
-    promoNote: "Trợ lý AI riêng hỗ trợ viết nội dung, chăm khách, nhắc việc và xử lý lead hằng ngày."
+    featuredNote: "Gói mũi nhọn tháng 6",
+    ctaText: "Nhận demo chatbot AI theo ngành",
+    promoBadge: "Ưu đãi tháng 6",
+    promoNote: "Tặng demo chatbot AI theo ngành trong 24h nếu phù hợp, tên miền năm đầu và 7 ngày KODA ELITE."
   },
   {
     id: "ai-sales-system",
     name: "AI Sales System",
-    price: "Từ 20 – 50 triệu",
+    price: "Từ 18 triệu hoặc báo giá riêng",
     pricePrefix: "Từ",
-    priceVal: "20 – 50",
-    priceUnit: "triệu",
-    description: "Hệ thống bán hàng tự động cho doanh nghiệp muốn scale.",
+    priceVal: "18",
+    priceUnit: "triệu+",
+    priceSub: "Tích hợp phức tạp báo giá riêng",
+    description: "Gói upsell cho doanh nghiệp cần website nhiều trang, dữ liệu tư vấn sâu và quy trình xử lý lead rõ hơn.",
     features: [
-      "CRM mini lưu và phân loại lead",
-      "Dashboard theo dõi nguồn khách",
-      "Tự động hóa quy trình bán hàng"
+      "Website nhiều trang",
+      "Chatbot AI theo dữ liệu doanh nghiệp, FAQ, bảng giá, dịch vụ và quy trình sale",
+      "Quy trình nhận/chăm lead",
+      "Tracking cơ bản",
+      "Tư vấn xử lý lead",
+      "Tích hợp phức tạp báo giá riêng"
     ],
-    fitBadge: "Phù hợp: Đội sale / doanh nghiệp tăng trưởng",
-    ctaText: "Trao đổi giải pháp",
-    promoBadge: "🎁 Tặng 30 ngày KODA ELITE",
-    promoNote: "Trợ lý AI vận hành nội bộ, cá nhân hóa theo ngành nghề và quy trình bán hàng của doanh nghiệp."
-  },
-  {
-    id: "growth-partner",
-    name: "Vận hành Growth Partner",
-    price: "Từ 500k/tháng",
-    pricePrefix: "Từ",
-    priceVal: "500k",
-    priceUnit: "/tháng",
-    priceSub: "Growth/Full Ops: 2–15tr+/tháng theo phạm vi vận hành",
-    description: "Đội ngũ đồng hành xây dựng thương hiệu, vận hành website, chatbot, nội dung, media và kênh bán hàng online theo tháng.",
-    features: [
-      "Bảo trì & quản trị website hàng tháng",
-      "Tối ưu chatbot, form và luồng thu lead",
-      "Xây dựng định vị thương hiệu & thông điệp bán hàng",
-      "Xây kênh truyền thông: Fanpage/Zalo OA/TikTok/Reels",
-      "Lên kế hoạch nội dung theo tháng",
-      "Thiết kế media/banner/bài đăng/video ngắn theo gói",
-      "Theo dõi lead Google Sheet/Telegram",
-      "Báo cáo hiệu quả & đề xuất tăng trưởng"
-    ],
-    fitBadge: "Phù hợp: Doanh nghiệp cần đội vận hành thuê ngoài",
-    ctaText: "Tư vấn gói vận hành",
-    promoNote: "Phạm vi công việc, số lượng nội dung/media và kênh vận hành được thống nhất theo từng gói."
+    fitBadge: "Upsell: phù hợp khi cần hệ thống lead/sale phức tạp hơn",
+    ctaText: "Trao đổi phạm vi AI Sales System"
   }
+];
+
+export const implementationScope = [
+  "Website/landing page",
+  "Mobile responsive",
+  "Zalo/Gọi/Form",
+  "Chatbot AI theo dữ liệu doanh nghiệp cho gói phù hợp",
+  "Google Sheet",
+  "Telegram/email alert",
+  "Bàn giao hướng dẫn vận hành"
+];
+
+export const outOfScopeItems = [
+  "Chạy quảng cáo Facebook/Google",
+  "Cam kết số lead, số đơn hoặc doanh thu",
+  "SEO lên top Google",
+  "Viết hàng loạt bài blog dài hạn",
+  "Chụp ảnh/quay video chuyên nghiệp",
+  "Thiết kế logo/bộ nhận diện thương hiệu lớn",
+  "App mobile",
+  "CRM/phần mềm quản trị nội bộ phức tạp",
+  "Chatbot AI không giới hạn hoặc tự trả lời ngoài dữ liệu doanh nghiệp cung cấp",
+  "Tích hợp thanh toán, booking, CRM, API riêng nếu chưa báo giá thêm",
+  "Chi phí tên miền premium, hosting đặc biệt, công cụ trả phí bên thứ ba nếu có"
 ];
 
 export interface ComparisonFeature {

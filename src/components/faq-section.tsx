@@ -25,7 +25,7 @@ export default function FaqSection() {
   const faqs: FaqItem[] = [
     {
       question: "Website tích hợp chatbot AI khác gì so với website thông thường?",
-      answer: "Khác biệt lớn nhất là website không chỉ để giới thiệu mà còn biết hỗ trợ bán hàng. Chatbot AI có thể tự trả lời khách 24/7, lọc nhu cầu, thu số điện thoại và báo lead ngay cho anh/chị thay vì để khách tự tìm thông tin rồi rời đi.",
+      answer: "Khác biệt lớn nhất là website không chỉ để giới thiệu mà còn hỗ trợ tư vấn và nhận thông tin khách rõ ràng hơn. Chatbot AI phản hồi theo dữ liệu doanh nghiệp cung cấp, form lưu lead về Google Sheet và có thông báo qua Telegram/email để đội ngũ xử lý kịp thời.",
       icon: <Bot className="h-5 w-5" />
     },
     {
@@ -151,17 +151,17 @@ export default function FaqSection() {
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 pt-2">
                   <Link
-                    href="/lien-he"
+                    href="/lien-he?source=faq-demo"
                     className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:brightness-110 text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center space-x-1.5 shadow-lg shadow-cyan-500/10 cursor-pointer text-center active:scale-[0.98]"
                   >
-                    <span>Tư vấn ngay</span>
+                    <span>Nhận demo chatbot AI theo ngành</span>
                     <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
                   </Link>
                   <Link
                     href="#bang-gia"
                     className="flex-1 py-3 px-4 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900/40 hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center cursor-pointer text-center active:scale-[0.98]"
                   >
-                    Xem bảng giá
+                    Xem gói Web từ 4.9 triệu
                   </Link>
                 </div>
               </div>

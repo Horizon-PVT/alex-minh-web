@@ -6,7 +6,7 @@ export default function ProofFlowSection() {
     {
       step: "01",
       title: "Chatbot AI tư vấn tự động",
-      desc: "Trực website 24/7, lập tức trả lời nhanh khách dưới 2s theo kịch bản huấn luyện riêng biệt, tự động hỏi nhu cầu và thu thập SĐT/Zalo.",
+      desc: "Trực website 24/7, hỗ trợ phản hồi nhanh theo kịch bản và dữ liệu doanh nghiệp cung cấp, tự động hỏi nhu cầu và thu thập SĐT/Zalo.",
       badge: "Tương tác",
       color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20"
     },
@@ -26,9 +26,9 @@ export default function ProofFlowSection() {
     },
     {
       step: "04",
-      title: "Đội ngũ chốt đơn nhanh hơn",
-      desc: "Chủ doanh nghiệp hoặc nhân viên click gọi điện chốt khách trong 5 phút đầu tiên - tỷ lệ chuyển đổi đơn hàng tăng vượt trội.",
-      badge: "Chốt sales",
+      title: "Đội ngũ xử lý khách nhanh hơn",
+      desc: "Chủ doanh nghiệp hoặc nhân viên có thông tin ban đầu để gọi lại, nhắn Zalo và tư vấn tiếp trong thời điểm khách còn quan tâm.",
+      badge: "Xử lý lead",
       color: "text-amber-400 bg-amber-500/10 border-amber-500/20"
     }
   ];

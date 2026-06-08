@@ -100,7 +100,7 @@ export default function HeroSection() {
               className="inline-flex items-center self-center lg:self-start space-x-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-[11px] sm:text-xs shadow-[0_0_15px_rgba(245,158,11,0.08)] mb-5 select-none"
             >
               <span>✨</span>
-              <span>Thiết kế Website • Chatbot AI • Tự động hóa bán hàng</span>
+              <span>Website AI cho doanh nghiệp địa phương</span>
             </div>
             
             <h1 
@@ -115,11 +115,11 @@ export default function HeroSection() {
               className="tracking-tight text-white mb-6 text-center lg:text-left"
             >
               <span className="block lg:inline-block lg:whitespace-nowrap">
-                Website & Chatbot AI
+                Website AI
               </span>
               <br />
               <span className="bg-gradient-to-r from-[#0088FF] to-[#00E5FF] bg-clip-text text-transparent block lg:inline-block lg:whitespace-nowrap">
-                Cho Doanh Nghiệp Thanh Hóa
+                cho doanh nghiệp địa phương
               </span>
             </h1>
 
@@ -134,8 +134,7 @@ export default function HeroSection() {
               }} 
               className="text-slate-200 max-w-xl leading-relaxed mb-6"
             >
-              Tự động trả lời khách, thu lead về Google Sheet/Telegram <br className="hidden sm:inline" />
-              và báo ngay khi có khách quan tâm.
+              Thiết kế website chuyên nghiệp tích hợp chatbot AI tư vấn khách, form nhận thông tin và thông báo lead tự động.
             </p>
 
             <div 
@@ -147,40 +146,40 @@ export default function HeroSection() {
             >
               <div className="flex items-center space-x-1.5">
                 <CheckCircle2 className="h-[18px] w-[18px] text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
-                <span>Trả lời 24/7</span>
+                <span>Website chuẩn mobile</span>
               </div>
               <div className="flex items-center space-x-1.5">
                 <CheckCircle2 className="h-[18px] w-[18px] text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
-                <span>Lưu lead tự động</span>
+                <span>Chatbot AI theo dữ liệu doanh nghiệp</span>
               </div>
               <div className="flex items-center space-x-1.5">
                 <CheckCircle2 className="h-[18px] w-[18px] text-[#00E5FF] shrink-0" style={{ filter: "drop-shadow(0 2px 4px rgba(0, 229, 255, 0.25))" }} />
-                <span>Báo Telegram ngay</span>
+                <span>Google Sheet • Telegram/email alert</span>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-6 w-full sm:w-auto">
               <Link
-                href="/lien-he"
+                href="/lien-he?source=hero-demo"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "15px", letterSpacing: "-0.01em" }}
                 className="w-full sm:w-auto px-7 py-3 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00E5FF] text-white hover:brightness-110 shadow-lg shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 whitespace-nowrap shrink-0"
               >
-                <span>Nhận tư vấn miễn phí</span>
+                <span>Nhận demo chatbot AI theo ngành</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/demo-chatbot-ai"
+                href="#bang-gia"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "15px", letterSpacing: "-0.01em" }}
                 className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#050b16]/40 backdrop-blur-sm border border-white/20 hover:border-cyan-500/50 text-slate-100 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 whitespace-nowrap shrink-0"
               >
                 <Play className="h-3.5 w-3.5 text-[#00E5FF] fill-[#00E5FF] stroke-2" />
-                <span>Xem Demo Chatbot</span>
+                <span>Xem gói Web từ 4.9 triệu</span>
               </Link>
             </div>
 
             <div className="inline-flex items-center justify-center lg:justify-start gap-2 rounded-full border border-cyan-400/25 bg-[#050b16]/45 px-4 py-2 text-xs sm:text-sm font-semibold text-cyan-100 shadow-[0_0_18px_rgba(0,229,255,0.08)] backdrop-blur-sm mb-4">
               <CheckCircle2 className="h-4 w-4 text-[#00E5FF] shrink-0" />
-              <span>Đồng hành cùng doanh nghiệp địa phương trong chuyển đổi số và tự động hóa bán hàng</span>
+              <span>Phù hợp cho Spa, Nha khoa, Thẩm mỹ, Khách sạn/Homestay, BĐS, Nhà hàng/Cafe, Phòng khám và Trung tâm đào tạo.</span>
             </div>
 
             {/* Launch Offer Promo Line */}
@@ -193,17 +192,17 @@ export default function HeroSection() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
               </span>
               <span className="leading-none text-left">
-                <strong className="text-amber-400 font-bold">Ưu đãi ra mắt:</strong>{" "}
-                <span className="text-slate-200">Tặng tên miền năm đầu + setup hệ thống AI thu lead tự động</span>
+                <strong className="text-amber-400 font-bold">Có demo trước khi triển khai:</strong>{" "}
+                <span className="text-slate-200">Demo chatbot AI theo ngành nếu phù hợp với dữ liệu doanh nghiệp.</span>
               </span>
             </div>
 
-            {/* Growth Partner Promo Subtext */}
+            {/* Direction Lock trust line */}
             <div 
               style={{ fontFamily: "var(--font-sans)", fontWeight: 550, letterSpacing: "-0.015em" }}
               className="text-[10px] sm:text-xs text-cyan-400/90 mb-6 text-center lg:text-left pl-1"
             >
-              * Có gói đồng hành xây thương hiệu, vận hành kênh và tối ưu lead hàng tháng.
+              Website chuẩn mobile • Chatbot AI tư vấn theo dữ liệu doanh nghiệp • Form nhận khách • Google Sheet • Telegram/email alert
             </div>
 
             {/* Trust section (Stars and customers avatars) */}
@@ -228,7 +227,7 @@ export default function HeroSection() {
                     <span key={i} className="text-sm">★</span>
                   ))}
                 </div>
-                <span className="text-xs sm:text-sm font-medium text-slate-300 mt-1">200+ doanh nghiệp đã tin tưởng</span>
+                <span className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Tập trung vào Web + Chatbot AI cho doanh nghiệp địa phương</span>
               </div>
             </div>
           </div>

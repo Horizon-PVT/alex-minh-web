@@ -1,82 +1,82 @@
 import React from "react";
-import PricingSection from "@/components/pricing-section";
-import { ShieldCheck, Clock, Zap } from "lucide-react";
 import Link from "next/link";
+import PricingSection from "@/components/pricing-section";
+import { Bell, FileText, ShieldCheck } from "lucide-react";
 
 export const metadata = {
-  title: "Bảng Giá Dịch Vụ Website & Chatbot AI",
-  description: "Bảng báo giá chi tiết dịch vụ thiết kế website, lập trình chatbot AI và tự động hóa quy trình bán hàng tại Thanh Hóa."
+  title: "Bảng giá Website AI cho doanh nghiệp địa phương",
+  description:
+    "Bảng giá Web Uy Tín, Web + Chatbot AI và AI Sales System của Alex Minh AI cho doanh nghiệp địa phương."
 };
 
 export default function PricingPage() {
   return (
-    <div className="relative pt-32 pb-20 overflow-hidden">
-      {/* Background Decor */}
-      <div className="glow-bg bg-primary/10 w-[40rem] h-[40rem] -top-40 -right-40"></div>
-      <div className="glow-bg bg-secondary/5 w-[30rem] h-[30rem] bottom-10 -left-40"></div>
+    <div className="relative overflow-hidden pb-20 pt-32">
+      <div className="glow-bg -right-40 -top-40 h-[40rem] w-[40rem] bg-primary/10" />
+      <div className="glow-bg -left-40 bottom-10 h-[30rem] w-[30rem] bg-secondary/5" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-            Bảng Giá Dịch Vụ & So Sánh Tính Năng
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <div className="mb-4 inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-cyan-200">
+            Direction Lock tháng 6
+          </div>
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">
+            Bảng giá Website AI cho doanh nghiệp địa phương
           </h1>
-          <p className="text-slate-400 text-sm mt-4">
-            So sánh chi tiết các gói dịch vụ giúp bạn lựa chọn giải pháp tối ưu nhất cho hoạt động kinh doanh của mình.
+          <p className="mt-4 text-sm leading-relaxed text-slate-400">
+            Chọn đúng gói theo giai đoạn: website nền tảng, Web + Chatbot AI mũi nhọn tháng 6 hoặc AI Sales System cho nhu cầu phức tạp hơn.
           </p>
-          <div className="h-1 w-12 bg-secondary mx-auto mt-4 rounded-full"></div>
+          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-secondary" />
         </div>
 
-        {/* Pricing Cards Grid (Reused Component) */}
         <PricingSection />
 
-        {/* Core Promises */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-16">
-          <div className="bg-[#131926]/30 border border-slate-800 p-5 rounded-2xl flex items-start space-x-3.5">
-            <ShieldCheck className="h-6 w-6 text-secondary shrink-0" />
+        <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="flex items-start space-x-3.5 rounded-2xl border border-slate-800 bg-[#131926]/30 p-5">
+            <FileText className="h-6 w-6 shrink-0 text-secondary" />
             <div>
-              <h4 className="text-white font-bold text-sm mb-1">Giá cả minh bạch</h4>
-              <p className="text-xs text-slate-400 leading-normal">
-                Báo giá chi tiết từng hạng mục trước khi làm. Không phát sinh chi phí ẩn ngoài hợp đồng.
+              <h4 className="mb-1 text-sm font-bold text-white">Phạm vi rõ ràng</h4>
+              <p className="text-xs leading-normal text-slate-400">
+                Mỗi gói tách rõ website, chatbot AI, form nhận lead và phần tích hợp cần báo giá thêm.
               </p>
             </div>
           </div>
-          <div className="bg-[#131926]/30 border border-slate-800 p-5 rounded-2xl flex items-start space-x-3.5">
-            <Clock className="h-6 w-6 text-secondary shrink-0" />
+          <div className="flex items-start space-x-3.5 rounded-2xl border border-slate-800 bg-[#131926]/30 p-5">
+            <Bell className="h-6 w-6 shrink-0 text-secondary" />
             <div>
-              <h4 className="text-white font-bold text-sm mb-1">Hỗ trợ nhanh chóng</h4>
-              <p className="text-xs text-slate-400 leading-normal">
-                Kỹ thuật viên tại Thanh Hóa hỗ trợ trực tiếp, xử lý sự cố trong vòng 2h nhận thông báo.
+              <h4 className="mb-1 text-sm font-bold text-white">Nhận lead gọn hơn</h4>
+              <p className="text-xs leading-normal text-slate-400">
+                Form, Google Sheet và Telegram/email alert giúp đội ngũ biết có khách mới để xử lý kịp thời.
               </p>
             </div>
           </div>
-          <div className="bg-[#131926]/30 border border-slate-800 p-5 rounded-2xl flex items-start space-x-3.5">
-            <Zap className="h-6 w-6 text-secondary shrink-0" />
+          <div className="flex items-start space-x-3.5 rounded-2xl border border-slate-800 bg-[#131926]/30 p-5">
+            <ShieldCheck className="h-6 w-6 shrink-0 text-secondary" />
             <div>
-              <h4 className="text-white font-bold text-sm mb-1">Công nghệ tối tân</h4>
-              <p className="text-xs text-slate-400 leading-normal">
-                Ứng dụng mã nguồn nhẹ, chuẩn SEO di động và các mô hình chatbot AI ổn định, chính xác nhất.
+              <h4 className="mb-1 text-sm font-bold text-white">Không hứa kết quả tuyệt đối</h4>
+              <p className="text-xs leading-normal text-slate-400">
+                Hiệu quả còn phụ thuộc vào sản phẩm, traffic, quảng cáo, đội sale và cách doanh nghiệp xử lý khách hàng.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Final CTA */}
-        <div className="text-center mt-16 bg-[#131926]/20 border border-slate-800 p-8 rounded-3xl max-w-3xl mx-auto relative overflow-hidden">
+        <div className="relative mx-auto mt-16 max-w-3xl overflow-hidden rounded-3xl border border-slate-800 bg-[#131926]/20 p-8 text-center">
           <div className="relative z-10">
-            <h3 className="text-white font-bold text-lg mb-2">Bạn cần một gói giải pháp được tùy chỉnh riêng?</h3>
-            <p className="text-slate-400 text-xs sm:text-sm mb-6 max-w-xl mx-auto leading-relaxed">
-              Hãy đặt lịch tư vấn nhanh 15 phút, Alex Minh AI sẽ lắng nghe bài toán kinh doanh của bạn và đề xuất giải pháp tiết kiệm và hiệu quả nhất.
+            <h3 className="mb-2 text-lg font-bold text-white">
+              Chưa chắc nên bắt đầu từ gói nào?
+            </h3>
+            <p className="mx-auto mb-6 max-w-xl text-xs leading-relaxed text-slate-400 sm:text-sm">
+              Gửi ngành kinh doanh và SĐT/Zalo, Alex Minh AI sẽ đề xuất demo chatbot AI theo ngành và gói triển khai phù hợp.
             </p>
             <Link
-              href="/lien-he"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-xs font-semibold shadow-md shadow-primary/10 hover:from-primary-hover hover:to-secondary-hover transition-all"
+              href="/lien-he?source=pricing-demo"
+              className="rounded-xl bg-gradient-to-r from-primary to-secondary px-6 py-3 text-xs font-semibold text-white shadow-md shadow-primary/10 transition-all hover:from-primary-hover hover:to-secondary-hover"
             >
-              Liên hệ trao đổi trực tiếp
+              Nhận demo chatbot AI theo ngành
             </Link>
           </div>
         </div>
-
       </div>
     </div>
   );

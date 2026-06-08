@@ -37,7 +37,7 @@ export default function IndustryDemoSection() {
             Demo Chatbot AI Theo Từng Ngành Kinh Doanh
           </h2>
           <p className="text-slate-400 text-sm md:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
-            Chọn ngành của anh/chị để xem cách chatbot tư vấn, lọc nhu cầu và thu lead tự động.
+            Chọn ngành của anh/chị để xem demo mẫu về cách chatbot tư vấn theo dữ liệu doanh nghiệp, hỏi nhu cầu và ghi nhận thông tin khách.
           </p>
           <div className="h-1 w-12 bg-gradient-to-r from-[#00E5FF] to-blue-600 mx-auto mt-6 rounded-full"></div>
         </div>
@@ -65,7 +65,7 @@ export default function IndustryDemoSection() {
 
               <div className="flex items-center justify-between">
                 <span className="px-3 py-1 rounded-full bg-gradient-to-r from-rose-500/10 to-orange-500/10 border border-rose-500/20 text-rose-400 text-[10px] font-black uppercase tracking-widest">
-                  Case nổi bật
+                  Demo ngành mẫu
                 </span>
                 <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#00E5FF]/10 to-blue-500/10 flex items-center justify-center text-[#00E5FF] border border-[#00E5FF]/20 shrink-0">
                   <Hotel className="h-5 w-5" />
@@ -95,7 +95,7 @@ export default function IndustryDemoSection() {
                       <span>Chatbot xử lý</span>
                     </div>
                     <p className="text-slate-300 text-xs sm:text-[13px] leading-relaxed pl-3.5 border-l border-cyan-500/30">
-                      Chatbot tự động hỏi ngày đi, số người, loại phòng và xin SĐT/Zalo để gửi báo giá.
+                      Chatbot lần lượt hỏi ngày đi, số người, loại phòng và xin SĐT/Zalo để đội ngũ gửi báo giá.
                     </p>
                   </div>
 

@@ -51,7 +51,7 @@ export default function ServicesSection() {
                   Web + Chatbot AI
                 </h4>
                 <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
-                  Website chuyên nghiệp kết hợp chatbot AI tư vấn 24/7 và tự động lưu khách về Google Sheet/Telegram.
+                  Website chuyên nghiệp kết hợp chatbot AI tư vấn theo dữ liệu doanh nghiệp, form nhận khách và cảnh báo lead qua Google Sheet/Telegram.
                 </p>
               </div>
 
@@ -63,7 +63,7 @@ export default function ServicesSection() {
                 </li>
                 <li className="flex items-center space-x-2 text-xs sm:text-sm text-slate-400">
                   <Check className="h-4 w-4 text-cyan-400 shrink-0" />
-                  <span>Chatbot hỏi đáp và thu lead tự động</span>
+                  <span>Chatbot hỏi đáp và ghi nhận thông tin khách</span>
                 </li>
                 <li className="flex items-center space-x-2 text-xs sm:text-sm text-slate-400">
                   <Check className="h-4 w-4 text-cyan-400 shrink-0" />

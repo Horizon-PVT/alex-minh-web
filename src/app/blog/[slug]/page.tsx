@@ -150,10 +150,10 @@ export default async function BlogPostPage({ params }: Props) {
               <span className="text-secondary">&rarr;</span>
             </Link>
             <Link
-              href="/lien-he"
+              href="/lien-he?source=blog-demo"
               className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-secondary/40 text-slate-300 hover:text-white transition-all flex items-center justify-between"
             >
-              <span>📞 Đăng ký tư vấn và thiết kế Demo riêng</span>
+              <span>📞 Nhận demo chatbot AI theo ngành</span>
               <span className="text-secondary">&rarr;</span>
             </Link>
           </div>
@@ -171,11 +171,11 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/lien-he"
+                href="/lien-he?source=blog-demo"
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold hover:from-primary-hover hover:to-secondary-hover shadow-md shadow-primary/20 transition-all flex items-center justify-center space-x-1.5"
               >
                 <Phone className="h-4 w-4" />
-                <span>Nhận tư vấn miễn phí</span>
+                <span>Nhận demo chatbot AI theo ngành</span>
               </Link>
               <Link
                 href="/demo-chatbot-ai"

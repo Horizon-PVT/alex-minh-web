@@ -10,51 +10,58 @@ export interface ServiceItem {
 export const services: ServiceItem[] = [
   {
     id: "website-landing",
-    title: "Website & Landing Page",
-    shortDesc: "Xây dựng website/landing page chuẩn SEO, tối ưu di động và định hướng chuyển đổi cao.",
-    description: "Không chỉ dừng lại ở giao diện đẹp, website của Alex Minh AI đóng vai trò như một nhân viên bán hàng chuyên nghiệp, chủ động thu hút khách hàng và tối ưu tỷ lệ chuyển đổi trực tuyến.",
+    title: "Website / Landing Page",
+    shortDesc:
+      "Xây dựng website/landing page chuyên nghiệp, chuẩn mobile, có CTA Zalo/Gọi/Form rõ ràng.",
+    description:
+      "Website là sản phẩm chính của Alex Minh AI: giúp doanh nghiệp có nền tảng online chỉn chu, trình bày dịch vụ rõ ràng và tạo đường dẫn thuận tiện để khách để lại thông tin.",
     icon: "Globe",
     details: [
-      "Giao diện đẹp chuẩn di động, tối ưu trải nghiệm người dùng.",
-      "Tập trung tối ưu tỷ lệ chuyển đổi và thu thập lead hiệu quả.",
-      "Tốc độ tải cực nhanh, chuẩn hóa SEO local Thanh Hóa."
+      "Giao diện chuyên nghiệp, responsive tốt trên mobile.",
+      "Nút Zalo, gọi nhanh và form liên hệ đặt ở vị trí dễ thao tác.",
+      "Nội dung giới thiệu cơ bản theo ngành, tập trung giúp khách hiểu nhanh dịch vụ."
     ]
   },
   {
     id: "chatbot-ai",
-    title: "Chatbot AI Thông Minh",
-    shortDesc: "Tự động phản hồi khách hàng 24/7 theo dữ liệu và kịch bản riêng của doanh nghiệp.",
-    description: "Giải phóng thời gian vận hành bằng trợ lý AI thông minh. Bot tự động tư vấn sản phẩm, báo giá và ghi nhận thông tin khách hàng bất kể ngày đêm trên đa nền tảng.",
+    title: "Chatbot AI theo dữ liệu doanh nghiệp",
+    shortDesc:
+      "Chatbot AI tư vấn theo thông tin doanh nghiệp cung cấp, giúp phản hồi câu hỏi lặp lại và ghi nhận nhu cầu ban đầu.",
+    description:
+      "Chatbot AI là điểm khác biệt của gói mũi nhọn tháng 6. Bot được cấu hình theo dịch vụ, bảng giá, FAQ và quy trình tư vấn của từng doanh nghiệp, không tự trả lời ngoài phạm vi dữ liệu bàn giao.",
     icon: "MessageSquareCode",
     details: [
-      "Trực chiến phản hồi & tư vấn khách hàng tự động 24/7.",
-      "Báo giá và trả lời linh hoạt theo kịch bản dữ liệu riêng biệt.",
-      "Tự động thu thập Họ tên, Số điện thoại và Zalo khách hàng."
+      "Tư vấn theo dữ liệu doanh nghiệp cung cấp, có giới hạn phạm vi rõ ràng.",
+      "Hỗ trợ trả lời câu hỏi thường gặp, giới thiệu dịch vụ và hướng khách để lại SĐT/Zalo.",
+      "Có demo chatbot AI theo ngành trước khi triển khai nếu dự án phù hợp."
     ]
   },
   {
     id: "automation-sales",
-    title: "Automation Bán Hàng",
-    shortDesc: "Tự động lưu lead, báo cáo nguồn khách và đồng bộ dữ liệu kinh doanh.",
-    description: "Kết nối trơn tru website và chatbot với hệ thống quản lý. Quy trình tự động hóa giúp chủ doanh nghiệp kiểm soát mọi cơ hội bán hàng và tối ưu năng suất nhân sự.",
+    title: "Form + Google Sheet + Telegram/email alert",
+    shortDesc:
+      "Hệ thống hỗ trợ nhận khách: form thu thông tin, lưu lead về Google Sheet và gửi thông báo để đội ngũ xử lý.",
+    description:
+      "Phần automation tập trung vào việc giảm rơi rụng thông tin khách. Khi có lead mới, dữ liệu được gom về một nơi và gửi cảnh báo để doanh nghiệp chủ động gọi lại hoặc nhắn Zalo.",
     icon: "Cpu",
     details: [
-      "Tự động đẩy và lưu trữ lead tức thì về Google Sheets.",
-      "Gửi thông báo báo lead mới ngay lập tức qua Telegram.",
-      "Đồng bộ hóa lịch hẹn, cam kết không bỏ sót khách hàng."
+      "Form thu lead ưu tiên Tên, SĐT/Zalo và ngành kinh doanh.",
+      "Lưu lead về Google Sheet theo cấu trúc hiện có.",
+      "Gửi Telegram/email alert để đội ngũ biết có khách mới và xử lý kịp thời."
     ]
   },
   {
     id: "ai-content",
-    title: "Nội Dung Bán Hàng Bằng AI",
-    shortDesc: "Sản xuất bài viết, kịch bản video ngắn và nội dung truyền thông tự động bằng AI.",
-    description: "Hỗ trợ xây dựng chiến lược nội dung đồng bộ trên các nền tảng mạng xã hội, thu hút khách hàng tiềm năng mà không mất nhiều thời gian và chi phí biên soạn.",
+    title: "Nội dung bán hàng theo ngành",
+    shortDesc:
+      "Hỗ trợ viết nội dung website, CTA, FAQ và kịch bản chatbot phù hợp với ngành nghề của doanh nghiệp.",
+    description:
+      "Nội dung không phải gói riêng để làm loãng offer. Đây là phần hỗ trợ trong quá trình triển khai Website AI, giúp website và chatbot nói đúng dịch vụ, đúng bảng giá và đúng cách doanh nghiệp tư vấn khách.",
     icon: "PenTool",
     details: [
-      "Biên soạn bài viết giới thiệu sản phẩm chuẩn SEO local.",
-      "Xây dựng bộ câu hỏi FAQ thông minh để tối ưu Chatbot AI.",
-      "Lên kịch bản video ngắn (TikTok, Reels) & bài viết truyền thông."
+      "Soạn nội dung giới thiệu dịch vụ, lợi ích và CTA theo ngành.",
+      "Xây dựng FAQ để chatbot AI có dữ liệu trả lời an toàn hơn.",
+      "Tối ưu lời mời liên hệ, Zalo/gọi/form để khách dễ để lại thông tin."
     ]
   }
 ];
-

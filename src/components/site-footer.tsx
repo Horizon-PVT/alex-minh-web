@@ -19,7 +19,7 @@ export default function SiteFooter() {
     { label: "Demo Chatbot", href: "/demo-chatbot-ai" },
     { label: "Dự án mẫu", href: "/du-an-mau" },
     { label: "Bài viết chia sẻ", href: "/blog" },
-    { label: "Liên hệ tư vấn", href: "/lien-he" },
+    { label: "Nhận demo chatbot AI", href: "/lien-he?source=footer-demo" },
   ];
 
   return (
@@ -38,7 +38,7 @@ export default function SiteFooter() {
               <BrandLogo variant="footer" />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-              Thiết kế website, chatbot AI và hệ thống tự động hóa giúp doanh nghiệp Thanh Hóa tăng lead và chốt khách tốt hơn.
+              Thiết kế website, chatbot AI và hệ thống tự động hóa giúp doanh nghiệp Thanh Hóa ghi nhận lead rõ hơn và xử lý khách gọn hơn.
             </p>
 
             {/* Contact Info */}
@@ -178,10 +178,10 @@ export default function SiteFooter() {
               {/* CTA Button */}
               <div className="pt-2 relative z-10">
                 <Link
-                  href="/lien-he"
+                  href="/lien-he?source=footer-demo"
                   className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:brightness-110 text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center space-x-1.5 shadow-lg shadow-cyan-500/10 active:scale-[0.98]"
                 >
-                  <span>Tư vấn ngay</span>
+                  <span>Nhận demo chatbot AI</span>
                 </Link>
               </div>
             </div>
